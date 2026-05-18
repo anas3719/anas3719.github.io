@@ -766,7 +766,19 @@ footer {
     padding-inline: 16px;
   }
 
-  .gallery,
+  .gallery {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
+  }
+
+  .shot {
+    border-radius: 6px;
+  }
+
+  .shot img {
+    padding: 6px;
+  }
+
   .details-grid {
     grid-template-columns: 1fr;
   }
