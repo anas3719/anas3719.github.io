@@ -311,21 +311,51 @@ h2 {
 .work-tabs {
   display: flex;
   flex-wrap: wrap;
-  gap: 10px;
-  margin: -8px 0 26px;
+  justify-content: center;
+  gap: 12px;
+  width: min(680px, 100%);
+  margin: -2px auto 34px;
+  border: 1px solid rgba(96, 239, 255, 0.2);
+  border-radius: 8px;
+  background:
+    linear-gradient(135deg, rgba(255, 61, 242, 0.08), rgba(25, 246, 255, 0.08)),
+    rgba(255, 255, 255, 0.035);
+  box-shadow: 0 18px 52px rgba(0, 0, 0, 0.28), var(--magenta-glow);
+  padding: 10px;
 }
 
 .work-tab {
-  min-height: 44px;
+  position: relative;
+  flex: 1 1 220px;
+  min-height: 68px;
   border: 1px solid rgba(96, 239, 255, 0.26);
   border-radius: 6px;
-  background: rgba(255, 255, 255, 0.035);
+  background:
+    linear-gradient(145deg, rgba(255, 255, 255, 0.06), rgba(25, 246, 255, 0.04)),
+    rgba(5, 7, 13, 0.72);
   color: var(--muted);
   cursor: pointer;
   font: inherit;
+  font-size: clamp(1.05rem, 1.8vw, 1.32rem);
   font-weight: 800;
-  padding: 8px 18px;
-  transition: border-color 180ms ease, color 180ms ease, box-shadow 180ms ease;
+  overflow: hidden;
+  padding: 14px 22px;
+  text-align: center;
+  transition:
+    border-color 180ms ease,
+    color 180ms ease,
+    box-shadow 180ms ease,
+    transform 180ms ease;
+}
+
+.work-tab::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: linear-gradient(90deg, transparent, rgba(25, 246, 255, 0.16), transparent);
+  opacity: 0;
+  transition: opacity 180ms ease;
 }
 
 .work-tab:hover,
@@ -335,8 +365,25 @@ h2 {
   box-shadow: var(--cyan-glow);
 }
 
+.work-tab:hover {
+  transform: translateY(-1px);
+}
+
+.work-tab:hover::before,
+.work-tab.is-active::before {
+  opacity: 1;
+}
+
 .work-tab.is-active {
-  background: linear-gradient(135deg, rgba(25, 246, 255, 0.16), rgba(255, 61, 242, 0.18));
+  background:
+    linear-gradient(135deg, rgba(25, 246, 255, 0.22), rgba(255, 61, 242, 0.28)),
+    rgba(5, 7, 13, 0.9);
+  text-shadow: 0 0 18px rgba(25, 246, 255, 0.42);
+}
+
+.work-tab:focus-visible {
+  outline: 2px solid var(--olive);
+  outline-offset: 3px;
 }
 
 .work-grid {
@@ -682,6 +729,14 @@ footer {
   .work-tabs {
     display: grid;
     grid-template-columns: 1fr 1fr;
+    gap: 8px;
+    padding: 8px;
+  }
+
+  .work-tab {
+    min-height: 58px;
+    min-width: 0;
+    padding: 12px 10px;
   }
 
   footer {
