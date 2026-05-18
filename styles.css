@@ -238,31 +238,10 @@ h2 {
   padding: clamp(56px, 8vw, 110px) clamp(18px, 5vw, 64px);
 }
 
-.intro-band,
 .details-band {
   background:
     linear-gradient(135deg, rgba(11, 16, 32, 0.94), rgba(5, 7, 13, 0.88)),
     radial-gradient(circle at 16% 30%, rgba(25, 246, 255, 0.12), transparent 28vw);
-}
-
-.intro-band {
-  display: grid;
-  grid-template-columns: minmax(260px, 0.85fr) minmax(320px, 1.15fr);
-  gap: clamp(28px, 6vw, 80px);
-  align-items: start;
-}
-
-.section-title h2 {
-  font-size: clamp(2rem, 4vw, 4rem);
-}
-
-.section-body {
-  color: var(--muted);
-  font-size: clamp(1.05rem, 1.5vw, 1.28rem);
-}
-
-.section-body p {
-  margin: 0 0 18px;
 }
 
 .section-heading {
@@ -643,7 +622,6 @@ footer {
   }
 
   .hero,
-  .intro-band,
   .contact {
     grid-template-columns: 1fr;
   }
