@@ -28,6 +28,10 @@ const videoModal = document.querySelector("#videoModal");
 const videoFrame = document.querySelector("#videoFrame");
 const videoModalTitle = document.querySelector("#videoModalTitle");
 const videoExternalLink = document.querySelector("#videoExternalLink");
+const imageModal = document.querySelector("#imageModal");
+const imageModalPhoto = document.querySelector("#imageModalPhoto");
+const imageModalTitle = document.querySelector("#imageModalTitle");
+const imageDownloadLink = document.querySelector("#imageDownloadLink");
 const initialWorksCount = 18;
 const workCategoryLabels = {
   regular: "إعلانات عادية",
@@ -115,6 +119,31 @@ function closeVideo() {
   document.body.classList.remove("modal-open");
 }
 
+function openImagePreview(control) {
+  if (!imageModal || !imageModalPhoto || !imageModalTitle || !imageDownloadLink) return;
+
+  const image = control.querySelector("img");
+  const imageSrc = control.dataset.imageSrc;
+  const downloadSrc = control.dataset.downloadSrc || imageSrc;
+  if (!imageSrc || !downloadSrc) return;
+
+  imageModalPhoto.src = imageSrc;
+  imageModalPhoto.alt = image?.alt || "صورة أنس عمر";
+  imageModalTitle.textContent = image?.alt || "صورة أنس عمر";
+  imageDownloadLink.href = downloadSrc;
+  imageDownloadLink.setAttribute("download", control.dataset.downloadName || "anas-omar-photo.jpg");
+  imageModal.setAttribute("aria-hidden", "false");
+  document.body.classList.add("modal-open");
+}
+
+function closeImagePreview() {
+  if (!imageModal || !imageModalPhoto) return;
+
+  imageModal.setAttribute("aria-hidden", "true");
+  imageModalPhoto.src = "";
+  document.body.classList.remove("modal-open");
+}
+
 function setWorkCategory(category) {
   if (!works[category] || category === activeWorkCategory) return;
 
@@ -142,12 +171,23 @@ workTabs.forEach((tab) => {
   tab.addEventListener("click", () => setWorkCategory(tab.dataset.workCategory));
 });
 
+document.querySelectorAll("[data-image-src]").forEach((control) => {
+  control.addEventListener("click", () => openImagePreview(control));
+});
+
 document.querySelectorAll("[data-close-video]").forEach((control) => {
   control.addEventListener("click", closeVideo);
 });
 
+document.querySelectorAll("[data-close-image]").forEach((control) => {
+  control.addEventListener("click", closeImagePreview);
+});
+
 document.addEventListener("keydown", (event) => {
-  if (event.key === "Escape") closeVideo();
+  if (event.key === "Escape") {
+    closeVideo();
+    closeImagePreview();
+  }
 });
 
 renderWorks();

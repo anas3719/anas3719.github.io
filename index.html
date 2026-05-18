@@ -70,16 +70,52 @@
         </div>
         <div class="gallery" aria-label="معرض صور المودل">
           <figure class="shot">
-            <img src="assets/photo-1.jpg" alt="لقطة أزياء للمودل" data-fallback="look 01" />
+            <button
+              class="shot-button"
+              type="button"
+              data-image-src="assets/photo-1.jpg"
+              data-download-src="assets/photo-1.jpg"
+              data-download-name="anas-omar-photo-1.jpg"
+              aria-label="تكبير الصورة الأولى"
+            >
+              <img src="assets/photo-1.jpg" alt="لقطة أزياء للمودل" data-fallback="look 01" />
+            </button>
           </figure>
           <figure class="shot">
-            <img src="assets/photo-2.jpg?v=2" alt="لقطة بورتريه للمودل" data-fallback="look 02" />
+            <button
+              class="shot-button"
+              type="button"
+              data-image-src="assets/photo-2.jpg?v=2"
+              data-download-src="assets/photo-2.jpg"
+              data-download-name="anas-omar-photo-2.jpg"
+              aria-label="تكبير الصورة الثانية"
+            >
+              <img src="assets/photo-2.jpg?v=2" alt="لقطة بورتريه للمودل" data-fallback="look 02" />
+            </button>
           </figure>
           <figure class="shot">
-            <img src="assets/photo-3.jpg" alt="لقطة لايف ستايل للمودل" data-fallback="look 03" />
+            <button
+              class="shot-button"
+              type="button"
+              data-image-src="assets/photo-3.jpg"
+              data-download-src="assets/photo-3.jpg"
+              data-download-name="anas-omar-photo-3.jpg"
+              aria-label="تكبير الصورة الثالثة"
+            >
+              <img src="assets/photo-3.jpg" alt="لقطة لايف ستايل للمودل" data-fallback="look 03" />
+            </button>
           </figure>
           <figure class="shot">
-            <img src="assets/photo-4.jpg" alt="لقطة إعلانية للمودل" data-fallback="campaign" />
+            <button
+              class="shot-button"
+              type="button"
+              data-image-src="assets/photo-4.jpg"
+              data-download-src="assets/photo-4.jpg"
+              data-download-name="anas-omar-photo-4.jpg"
+              aria-label="تكبير الصورة الرابعة"
+            >
+              <img src="assets/photo-4.jpg" alt="لقطة إعلانية للمودل" data-fallback="campaign" />
+            </button>
           </figure>
         </div>
       </section>
@@ -180,6 +216,23 @@
         </div>
         <iframe id="videoFrame" title="مشاهدة الإعلان" allow="autoplay; fullscreen; encrypted-media" allowfullscreen></iframe>
         <a id="videoExternalLink" class="drive-link" href="#" target="_blank" rel="noreferrer">فتح في Google Drive</a>
+      </div>
+    </div>
+
+    <div id="imageModal" class="image-modal" role="dialog" aria-modal="true" aria-labelledby="imageModalTitle" aria-hidden="true">
+      <div class="image-modal__backdrop" data-close-image></div>
+      <div class="image-modal__panel">
+        <div class="image-modal__header">
+          <div>
+            <p class="eyebrow">Portfolio Photo</p>
+            <h2 id="imageModalTitle">صورة أنس عمر</h2>
+          </div>
+          <button class="modal-close" type="button" aria-label="إغلاق الصورة" data-close-image>&times;</button>
+        </div>
+        <img id="imageModalPhoto" class="image-modal__photo" src="" alt="" />
+        <div class="image-modal__actions">
+          <a id="imageDownloadLink" class="button primary" href="#" download>تنزيل الصورة</a>
+        </div>
       </div>
     </div>
 
