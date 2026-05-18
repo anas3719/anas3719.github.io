@@ -707,6 +707,42 @@ footer {
   font-size: 0.9rem;
 }
 
+.back-to-top {
+  position: fixed;
+  inset-inline-start: clamp(14px, 3vw, 28px);
+  bottom: calc(18px + env(safe-area-inset-bottom, 0px));
+  z-index: 30;
+  display: grid;
+  width: 52px;
+  height: 52px;
+  place-items: center;
+  border: 1px solid rgba(25, 246, 255, 0.58);
+  border-radius: 50%;
+  background:
+    linear-gradient(135deg, rgba(25, 246, 255, 0.18), rgba(255, 61, 242, 0.26)),
+    rgba(5, 7, 13, 0.86);
+  color: var(--white);
+  box-shadow: var(--cyan-glow), 0 14px 32px rgba(0, 0, 0, 0.36);
+  font-size: 1.45rem;
+  font-weight: 800;
+  line-height: 1;
+  backdrop-filter: blur(12px);
+  transition: border-color 180ms ease, box-shadow 180ms ease, transform 180ms ease;
+}
+
+.back-to-top:hover,
+.back-to-top:focus-visible {
+  border-color: rgba(25, 246, 255, 0.9);
+  box-shadow: var(--cyan-glow), var(--magenta-glow);
+  outline: 0;
+  transform: translateY(-2px);
+}
+
+body.modal-open .back-to-top {
+  opacity: 0;
+  pointer-events: none;
+}
+
 @media (max-width: 900px) {
   .site-header {
     position: static;
@@ -802,6 +838,12 @@ footer {
     min-height: 58px;
     min-width: 0;
     padding: 12px 10px;
+  }
+
+  .back-to-top {
+    width: 48px;
+    height: 48px;
+    font-size: 1.3rem;
   }
 
   footer {
