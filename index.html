@@ -20,6 +20,7 @@
     <header class="site-header" aria-label="التنقل الرئيسي">
       <a class="brand" href="#top">أنس عمر</a>
       <nav>
+        <a href="#intro-video">الفيديو</a>
         <a href="#portfolio">الصور</a>
         <a href="#works">الأعمال</a>
         <a href="#details">البيانات</a>
@@ -63,6 +64,27 @@
         </div>
       </section>
 
+      <section id="intro-video" class="section intro-video-section">
+        <div class="section-heading">
+          <p class="eyebrow">Intro Video</p>
+          <h2>الفيديو التعريفي</h2>
+        </div>
+        <div class="intro-video-layout">
+          <div class="intro-video-copy">
+            <p>
+              فيديو تعريفي مختصر مناسب لإرساله مع طلبات التعاون والحملات، يوضح
+              الحضور أمام الكاميرا وطريقة الأداء.
+            </p>
+            <a class="button primary" href="assets/intro-video.mp4" download="anas-omar-intro-video.mp4">
+              تنزيل الفيديو التعريفي
+            </a>
+          </div>
+          <div class="intro-video-frame">
+            <video src="assets/intro-video.mp4" controls playsinline preload="metadata"></video>
+          </div>
+        </div>
+      </section>
+
       <section id="portfolio" class="section">
         <div class="section-heading">
           <p class="eyebrow">Portfolio</p>
@@ -78,7 +100,7 @@
               data-download-name="anas-omar-photo-1.jpg"
               aria-label="تكبير الصورة الأولى"
             >
-              <img src="assets/photo-1.jpg" alt="لقطة أزياء للمودل" data-fallback="look 01" />
+              <img src="assets/photo-1.jpg" alt="صورة أنس عمر" data-fallback="look 01" />
             </button>
           </figure>
           <figure class="shot">
@@ -90,7 +112,7 @@
               data-download-name="anas-omar-photo-2.jpg"
               aria-label="تكبير الصورة الثانية"
             >
-              <img src="assets/photo-2.jpg?v=2" alt="لقطة بورتريه للمودل" data-fallback="look 02" />
+              <img src="assets/photo-2.jpg?v=2" alt="صورة أنس عمر" data-fallback="look 02" />
             </button>
           </figure>
           <figure class="shot">
@@ -102,7 +124,7 @@
               data-download-name="anas-omar-photo-3.jpg"
               aria-label="تكبير الصورة الثالثة"
             >
-              <img src="assets/photo-3.jpg" alt="لقطة لايف ستايل للمودل" data-fallback="look 03" />
+              <img src="assets/photo-3.jpg" alt="صورة أنس عمر" data-fallback="look 03" />
             </button>
           </figure>
           <figure class="shot">
@@ -114,7 +136,55 @@
               data-download-name="anas-omar-photo-4.jpg"
               aria-label="تكبير الصورة الرابعة"
             >
-              <img src="assets/photo-4.jpg" alt="لقطة إعلانية للمودل" data-fallback="campaign" />
+              <img src="assets/photo-4.jpg" alt="صورة أنس عمر" data-fallback="campaign" />
+            </button>
+          </figure>
+          <figure class="shot">
+            <button
+              class="shot-button"
+              type="button"
+              data-image-src="assets/photo-5.jpg"
+              data-download-src="assets/photo-5.jpg"
+              data-download-name="anas-omar-photo-5.jpg"
+              aria-label="تكبير الصورة الخامسة"
+            >
+              <img src="assets/photo-5.jpg" alt="صورة أنس عمر" data-fallback="look 05" />
+            </button>
+          </figure>
+          <figure class="shot">
+            <button
+              class="shot-button"
+              type="button"
+              data-image-src="assets/photo-6.jpg"
+              data-download-src="assets/photo-6.jpg"
+              data-download-name="anas-omar-photo-6.jpg"
+              aria-label="تكبير الصورة السادسة"
+            >
+              <img src="assets/photo-6.jpg" alt="صورة أنس عمر" data-fallback="look 06" />
+            </button>
+          </figure>
+          <figure class="shot">
+            <button
+              class="shot-button"
+              type="button"
+              data-image-src="assets/photo-7.jpg"
+              data-download-src="assets/photo-7.jpg"
+              data-download-name="anas-omar-photo-7.jpg"
+              aria-label="تكبير الصورة السابعة"
+            >
+              <img src="assets/photo-7.jpg" alt="صورة أنس عمر" data-fallback="look 07" />
+            </button>
+          </figure>
+          <figure class="shot">
+            <button
+              class="shot-button"
+              type="button"
+              data-image-src="assets/photo-8.jpg"
+              data-download-src="assets/photo-8.jpg"
+              data-download-name="anas-omar-photo-8.jpg"
+              aria-label="تكبير الصورة الثامنة"
+            >
+              <img src="assets/photo-8.jpg" alt="صورة أنس عمر" data-fallback="look 08" />
             </button>
           </figure>
         </div>
@@ -221,16 +291,10 @@
       </div>
     </div>
 
-    <div id="imageModal" class="image-modal" role="dialog" aria-modal="true" aria-labelledby="imageModalTitle" aria-hidden="true">
+    <div id="imageModal" class="image-modal" role="dialog" aria-modal="true" aria-label="معاينة الصورة" aria-hidden="true">
       <div class="image-modal__backdrop" data-close-image></div>
       <div class="image-modal__panel">
-        <div class="image-modal__header">
-          <div>
-            <p class="eyebrow">Portfolio Photo</p>
-            <h2 id="imageModalTitle">صورة أنس عمر</h2>
-          </div>
-          <button class="modal-close" type="button" aria-label="إغلاق الصورة" data-close-image>&times;</button>
-        </div>
+        <button class="modal-close image-modal__close" type="button" aria-label="إغلاق الصورة" data-close-image>&times;</button>
         <img id="imageModalPhoto" class="image-modal__photo" src="" alt="" />
         <div class="image-modal__actions">
           <a id="imageDownloadLink" class="button primary" href="#" download>تنزيل الصورة</a>

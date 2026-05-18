@@ -30,7 +30,6 @@ const videoModalTitle = document.querySelector("#videoModalTitle");
 const videoExternalLink = document.querySelector("#videoExternalLink");
 const imageModal = document.querySelector("#imageModal");
 const imageModalPhoto = document.querySelector("#imageModalPhoto");
-const imageModalTitle = document.querySelector("#imageModalTitle");
 const imageDownloadLink = document.querySelector("#imageDownloadLink");
 const initialWorksCount = 18;
 const workCategoryLabels = {
@@ -120,7 +119,7 @@ function closeVideo() {
 }
 
 function openImagePreview(control) {
-  if (!imageModal || !imageModalPhoto || !imageModalTitle || !imageDownloadLink) return;
+  if (!imageModal || !imageModalPhoto || !imageDownloadLink) return;
 
   const image = control.querySelector("img");
   const imageSrc = control.dataset.imageSrc;
@@ -129,7 +128,6 @@ function openImagePreview(control) {
 
   imageModalPhoto.src = imageSrc;
   imageModalPhoto.alt = image?.alt || "صورة أنس عمر";
-  imageModalTitle.textContent = image?.alt || "صورة أنس عمر";
   imageDownloadLink.href = downloadSrc;
   imageDownloadLink.setAttribute("download", control.dataset.downloadName || "anas-omar-photo.jpg");
   imageModal.setAttribute("aria-hidden", "false");
