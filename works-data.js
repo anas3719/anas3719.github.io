@@ -7,8 +7,9 @@ window.portfolioWorks = {
     },
     {
       "brand": "تويوتا عبداللطيف جميل",
-      "type": "folder",
-      "url": "https://drive.google.com/drive/folders/1QZcmklpY98cvJjjySkG2YgQDkw3bn8Sn"
+      "type": "video",
+      "preview": "https://drive.google.com/file/d/1jTWACm0dVb8mtTda1T6lk2h-s0WX8JJG/preview",
+      "url": "https://drive.google.com/file/d/1jTWACm0dVb8mtTda1T6lk2h-s0WX8JJG/view"
     },
     {
       "brand": "شرفة",
@@ -27,13 +28,15 @@ window.portfolioWorks = {
     },
     {
       "brand": "لولو ماركت",
-      "type": "folder",
-      "url": "https://drive.google.com/drive/folders/1aigFBdw9a-Eyu_fQ_o8yOfoLp4nKOXJi"
+      "type": "video",
+      "preview": "https://drive.google.com/file/d/10u_kM7ERq7SzaL3ya5F-w-FUeE-s-3LC/preview",
+      "url": "https://drive.google.com/file/d/10u_kM7ERq7SzaL3ya5F-w-FUeE-s-3LC/view"
     },
     {
       "brand": "بيجو",
-      "type": "folder",
-      "url": "https://drive.google.com/drive/folders/1zjb0xt1rSbqvMydfiUHuyd1ujL2cNIXd"
+      "type": "video",
+      "preview": "https://drive.google.com/file/d/1jsAWmpObug65iL9-YWpHNqYNc1a9iVXk/preview",
+      "url": "https://drive.google.com/file/d/1jsAWmpObug65iL9-YWpHNqYNc1a9iVXk/view"
     },
     {
       "brand": "اوت باك ستيك هاوس",
@@ -42,13 +45,15 @@ window.portfolioWorks = {
     },
     {
       "brand": "مياه صفا",
-      "type": "folder",
-      "url": "https://drive.google.com/drive/folders/1IsPll32eezo2ElkWs8glkmGQoiflwZl7"
+      "type": "video",
+      "preview": "https://drive.google.com/file/d/1mYb0g0aHjJ-nJ5MyqW90x7IxsSg-Ya2S/preview",
+      "url": "https://drive.google.com/file/d/1mYb0g0aHjJ-nJ5MyqW90x7IxsSg-Ya2S/view"
     },
     {
       "brand": "لونا",
-      "type": "folder",
-      "url": "https://drive.google.com/drive/folders/1vJBowK49qTigoW6Izaw-ZYhe-TSpv3wt"
+      "type": "video",
+      "preview": "https://drive.google.com/file/d/1mvs4o1cIz_Hmf4Xl5qXJn2IiebuXOHKs/preview",
+      "url": "https://drive.google.com/file/d/1mvs4o1cIz_Hmf4Xl5qXJn2IiebuXOHKs/view"
     },
     {
       "brand": "مطعم gather",
@@ -62,8 +67,9 @@ window.portfolioWorks = {
     },
     {
       "brand": "كافي ثلث",
-      "type": "folder",
-      "url": "https://drive.google.com/drive/folders/1EbSs6_9Q4aMRYva0qySRf9r8THSbl-ca"
+      "type": "video",
+      "preview": "https://drive.google.com/file/d/1J1erDjKoIa6vQM4t9uxZlcAiKb_TrwZX/preview",
+      "url": "https://drive.google.com/file/d/1J1erDjKoIa6vQM4t9uxZlcAiKb_TrwZX/view"
     },
     {
       "brand": "كنان",
@@ -102,8 +108,9 @@ window.portfolioWorks = {
     },
     {
       "brand": "شاي قطفة جبل",
-      "type": "folder",
-      "url": "https://drive.google.com/drive/folders/1D9BfcN_vnqqqwDfeXtyAxUdh2TEM9wbt"
+      "type": "video",
+      "preview": "https://drive.google.com/file/d/1iGIKLCY-gb0F5ZyIe-MhzFQ5IcLuUPfI/preview",
+      "url": "https://drive.google.com/file/d/1iGIKLCY-gb0F5ZyIe-MhzFQ5IcLuUPfI/view"
     },
     {
       "brand": "الذيب للاقمشة الرجالية",
@@ -122,18 +129,21 @@ window.portfolioWorks = {
     },
     {
       "brand": "جمعية زاد",
-      "type": "folder",
-      "url": "https://drive.google.com/drive/folders/1KUce41dG2wyo8y0rFzpgHIEFm5Lk59Ht"
+      "type": "video",
+      "preview": "https://drive.google.com/file/d/1c1BLUGfUB3IFGtUjGz8_q1MZ01O3g8H8/preview",
+      "url": "https://drive.google.com/file/d/1c1BLUGfUB3IFGtUjGz8_q1MZ01O3g8H8/view"
     },
     {
       "brand": "جمعية هدية",
-      "type": "folder",
-      "url": "https://drive.google.com/drive/folders/1wJJZ9sYhI_tpQlEWEPDpKxorwrREVWC1"
+      "type": "video",
+      "preview": "https://drive.google.com/file/d/1Z8Ea7SY0eyuzeQ9TN9ZOts6j1jixUV9S/preview",
+      "url": "https://drive.google.com/file/d/1Z8Ea7SY0eyuzeQ9TN9ZOts6j1jixUV9S/view"
     },
     {
       "brand": "جمعية يد بيد",
-      "type": "folder",
-      "url": "https://drive.google.com/drive/folders/1dWf5NTIjN2-d29xo44zBFU792yXqozKh"
+      "type": "video",
+      "preview": "https://drive.google.com/file/d/1o0u0yCaWJZtet1-JwBHvPoKH87NKs2ic/preview",
+      "url": "https://drive.google.com/file/d/1o0u0yCaWJZtet1-JwBHvPoKH87NKs2ic/view"
     },
     {
       "brand": "snowy forest",
@@ -142,23 +152,27 @@ window.portfolioWorks = {
     },
     {
       "brand": "اشكال",
-      "type": "folder",
-      "url": "https://drive.google.com/drive/folders/1jAJVlBdJ2B2sG11xVuYaqMkQekKk9Ks-"
+      "type": "video",
+      "preview": "https://drive.google.com/file/d/1kDEMAiRa2gPdeh8VyNmu3rbrKUf3ltza/preview",
+      "url": "https://drive.google.com/file/d/1kDEMAiRa2gPdeh8VyNmu3rbrKUf3ltza/view"
     },
     {
       "brand": "البرديسي",
-      "type": "folder",
-      "url": "https://drive.google.com/drive/folders/1SF_MgUt0YNTxEuFYfPqAmrxfRSm20TU1"
+      "type": "video",
+      "preview": "https://drive.google.com/file/d/1TyvPxNE1n12zBHD3pNtsQ7-1fnvfaqG0/preview",
+      "url": "https://drive.google.com/file/d/1TyvPxNE1n12zBHD3pNtsQ7-1fnvfaqG0/view"
     },
     {
       "brand": "السريع",
-      "type": "folder",
-      "url": "https://drive.google.com/drive/folders/1l9RUAz4r-CmCK-7POi6s4Yc7u2GZ7nSq"
+      "type": "video",
+      "preview": "https://drive.google.com/file/d/1WxvECWARiLPMYkU6IrPBapZoCSK0pjQo/preview",
+      "url": "https://drive.google.com/file/d/1WxvECWARiLPMYkU6IrPBapZoCSK0pjQo/view"
     },
     {
       "brand": "الشربتلي",
-      "type": "folder",
-      "url": "https://drive.google.com/drive/folders/1FWS88d9riX0vPCzwLIsmJgVL4RJR6Rbb"
+      "type": "video",
+      "preview": "https://drive.google.com/file/d/1uHNgM3vMa_Ra3jRV58iKyp18CPc6X-39/preview",
+      "url": "https://drive.google.com/file/d/1uHNgM3vMa_Ra3jRV58iKyp18CPc6X-39/view"
     },
     {
       "brand": "العامودي للرحلات",
@@ -193,8 +207,9 @@ window.portfolioWorks = {
     },
     {
       "brand": "حملة وطن بلا مخالف",
-      "type": "folder",
-      "url": "https://drive.google.com/drive/folders/1Ph18HqU3Rm-nU4SWPEtDocQ95b4L7kKY"
+      "type": "video",
+      "preview": "https://drive.google.com/file/d/1Hm06kTEHzQgti_LES5AUSp6um7xSJ18l/preview",
+      "url": "https://drive.google.com/file/d/1Hm06kTEHzQgti_LES5AUSp6um7xSJ18l/view"
     },
     {
       "brand": "سليب لاين",
@@ -208,13 +223,15 @@ window.portfolioWorks = {
     },
     {
       "brand": "شيخة للعطور",
-      "type": "folder",
-      "url": "https://drive.google.com/drive/folders/1Dvdr2Mp5ZbVtPcJQ5m1BSbrXfvFicUQ9"
+      "type": "video",
+      "preview": "https://drive.google.com/file/d/1Kiyz1CxKGYw54oqqsoiwtiZtIj2srxC3/preview",
+      "url": "https://drive.google.com/file/d/1Kiyz1CxKGYw54oqqsoiwtiZtIj2srxC3/view"
     },
     {
       "brand": "قوفي",
-      "type": "folder",
-      "url": "https://drive.google.com/drive/folders/1m6-3wfy_2CwAhL5JPVUDmpeDWzvTGb-r"
+      "type": "video",
+      "preview": "https://drive.google.com/file/d/1AQWgzhJ6O-4iTIXXpigIjRO9gi1iu2hn/preview",
+      "url": "https://drive.google.com/file/d/1AQWgzhJ6O-4iTIXXpigIjRO9gi1iu2hn/view"
     },
     {
       "brand": "مرامي",
@@ -230,18 +247,21 @@ window.portfolioWorks = {
   "ugc": [
     {
       "brand": "okx للتداول",
-      "type": "folder",
-      "url": "https://drive.google.com/drive/folders/1kBDINMO1NoXFerEEtasPS7G2-X3iR4b0"
+      "type": "video",
+      "preview": "https://drive.google.com/file/d/1tInO4Js1r7meJ-PAeVHA02WzkhViV3U_/preview",
+      "url": "https://drive.google.com/file/d/1tInO4Js1r7meJ-PAeVHA02WzkhViV3U_/view"
     },
     {
       "brand": "تمارا",
-      "type": "folder",
-      "url": "https://drive.google.com/drive/folders/1R1p8bWuYVNtwE72EzsoaBJM6KxCiE4Mw"
+      "type": "video",
+      "preview": "https://drive.google.com/file/d/1eZB7WwRHiGPA51JWaVvmMBzYYAve1u2h/preview",
+      "url": "https://drive.google.com/file/d/1eZB7WwRHiGPA51JWaVvmMBzYYAve1u2h/view"
     },
     {
       "brand": "ايفست للتداول",
-      "type": "folder",
-      "url": "https://drive.google.com/drive/folders/1VA0vMjs4cZcJYn2rb9f2HQmS7fyuLefS"
+      "type": "video",
+      "preview": "https://drive.google.com/file/d/1wNQKpSymBUeIIIY72lqe134kFkqMGTDn/preview",
+      "url": "https://drive.google.com/file/d/1wNQKpSymBUeIIIY72lqe134kFkqMGTDn/view"
     },
     {
       "brand": "برنامج انفينيتي",
@@ -250,18 +270,21 @@ window.portfolioWorks = {
     },
     {
       "brand": "معرض الشارقة الدولي للكتاب",
-      "type": "folder",
-      "url": "https://drive.google.com/drive/folders/1PUr0B427xfok1ImnQ4dM37MevJTR_sKh"
+      "type": "video",
+      "preview": "https://drive.google.com/file/d/15ASE1pC-jxDmE6I3xKHAA6tj55MYhGMl/preview",
+      "url": "https://drive.google.com/file/d/15ASE1pC-jxDmE6I3xKHAA6tj55MYhGMl/view"
     },
     {
       "brand": "دليل ستور",
-      "type": "folder",
-      "url": "https://drive.google.com/drive/folders/1t4vI33YWAALHZKycdv34Pm6Mjl1z6Aok"
+      "type": "video",
+      "preview": "https://drive.google.com/file/d/1NtiRWjHPtUcyAJCov1vCcNTNgzNrKLTr/preview",
+      "url": "https://drive.google.com/file/d/1NtiRWjHPtUcyAJCov1vCcNTNgzNrKLTr/view"
     },
     {
       "brand": "اكسبرت ايفنت",
-      "type": "folder",
-      "url": "https://drive.google.com/drive/folders/1CyolhPE-9hUGTlJjkxhKyQw9KDzXIpaW"
+      "type": "video",
+      "preview": "https://drive.google.com/file/d/1dGy1XMNNNlojBABM1umuEgl_czGFMhcX/preview",
+      "url": "https://drive.google.com/file/d/1dGy1XMNNNlojBABM1umuEgl_czGFMhcX/view"
     },
     {
       "brand": "اضاءات",
@@ -270,18 +293,21 @@ window.portfolioWorks = {
     },
     {
       "brand": "البروج العقاري",
-      "type": "folder",
-      "url": "https://drive.google.com/drive/folders/184iwq-XXGiDMWqhqDcxQlcjTWuBXmU47"
+      "type": "video",
+      "preview": "https://drive.google.com/file/d/1xEnkr7PH0Kds5XkhWBrsR2Ac-MWHBVVQ/preview",
+      "url": "https://drive.google.com/file/d/1xEnkr7PH0Kds5XkhWBrsR2Ac-MWHBVVQ/view"
     },
     {
       "brand": "مزارع نافع",
-      "type": "folder",
-      "url": "https://drive.google.com/drive/folders/1C1z1EymPMZWUahBh_HyGR6Av0VWKElwo"
+      "type": "video",
+      "preview": "https://drive.google.com/file/d/1shvfHzFBZQ-FzyS1R6S40Nn5_iA0XUK_/preview",
+      "url": "https://drive.google.com/file/d/1shvfHzFBZQ-FzyS1R6S40Nn5_iA0XUK_/view"
     },
     {
       "brand": "عجوة نافع",
-      "type": "folder",
-      "url": "https://drive.google.com/drive/folders/1lQG5QN90EVuPdDihy4MBbG8tVVnKL_wB"
+      "type": "video",
+      "preview": "https://drive.google.com/file/d/1ul6NgWAzrZVQKWMxys13VEX-5DDtnyQX/preview",
+      "url": "https://drive.google.com/file/d/1ul6NgWAzrZVQKWMxys13VEX-5DDtnyQX/view"
     },
     {
       "brand": "تلقاني",
@@ -290,43 +316,51 @@ window.portfolioWorks = {
     },
     {
       "brand": "ترافل يلا",
-      "type": "folder",
-      "url": "https://drive.google.com/drive/folders/10wvCP-e1nWyu4ql0JwxMFBsIwe_-6P0V"
+      "type": "video",
+      "preview": "https://drive.google.com/file/d/1ZgXlisWgsExK_QOOjpzozraqKPC_4aH5/preview",
+      "url": "https://drive.google.com/file/d/1ZgXlisWgsExK_QOOjpzozraqKPC_4aH5/view"
     },
     {
       "brand": "سيارات دوت كوم",
-      "type": "folder",
-      "url": "https://drive.google.com/drive/folders/1JHZy_cJ1XVox1Nd9NDKYAX2GwY13PAd8"
+      "type": "video",
+      "preview": "https://drive.google.com/file/d/1zl2G115lF0BweIFPy224w9ZHJfYxxNMZ/preview",
+      "url": "https://drive.google.com/file/d/1zl2G115lF0BweIFPy224w9ZHJfYxxNMZ/view"
     },
     {
       "brand": "ساي فاي",
-      "type": "folder",
-      "url": "https://drive.google.com/drive/folders/1o-e9rOlext0Df37gbXdenZQOtnw4Et08"
+      "type": "video",
+      "preview": "https://drive.google.com/file/d/1sSwSpQdv3zI8LnagL3sawssHHnGiZUSi/preview",
+      "url": "https://drive.google.com/file/d/1sSwSpQdv3zI8LnagL3sawssHHnGiZUSi/view"
     },
     {
       "brand": "بريد اكس",
-      "type": "folder",
-      "url": "https://drive.google.com/drive/folders/1JL2hHHY_0onmGDh5r5HQHgfyOla3HSPT"
+      "type": "video",
+      "preview": "https://drive.google.com/file/d/1fF04xUwgTNE3iPviXNejNKYI0XsL8mPx/preview",
+      "url": "https://drive.google.com/file/d/1fF04xUwgTNE3iPviXNejNKYI0XsL8mPx/view"
     },
     {
       "brand": "قمة بريدج",
-      "type": "folder",
-      "url": "https://drive.google.com/drive/folders/1lTi9dP3W68IMC5X4qu38275OTedOO0YS"
+      "type": "video",
+      "preview": "https://drive.google.com/file/d/11mLxwCvxx8rjUe8bevj0Qsbh3T_JZMnp/preview",
+      "url": "https://drive.google.com/file/d/11mLxwCvxx8rjUe8bevj0Qsbh3T_JZMnp/view"
     },
     {
       "brand": "تايقو",
-      "type": "folder",
-      "url": "https://drive.google.com/drive/folders/1U0UWqHKp5VXHyvjKfBsN0I92su0lJPgA"
+      "type": "video",
+      "preview": "https://drive.google.com/file/d/12iCmjoHM8kWY-mE358dIfuVDHsLKX-ES/preview",
+      "url": "https://drive.google.com/file/d/12iCmjoHM8kWY-mE358dIfuVDHsLKX-ES/view"
     },
     {
       "brand": "انقيم",
-      "type": "folder",
-      "url": "https://drive.google.com/drive/folders/1ZtD4ZOC1AyJ13c6rIp2UI_QWh4_4Bw67"
+      "type": "video",
+      "preview": "https://drive.google.com/file/d/1HIXtV9j-I25yy79o-Lj9MdwcWiF-jT0J/preview",
+      "url": "https://drive.google.com/file/d/1HIXtV9j-I25yy79o-Lj9MdwcWiF-jT0J/view"
     },
     {
       "brand": "effectx",
-      "type": "folder",
-      "url": "https://drive.google.com/drive/folders/1WjrnYQAGE1e8zHBu-4QPctiEIAcNd44t"
+      "type": "video",
+      "preview": "https://drive.google.com/file/d/1QTQn2CTloJXr5ZeK8ZkGXOdguKkBmctT/preview",
+      "url": "https://drive.google.com/file/d/1QTQn2CTloJXr5ZeK8ZkGXOdguKkBmctT/view"
     },
     {
       "brand": "اريب",
@@ -335,8 +369,9 @@ window.portfolioWorks = {
     },
     {
       "brand": "اشحنها",
-      "type": "folder",
-      "url": "https://drive.google.com/drive/folders/1ftVbwsNFhGzaTqAUpb9MuygBrT0QMmdB"
+      "type": "video",
+      "preview": "https://drive.google.com/file/d/14QNWQhT3xWN7t906GlhG-siYl7J0-XoR/preview",
+      "url": "https://drive.google.com/file/d/14QNWQhT3xWN7t906GlhG-siYl7J0-XoR/view"
     },
     {
       "brand": "التوثيق القانوني",
@@ -351,13 +386,15 @@ window.portfolioWorks = {
     },
     {
       "brand": "باتشي هير",
-      "type": "folder",
-      "url": "https://drive.google.com/drive/folders/1E9dwkqm6rD3zpAFpKYJ2QGPC8TQsNxRR"
+      "type": "video",
+      "preview": "https://drive.google.com/file/d/1UfG8WU7EBCkJop8SfUUhq8ASpk0dNAaa/preview",
+      "url": "https://drive.google.com/file/d/1UfG8WU7EBCkJop8SfUUhq8ASpk0dNAaa/view"
     },
     {
       "brand": "سفن فكس",
-      "type": "folder",
-      "url": "https://drive.google.com/drive/folders/1Dj8a7NhA6VlInpf98BrOF3Q3G2aGOsPF"
+      "type": "video",
+      "preview": "https://drive.google.com/file/d/18NRj_lPeZc8Pk4AhvaEZ6hrpw0jSWsGQ/preview",
+      "url": "https://drive.google.com/file/d/18NRj_lPeZc8Pk4AhvaEZ6hrpw0jSWsGQ/view"
     },
     {
       "brand": "سير فرانسيس",
@@ -373,8 +410,9 @@ window.portfolioWorks = {
     },
     {
       "brand": "فليك تك",
-      "type": "folder",
-      "url": "https://drive.google.com/drive/folders/10gp6NER0TkLp6N-OHww6CfqG3qzeba7J"
+      "type": "video",
+      "preview": "https://drive.google.com/file/d/1eJdlUTthf-OsoQoGa4YVHhYxfD-fjopV/preview",
+      "url": "https://drive.google.com/file/d/1eJdlUTthf-OsoQoGa4YVHhYxfD-fjopV/view"
     },
     {
       "brand": "كنكوف",
