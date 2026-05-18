@@ -329,6 +329,37 @@ h2 {
     radial-gradient(circle at 74% 26%, rgba(255, 61, 242, 0.16), transparent 28vw);
 }
 
+.work-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: -8px 0 26px;
+}
+
+.work-tab {
+  min-height: 44px;
+  border: 1px solid rgba(96, 239, 255, 0.26);
+  border-radius: 6px;
+  background: rgba(255, 255, 255, 0.035);
+  color: var(--muted);
+  cursor: pointer;
+  font: inherit;
+  font-weight: 800;
+  padding: 8px 18px;
+  transition: border-color 180ms ease, color 180ms ease, box-shadow 180ms ease;
+}
+
+.work-tab:hover,
+.work-tab.is-active {
+  border-color: rgba(25, 246, 255, 0.7);
+  color: var(--white);
+  box-shadow: var(--cyan-glow);
+}
+
+.work-tab.is-active {
+  background: linear-gradient(135deg, rgba(25, 246, 255, 0.16), rgba(255, 61, 242, 0.18));
+}
+
 .work-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
@@ -353,10 +384,29 @@ h2 {
   transition: border-color 180ms ease, transform 180ms ease, box-shadow 180ms ease;
 }
 
+.work-card[data-work-type="folder"] {
+  background:
+    linear-gradient(145deg, rgba(255, 61, 242, 0.11), rgba(25, 246, 255, 0.05)),
+    radial-gradient(circle at 22% 20%, rgba(25, 246, 255, 0.18), transparent 42%);
+}
+
 .work-card:hover {
   border-color: rgba(25, 246, 255, 0.7);
   box-shadow: var(--cyan-glow);
   transform: translateY(-2px);
+}
+
+.work-card__type {
+  align-self: start;
+  justify-self: start;
+  min-height: 26px;
+  border: 1px solid rgba(96, 239, 255, 0.2);
+  border-radius: 999px;
+  color: var(--olive);
+  font-size: 0.78rem;
+  font-weight: 800;
+  line-height: 1;
+  padding: 6px 10px;
 }
 
 .work-card__brand {
@@ -365,6 +415,7 @@ h2 {
   font-size: 1.12rem;
   font-weight: 800;
   line-height: 1.35;
+  padding-inline-end: 44px;
 }
 
 .work-card__play {
@@ -387,6 +438,7 @@ h2 {
   color: var(--muted);
   font-size: 0.92rem;
   font-weight: 700;
+  padding-inline-end: 48px;
 }
 
 .work-more {
@@ -647,6 +699,11 @@ footer {
 
   .section-heading {
     display: block;
+  }
+
+  .work-tabs {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
   }
 
   footer {
