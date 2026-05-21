@@ -88,7 +88,7 @@
   },
   {
     id: "tala-khalid-girl",
-    name: "تالا خالد طفله",
+    name: "تالا خالد",
     category: "girls",
     folderUrl: "https://drive.google.com/drive/folders/1y19DIgRSBrptxrGZrgnlmYeRWjjzt05B",
     photoUrl: "https://drive.google.com/thumbnail?id=1Y1EKe2L1uG4iAmPogLzxUMsRFYLIuzWX&sz=w1000",
@@ -216,7 +216,7 @@
   },
   {
     id: "rakan-boy",
-    name: "راكان طفل",
+    name: "راكان",
     category: "boys",
     folderUrl: "https://drive.google.com/drive/folders/1T0b3V8eRVmZ9S8ObNrBFZsk3kL_sVr-I",
     photoUrl: "https://drive.google.com/thumbnail?id=1b_6aHkaOYw_QSAfYmXv719G6tb_d_fmc&sz=w1000",
@@ -230,7 +230,7 @@
   },
   {
     id: "rama-girl",
-    name: "راما طفله",
+    name: "راما",
     category: "girls",
     folderUrl: "https://drive.google.com/drive/folders/1gmQxX8DEV1QxioKrNQBwHq8ClArwTmdp",
     photoUrl: "https://drive.google.com/thumbnail?id=1Rqs1QN0pPYIiJuCB7yT-sINwj8GsE5l0&sz=w1000",
@@ -342,7 +342,7 @@
   },
   {
     id: "saif-alshareef-boy",
-    name: "سيف الشريف طفل",
+    name: "سيف الشريف",
     category: "boys",
     folderUrl: "https://drive.google.com/drive/folders/1hORITUueb1-S9uIhzcAugLQsCuF3U0_A",
     photoUrl: "https://drive.google.com/thumbnail?id=1VHn3O3Lo14V4oKIQgvuAyV3n207jNIOz&sz=w1000",
@@ -502,7 +502,7 @@
   },
   {
     id: "kayan-shadi-girl",
-    name: "كيان شادي طفله",
+    name: "كيان شادي",
     category: "girls",
     folderUrl: "https://drive.google.com/drive/folders/1Rq7nJ2TI1I8xjShoieu3FKXeP0Cn3VUa",
     photoUrl: "https://drive.google.com/thumbnail?id=13aBRij9xsOl4bYrNEtLgpS3lODR_GAH5&sz=w1000",
@@ -617,7 +617,7 @@
   },
   {
     id: "mai-khalid-girl",
-    name: "مي خالد طفله",
+    name: "مي خالد",
     category: "girls",
     folderUrl: "https://drive.google.com/drive/folders/1a79wa3H0gCMMXwIJw66jsiMNKYDEoE_H",
     photoUrl: "https://drive.google.com/thumbnail?id=1p9pdISJDmCWhAM6_2wO3BBWFHh2Fp0qV&sz=w1000",
@@ -631,7 +631,7 @@
   },
   {
     id: "mira-shadi-girl",
-    name: "ميرا شادي طفله",
+    name: "ميرا شادي",
     category: "girls",
     folderUrl: "https://drive.google.com/drive/folders/1UfUl3NcRqTw3ORoUn7nPc29Fq0ePUm1e",
     photoUrl: "https://drive.google.com/thumbnail?id=1Hkj6lqdMvokecHkIBT0szojoBX3oY5cO&sz=w1000",
