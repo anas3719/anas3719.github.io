@@ -1,4 +1,4 @@
-window.castMembers = [
+﻿window.castMembers = [
   {
     id: "ahmed-alshareef-25",
     name: "احمد الشريف",
@@ -11,6 +11,7 @@ window.castMembers = [
     weight: "",
     nationality: "",
     speaking: "",
+    note: "",
   },
   {
     id: "ahmed-sal",
@@ -24,6 +25,7 @@ window.castMembers = [
     weight: "77",
     nationality: "فلسطيني",
     speaking: "متحدث",
+    note: "",
   },
   {
     id: "ahmed-qashtah",
@@ -37,6 +39,7 @@ window.castMembers = [
     weight: "100",
     nationality: "فلسطيني",
     speaking: "متحدث",
+    note: "",
   },
   {
     id: "alaa-bogus",
@@ -50,6 +53,7 @@ window.castMembers = [
     weight: "",
     nationality: "",
     speaking: "",
+    note: "",
   },
   {
     id: "alaa-abdulaziz",
@@ -63,6 +67,7 @@ window.castMembers = [
     weight: "",
     nationality: "",
     speaking: "",
+    note: "",
   },
   {
     id: "albaraa-25",
@@ -76,6 +81,7 @@ window.castMembers = [
     weight: "",
     nationality: "",
     speaking: "",
+    note: "",
   },
   {
     id: "tala-khalid-girl",
@@ -89,6 +95,7 @@ window.castMembers = [
     weight: "",
     nationality: "",
     speaking: "",
+    note: "",
   },
   {
     id: "hussein-zaki-jeddah",
@@ -102,6 +109,7 @@ window.castMembers = [
     weight: "",
     nationality: "",
     speaking: "",
+    note: "",
   },
   {
     id: "hamzah",
@@ -115,6 +123,7 @@ window.castMembers = [
     weight: "",
     nationality: "",
     speaking: "",
+    note: "",
   },
   {
     id: "haneen",
@@ -128,6 +137,7 @@ window.castMembers = [
     weight: "",
     nationality: "",
     speaking: "",
+    note: "",
   },
   {
     id: "khalid",
@@ -141,6 +151,7 @@ window.castMembers = [
     weight: "75",
     nationality: "يمني",
     speaking: "متحدث",
+    note: "",
   },
   {
     id: "khalid-alsabban",
@@ -154,6 +165,7 @@ window.castMembers = [
     weight: "",
     nationality: "",
     speaking: "",
+    note: "",
   },
   {
     id: "khalid-halawani",
@@ -167,6 +179,7 @@ window.castMembers = [
     weight: "78",
     nationality: "سعودي",
     speaking: "متحدث",
+    note: "",
   },
   {
     id: "dalia-hajjar",
@@ -180,6 +193,7 @@ window.castMembers = [
     weight: "",
     nationality: "",
     speaking: "",
+    note: "",
   },
   {
     id: "dina",
@@ -193,6 +207,7 @@ window.castMembers = [
     weight: "",
     nationality: "",
     speaking: "",
+    note: "",
   },
   {
     id: "rakan-boy",
@@ -206,6 +221,7 @@ window.castMembers = [
     weight: "",
     nationality: "",
     speaking: "",
+    note: "",
   },
   {
     id: "rama-girl",
@@ -219,6 +235,7 @@ window.castMembers = [
     weight: "",
     nationality: "",
     speaking: "",
+    note: "",
   },
   {
     id: "rahmah",
@@ -232,6 +249,7 @@ window.castMembers = [
     weight: "",
     nationality: "",
     speaking: "",
+    note: "",
   },
   {
     id: "rana",
@@ -245,6 +263,7 @@ window.castMembers = [
     weight: "",
     nationality: "",
     speaking: "",
+    note: "",
   },
   {
     id: "rozan",
@@ -258,6 +277,7 @@ window.castMembers = [
     weight: "",
     nationality: "",
     speaking: "",
+    note: "",
   },
   {
     id: "sarah",
@@ -271,6 +291,7 @@ window.castMembers = [
     weight: "",
     nationality: "",
     speaking: "",
+    note: "",
   },
   {
     id: "saeed-badawi-26",
@@ -284,6 +305,7 @@ window.castMembers = [
     weight: "",
     nationality: "",
     speaking: "",
+    note: "",
   },
   {
     id: "somayah-ali-jeddah",
@@ -297,6 +319,7 @@ window.castMembers = [
     weight: "",
     nationality: "",
     speaking: "",
+    note: "",
   },
   {
     id: "soka",
@@ -310,6 +333,7 @@ window.castMembers = [
     weight: "",
     nationality: "",
     speaking: "",
+    note: "اقل مبلغ للساعة 500 ريال",
   },
   {
     id: "saif-alshareef-boy",
@@ -323,6 +347,7 @@ window.castMembers = [
     weight: "",
     nationality: "",
     speaking: "",
+    note: "",
   },
   {
     id: "saif-alghamdi-20",
@@ -336,6 +361,7 @@ window.castMembers = [
     weight: "",
     nationality: "",
     speaking: "",
+    note: "",
   },
   {
     id: "abdullah-20",
@@ -349,6 +375,7 @@ window.castMembers = [
     weight: "",
     nationality: "",
     speaking: "",
+    note: "",
   },
   {
     id: "ali-almaghribi",
@@ -362,6 +389,7 @@ window.castMembers = [
     weight: "",
     nationality: "",
     speaking: "",
+    note: "",
   },
   {
     id: "ammar",
@@ -375,6 +403,7 @@ window.castMembers = [
     weight: "80",
     nationality: "فلسطيني",
     speaking: "متحدث",
+    note: "",
   },
   {
     id: "omar-28",
@@ -388,6 +417,7 @@ window.castMembers = [
     weight: "",
     nationality: "",
     speaking: "",
+    note: "",
   },
   {
     id: "omar-mohammed-25",
@@ -401,6 +431,7 @@ window.castMembers = [
     weight: "",
     nationality: "",
     speaking: "",
+    note: "",
   },
   {
     id: "ghazi",
@@ -414,6 +445,7 @@ window.castMembers = [
     weight: "90",
     nationality: "سعودي",
     speaking: "متحدث",
+    note: "اقل مبلغ للساعة 500 ريال",
   },
   {
     id: "ghazal-500",
@@ -427,6 +459,7 @@ window.castMembers = [
     weight: "",
     nationality: "",
     speaking: "",
+    note: "اقل مبلغ للساعة 500 ريال",
   },
   {
     id: "fawzan",
@@ -440,6 +473,7 @@ window.castMembers = [
     weight: "83",
     nationality: "فلسطيني",
     speaking: "متحدث",
+    note: "",
   },
   {
     id: "faisal-zaid",
@@ -453,6 +487,7 @@ window.castMembers = [
     weight: "",
     nationality: "",
     speaking: "",
+    note: "",
   },
   {
     id: "kayan-shadi-girl",
@@ -466,6 +501,7 @@ window.castMembers = [
     weight: "",
     nationality: "",
     speaking: "",
+    note: "",
   },
   {
     id: "leen",
@@ -479,6 +515,7 @@ window.castMembers = [
     weight: "",
     nationality: "",
     speaking: "",
+    note: "",
   },
   {
     id: "mazen",
@@ -492,6 +529,7 @@ window.castMembers = [
     weight: "",
     nationality: "",
     speaking: "",
+    note: "",
   },
   {
     id: "maher-20",
@@ -505,6 +543,7 @@ window.castMembers = [
     weight: "75",
     nationality: "فلسطيني",
     speaking: "غير متحدث",
+    note: "",
   },
   {
     id: "mohammed-abu-tuaimah-25",
@@ -518,6 +557,7 @@ window.castMembers = [
     weight: "",
     nationality: "",
     speaking: "",
+    note: "",
   },
   {
     id: "mohammed-almasmom-22",
@@ -531,6 +571,7 @@ window.castMembers = [
     weight: "",
     nationality: "",
     speaking: "",
+    note: "",
   },
   {
     id: "mona-jeddah",
@@ -544,6 +585,7 @@ window.castMembers = [
     weight: "",
     nationality: "",
     speaking: "",
+    note: "",
   },
   {
     id: "modhi-abdullah",
@@ -557,6 +599,7 @@ window.castMembers = [
     weight: "55",
     nationality: "سعودية",
     speaking: "متحدثة",
+    note: "",
   },
   {
     id: "mai-khalid-girl",
@@ -570,6 +613,7 @@ window.castMembers = [
     weight: "",
     nationality: "",
     speaking: "",
+    note: "",
   },
   {
     id: "mira-shadi-girl",
@@ -583,6 +627,7 @@ window.castMembers = [
     weight: "",
     nationality: "",
     speaking: "",
+    note: "",
   },
   {
     id: "nidal-alnashti",
@@ -596,6 +641,7 @@ window.castMembers = [
     weight: "",
     nationality: "",
     speaking: "",
+    note: "",
   },
   {
     id: "noura",
@@ -609,6 +655,7 @@ window.castMembers = [
     weight: "",
     nationality: "",
     speaking: "",
+    note: "",
   },
   {
     id: "hashem-maher-23",
@@ -622,6 +669,7 @@ window.castMembers = [
     weight: "",
     nationality: "",
     speaking: "",
+    note: "",
   },
   {
     id: "huda-alghamdi-jeddah",
@@ -635,6 +683,7 @@ window.castMembers = [
     weight: "",
     nationality: "",
     speaking: "",
+    note: "",
   },
   {
     id: "walaa",
@@ -648,5 +697,8 @@ window.castMembers = [
     weight: "",
     nationality: "",
     speaking: "",
+    note: "",
   },
 ];
+
+

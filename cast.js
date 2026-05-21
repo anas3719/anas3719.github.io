@@ -63,8 +63,8 @@ const categoryLabels = categories.reduce((labels, category) => {
   return labels;
 }, {});
 
-function getDisplayValue(value) {
-  return value && String(value).trim() ? value : missingValue;
+function getDisplayValue(value, emptyValue = missingValue) {
+  return value && String(value).trim() ? value : emptyValue;
 }
 
 function getMembersByCategory(categoryKey) {
@@ -88,13 +88,13 @@ function getDisplayPhotoUrl(photoUrl) {
   return photoUrl;
 }
 
-function createInfoItem(label, value) {
+function createInfoItem(label, value, emptyValue = missingValue) {
   const wrapper = document.createElement("div");
   const term = document.createElement("dt");
   const detail = document.createElement("dd");
 
   term.textContent = label;
-  detail.textContent = getDisplayValue(value);
+  detail.textContent = getDisplayValue(value, emptyValue);
   wrapper.append(term, detail);
   return wrapper;
 }
@@ -159,6 +159,7 @@ function createCastCard(member) {
     createInfoItem("الوزن", member.weight),
     createInfoItem("الجنسية", member.nationality),
     createInfoItem("متحدث/غير متحدث", member.speaking),
+    createInfoItem("ملاحظة", member.note, ""),
   );
 
   const selectLabel = document.createElement("label");
