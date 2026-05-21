@@ -67,8 +67,40 @@ function getDisplayValue(value, emptyValue = missingValue) {
   return value && String(value).trim() ? value : emptyValue;
 }
 
+function hasCompleteDetails(member) {
+  return ["age", "height", "weight", "nationality", "speaking"].every((key) =>
+    member[key] && String(member[key]).trim(),
+  );
+}
+
+function getCompletionOrder(member, originalIndex) {
+  const order = Number(member.completedOrder);
+  return Number.isFinite(order) ? order : Number.MAX_SAFE_INTEGER + originalIndex;
+}
+
 function getMembersByCategory(categoryKey) {
-  return castMembers.filter((member) => member.category === categoryKey);
+  return castMembers
+    .map((member, index) => ({ member, index }))
+    .filter(({ member }) => member.category === categoryKey)
+    .sort((first, second) => {
+      const firstComplete = hasCompleteDetails(first.member);
+      const secondComplete = hasCompleteDetails(second.member);
+
+      if (firstComplete !== secondComplete) {
+        return firstComplete ? -1 : 1;
+      }
+
+      if (firstComplete && secondComplete) {
+        return (
+          getCompletionOrder(first.member, first.index) -
+            getCompletionOrder(second.member, second.index) ||
+          first.index - second.index
+        );
+      }
+
+      return first.index - second.index;
+    })
+    .map(({ member }) => member);
 }
 
 function getDisplayPhotoUrl(photoUrl) {

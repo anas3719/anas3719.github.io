@@ -25,6 +25,7 @@
     weight: "77",
     nationality: "فلسطيني",
     speaking: "متحدث",
+    completedOrder: 6,
     note: "",
   },
   {
@@ -39,6 +40,7 @@
     weight: "100",
     nationality: "فلسطيني",
     speaking: "متحدث",
+    completedOrder: 8,
     note: "",
   },
   {
@@ -67,6 +69,7 @@
     weight: "57",
     nationality: "فلسطينية",
     speaking: "غير متحدثة",
+    completedOrder: 12,
     note: "",
   },
   {
@@ -151,6 +154,7 @@
     weight: "75",
     nationality: "يمني",
     speaking: "متحدث",
+    completedOrder: 3,
     note: "",
   },
   {
@@ -179,6 +183,7 @@
     weight: "78",
     nationality: "سعودي",
     speaking: "متحدث",
+    completedOrder: 7,
     note: "",
   },
   {
@@ -375,6 +380,7 @@
     weight: "47",
     nationality: "يمني",
     speaking: "غير متحدث",
+    completedOrder: 13,
     note: "",
   },
   {
@@ -403,6 +409,7 @@
     weight: "80",
     nationality: "فلسطيني",
     speaking: "متحدث",
+    completedOrder: 4,
     note: "",
   },
   {
@@ -431,6 +438,7 @@
     weight: "71",
     nationality: "يمني",
     speaking: "غير متحدث",
+    completedOrder: 14,
     note: "",
   },
   {
@@ -445,6 +453,7 @@
     weight: "90",
     nationality: "سعودي",
     speaking: "متحدث",
+    completedOrder: 5,
     note: "اقل مبلغ للساعة 500 ريال",
   },
   {
@@ -473,6 +482,7 @@
     weight: "83",
     nationality: "فلسطيني",
     speaking: "متحدث",
+    completedOrder: 2,
     note: "",
   },
   {
@@ -487,6 +497,7 @@
     weight: "60",
     nationality: "يمني",
     speaking: "متحدث",
+    completedOrder: 11,
     note: "",
   },
   {
@@ -543,6 +554,7 @@
     weight: "75",
     nationality: "فلسطيني",
     speaking: "غير متحدث",
+    completedOrder: 9,
     note: "",
   },
   {
@@ -557,6 +569,7 @@
     weight: "71",
     nationality: "اردني",
     speaking: "متحدث",
+    completedOrder: 10,
     note: "",
   },
   {
@@ -599,6 +612,7 @@
     weight: "55",
     nationality: "سعودية",
     speaking: "متحدثة",
+    completedOrder: 1,
     note: "",
   },
   {
