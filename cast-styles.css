@@ -1315,7 +1315,74 @@ body.modal-open .back-to-top {
   }
 
   .cast-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
+  }
+
+  .cast-card {
+    border-radius: 7px;
+  }
+
+  .cast-card:hover,
+  .cast-card.is-selected {
+    transform: none;
+  }
+
+  .cast-card__media {
+    aspect-ratio: 1 / 1.18;
+  }
+
+  .cast-card__body {
+    gap: 10px;
+    padding: 10px;
+  }
+
+  .cast-card__header {
+    gap: 6px;
+  }
+
+  .cast-card__header h3 {
+    font-size: 0.98rem;
+    line-height: 1.25;
+    overflow-wrap: anywhere;
+  }
+
+  .cast-card__category {
+    font-size: 0.7rem;
+    padding: 5px 8px;
+  }
+
+  .cast-card__info {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 6px;
+  }
+
+  .cast-card__info div {
+    border-radius: 5px;
+    padding: 6px 7px;
+  }
+
+  .cast-card__info dt {
+    font-size: 0.66rem;
+  }
+
+  .cast-card__info dd {
+    font-size: 0.74rem;
+    line-height: 1.3;
+    overflow-wrap: anywhere;
+  }
+
+  .cast-select {
+    min-height: 38px;
+    gap: 8px;
+    border-radius: 5px;
+    font-size: 0.8rem;
+    padding: 8px;
+  }
+
+  .cast-select input {
+    width: 17px;
+    height: 17px;
   }
 
   .cast-category-hero {
