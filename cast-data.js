@@ -486,7 +486,7 @@
     height: "170",
     weight: "60",
     nationality: "يمني",
-    speaking: "",
+    speaking: "متحدث",
     note: "",
   },
   {
