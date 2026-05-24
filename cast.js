@@ -5,10 +5,12 @@ const castCategoryCards = document.querySelector("#castCategoryCards");
 const castOverview = document.querySelector("#castOverview");
 const selectedSummary = document.querySelector("#selectedSummary");
 const sendCastRequest = document.querySelector("#sendCastRequest");
-const selectedCast = new Set();
 const whatsappNumber = "966599599527";
 const missingValue = "يضاف لاحقًا";
 const isCastHomePage = document.body.classList.contains("cast-home-page");
+const memberById = new Map(castMembers.map((member) => [member.id, member]));
+const selectionStorageKey = "anas-cast-selection-v1";
+const selectedCast = new Set(loadStoredSelection());
 
 const categories = [
   { key: "men", label: "شباب", anchor: "men", group: "شباب" },
@@ -62,6 +64,100 @@ const categoryLabels = categories.reduce((labels, category) => {
   labels[category.key] = category.label;
   return labels;
 }, {});
+
+function loadStoredSelection() {
+  try {
+    const storedValue = window.localStorage.getItem(selectionStorageKey);
+    const storedIds = JSON.parse(storedValue || "[]");
+
+    if (!Array.isArray(storedIds)) {
+      return [];
+    }
+
+    return storedIds.filter((id) => memberById.has(id));
+  } catch (error) {
+    return [];
+  }
+}
+
+function saveStoredSelection() {
+  try {
+    window.localStorage.setItem(
+      selectionStorageKey,
+      JSON.stringify([...selectedCast].filter((id) => memberById.has(id))),
+    );
+  } catch (error) {
+    // The page still works without persisted selections if storage is unavailable.
+  }
+}
+
+function setMemberSelected(memberId, isSelected) {
+  if (!memberById.has(memberId)) return;
+
+  if (isSelected) {
+    selectedCast.add(memberId);
+  } else {
+    selectedCast.delete(memberId);
+  }
+
+  saveStoredSelection();
+}
+
+function getSelectedMembers() {
+  return categories.flatMap((category) =>
+    getMembersByCategory(category.key).filter((member) => selectedCast.has(member.id)),
+  );
+}
+
+function groupSelectedMembers(selectedMembers) {
+  return categories
+    .map((category) => ({
+      ...category,
+      members: selectedMembers.filter((member) => member.category === category.key),
+    }))
+    .filter((group) => group.members.length);
+}
+
+function getSelectionSummary(groups, selectedCount) {
+  if (!selectedCount) {
+    return "اختر كاست واحد أو أكثر من أي قسم، وتبقى اختياراتك محفوظة أثناء التنقل بين الصفحات.";
+  }
+
+  const groupText = groups.map((group) => `${group.label} (${group.members.length})`).join("، ");
+  const sectionText =
+    groups.length === 1 ? "قسم واحد" : groups.length === 2 ? "قسمين" : `${groups.length} أقسام`;
+  return `تم اختيار ${selectedCount} من ${sectionText}: ${groupText}`;
+}
+
+function buildWhatsAppHref(selectedMembers) {
+  if (!selectedMembers.length) {
+    return `https://wa.me/${whatsappNumber}`;
+  }
+
+  const messageLines = ["السلام عليكم، أرغب بطلب الكاست التالي:", ""];
+  groupSelectedMembers(selectedMembers).forEach((group, groupIndex, groups) => {
+    messageLines.push(`${group.label}:`);
+    group.members.forEach((member) => messageLines.push(`- ${member.name}`));
+
+    if (groupIndex < groups.length - 1) {
+      messageLines.push("");
+    }
+  });
+
+  return `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(messageLines.join("\n"))}`;
+}
+
+function syncRenderedSelections() {
+  document.querySelectorAll(".cast-card").forEach((card) => {
+    const isSelected = selectedCast.has(card.dataset.castId);
+    const checkbox = card.querySelector('input[type="checkbox"]');
+
+    card.classList.toggle("is-selected", isSelected);
+    if (checkbox) {
+      checkbox.checked = isSelected;
+    }
+  });
+}
 
 function getDisplayValue(value, emptyValue = missingValue) {
   return value && String(value).trim() ? value : emptyValue;
@@ -200,15 +296,11 @@ function createCastCard(member) {
   const checkbox = document.createElement("input");
   checkbox.type = "checkbox";
   checkbox.value = member.id;
+  checkbox.checked = selectedCast.has(member.id);
+  card.classList.toggle("is-selected", checkbox.checked);
   checkbox.addEventListener("change", () => {
-    if (checkbox.checked) {
-      selectedCast.add(member.id);
-      card.classList.add("is-selected");
-    } else {
-      selectedCast.delete(member.id);
-      card.classList.remove("is-selected");
-    }
-
+    setMemberSelected(member.id, checkbox.checked);
+    syncRenderedSelections();
     updateRequestSummary();
   });
 
@@ -340,33 +432,192 @@ function renderSections() {
   });
 
   castSections.replaceChildren(...sectionNodes);
+  syncRenderedSelections();
+}
+
+function createSelectionDock() {
+  if (!document.body.classList.contains("cast-page")) return null;
+
+  const dock = document.createElement("aside");
+  const main = document.createElement("div");
+  const copy = document.createElement("div");
+  const title = document.createElement("strong");
+  const summary = document.createElement("span");
+  const toggle = document.createElement("button");
+  const send = document.createElement("a");
+  const panel = document.createElement("div");
+
+  dock.className = "cast-selection-dock is-hidden";
+  dock.setAttribute("aria-label", "اختيارات الكاست");
+  main.className = "cast-selection-dock__main";
+  copy.className = "cast-selection-dock__copy";
+  title.className = "cast-selection-dock__title";
+  summary.className = "cast-selection-dock__summary";
+  toggle.className = "cast-selection-dock__toggle";
+  toggle.type = "button";
+  toggle.setAttribute("aria-expanded", "false");
+  send.className = "button primary";
+  send.target = "_blank";
+  send.rel = "noreferrer";
+  panel.className = "cast-selection-panel";
+
+  title.textContent = "اختياراتي";
+  summary.textContent = "لم يتم اختيار كاست بعد";
+  toggle.textContent = "عرض";
+  send.textContent = "إرسال الطلب";
+  send.href = `https://wa.me/${whatsappNumber}`;
+
+  toggle.addEventListener("click", () => {
+    const isOpen = dock.classList.toggle("is-open");
+    toggle.setAttribute("aria-expanded", String(isOpen));
+    toggle.textContent = isOpen ? "إخفاء" : "عرض";
+  });
+
+  send.addEventListener("click", (event) => {
+    if (!selectedCast.size) {
+      event.preventDefault();
+    }
+  });
+
+  copy.append(title, summary);
+  main.append(copy, toggle, send);
+  dock.append(main, panel);
+  document.body.appendChild(dock);
+
+  return { dock, panel, send, summary, toggle };
+}
+
+const selectionDock = createSelectionDock();
+
+function createSelectionGroup(group) {
+  const wrapper = document.createElement("div");
+  const heading = document.createElement("strong");
+  const list = document.createElement("ul");
+
+  wrapper.className = "cast-selection-group";
+  heading.textContent = group.label;
+
+  group.members.forEach((member) => {
+    const item = document.createElement("li");
+    const name = document.createElement("span");
+    const remove = document.createElement("button");
+
+    name.textContent = member.name;
+    remove.type = "button";
+    remove.dataset.removeCast = member.id;
+    remove.setAttribute("aria-label", `حذف ${member.name} من الاختيارات`);
+    remove.textContent = "حذف";
+
+    item.append(name, remove);
+    list.appendChild(item);
+  });
+
+  wrapper.append(heading, list);
+  return wrapper;
+}
+
+function createSectionNav() {
+  const nav = document.createElement("nav");
+  const label = document.createElement("span");
+
+  nav.className = "cast-selection-nav";
+  nav.setAttribute("aria-label", "الانتقال بين أقسام الكاست");
+  label.textContent = "أضف من قسم آخر";
+  nav.appendChild(label);
+
+  mainCategories.forEach((category) => {
+    const link = document.createElement("a");
+    link.href = category.href;
+    link.textContent = category.label;
+    nav.appendChild(link);
+  });
+
+  return nav;
+}
+
+function renderSelectionPanel(groups) {
+  if (!selectionDock) return;
+
+  const clearButton = document.createElement("button");
+  clearButton.className = "cast-selection-clear";
+  clearButton.type = "button";
+  clearButton.textContent = "مسح الاختيارات";
+  clearButton.addEventListener("click", () => {
+    selectedCast.clear();
+    saveStoredSelection();
+    syncRenderedSelections();
+    updateRequestSummary();
+  });
+
+  selectionDock.panel.replaceChildren(
+    ...groups.map(createSelectionGroup),
+    createSectionNav(),
+    clearButton,
+  );
+
+  selectionDock.panel.querySelectorAll("[data-remove-cast]").forEach((button) => {
+    button.addEventListener("click", () => {
+      setMemberSelected(button.dataset.removeCast, false);
+      syncRenderedSelections();
+      updateRequestSummary();
+    });
+  });
+}
+
+function updateSelectionDock(selectedMembers, groups, whatsappHref) {
+  if (!selectionDock) return;
+
+  const hasSelection = selectedMembers.length > 0;
+  selectionDock.dock.classList.toggle("is-hidden", !hasSelection);
+  document.body.classList.toggle("has-cast-selection", hasSelection);
+  selectionDock.summary.textContent = hasSelection
+    ? getSelectionSummary(groups, selectedMembers.length)
+    : "لم يتم اختيار كاست بعد";
+  selectionDock.send.href = whatsappHref;
+  selectionDock.send.classList.toggle("is-disabled", !hasSelection);
+  selectionDock.send.setAttribute("aria-disabled", String(!hasSelection));
+
+  if (hasSelection) {
+    renderSelectionPanel(groups);
+  } else {
+    selectionDock.dock.classList.remove("is-open");
+    selectionDock.toggle.setAttribute("aria-expanded", "false");
+    selectionDock.toggle.textContent = "عرض";
+    selectionDock.panel.replaceChildren();
+  }
 }
 
 function updateRequestSummary() {
-  if (!selectedSummary || !sendCastRequest) return;
+  const selectedMembers = getSelectedMembers();
+  const groups = groupSelectedMembers(selectedMembers);
+  const whatsappHref = buildWhatsAppHref(selectedMembers);
 
-  const selectedMembers = castMembers.filter((member) => selectedCast.has(member.id));
+  updateSelectionDock(selectedMembers, groups, whatsappHref);
 
   if (!selectedMembers.length) {
-    selectedSummary.textContent = "اختر كاست واحد أو أكثر لتجهيز رسالة واتساب.";
-    sendCastRequest.href = `https://wa.me/${whatsappNumber}`;
-    sendCastRequest.classList.add("is-disabled");
-    sendCastRequest.setAttribute("aria-disabled", "true");
+    if (selectedSummary) {
+      selectedSummary.textContent =
+        "اختر كاست واحد أو أكثر من أي قسم، وتبقى اختياراتك محفوظة أثناء التنقل بين الصفحات.";
+    }
+
+    if (sendCastRequest) {
+      sendCastRequest.href = `https://wa.me/${whatsappNumber}`;
+      sendCastRequest.classList.add("is-disabled");
+      sendCastRequest.setAttribute("aria-disabled", "true");
+    }
+
     return;
   }
 
-  const names = selectedMembers.map((member) => `${member.name} (${categoryLabels[member.category]})`);
-  selectedSummary.textContent = `تم اختيار ${selectedMembers.length}: ${names.join("، ")}`;
+  if (selectedSummary) {
+    selectedSummary.textContent = getSelectionSummary(groups, selectedMembers.length);
+  }
 
-  const messageLines = [
-    "السلام عليكم، أرغب بطلب الكاست التالي:",
-    "",
-    ...selectedMembers.map((member) => `- ${member.name} - ${categoryLabels[member.category]}`),
-  ];
-
-  sendCastRequest.href = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(messageLines.join("\n"))}`;
-  sendCastRequest.classList.remove("is-disabled");
-  sendCastRequest.setAttribute("aria-disabled", "false");
+  if (sendCastRequest) {
+    sendCastRequest.href = whatsappHref;
+    sendCastRequest.classList.remove("is-disabled");
+    sendCastRequest.setAttribute("aria-disabled", "false");
+  }
 }
 
 if (sendCastRequest) {
@@ -376,6 +627,15 @@ if (sendCastRequest) {
     }
   });
 }
+
+window.addEventListener("storage", (event) => {
+  if (event.key !== selectionStorageKey) return;
+
+  selectedCast.clear();
+  loadStoredSelection().forEach((id) => selectedCast.add(id));
+  syncRenderedSelections();
+  updateRequestSummary();
+});
 
 renderOverview();
 renderQuickLinks();
