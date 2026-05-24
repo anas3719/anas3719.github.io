@@ -1,5 +1,20 @@
 ﻿window.castMembers = [
   {
+    id: "hashem-mirah",
+    name: "هاشم ميره",
+    category: "men",
+    folderUrl: "https://drive.google.com/drive/folders/1tz761GhQiC0Sga5rWdBtQqOPSxelnB-3",
+    photoUrl: "https://drive.google.com/thumbnail?id=1MDX5ft0FoHU8ftesSSYA3hIoYqNycdSm&sz=w1000",
+    imageTitle: "IMG-20260524-WA0032.jpg",
+    age: "37",
+    height: "170",
+    weight: "89",
+    nationality: "سعودي",
+    speaking: "متحدث",
+    completedOrder: 0,
+    note: "",
+  },
+  {
     id: "ahmed-alshareef-25",
     name: "احمد الشريف",
     category: "men",
