@@ -1,5 +1,20 @@
 ﻿window.castMembers = [
   {
+    id: "anas-omar",
+    name: "انس عمر",
+    category: "men",
+    folderUrl: "https://drive.google.com/drive/folders/1kO93UWAzBhgflfi5tJ0TKtg7eBwGXB8i",
+    photoUrl: "https://drive.google.com/thumbnail?id=16sGklR704fRH2wgh07xJHLiEZ5kgpinV&sz=w1000",
+    imageTitle: "الواجهة.heic",
+    age: "33",
+    height: "170",
+    weight: "74",
+    nationality: "سعودي",
+    speaking: "متحدث",
+    pinnedOrder: 1,
+    note: "",
+  },
+  {
     id: "hashem-mirah",
     name: "هاشم ميره",
     category: "men",
@@ -11,6 +26,7 @@
     weight: "89",
     nationality: "سعودي",
     speaking: "متحدث",
+    pinnedOrder: 2,
     completedOrder: 0,
     note: "",
   },

@@ -174,11 +174,23 @@ function getCompletionOrder(member, originalIndex) {
   return Number.isFinite(order) ? order : Number.MAX_SAFE_INTEGER + originalIndex;
 }
 
+function getPinnedOrder(member) {
+  const order = Number(member.pinnedOrder);
+  return Number.isFinite(order) ? order : Number.MAX_SAFE_INTEGER;
+}
+
 function getMembersByCategory(categoryKey) {
   return castMembers
     .map((member, index) => ({ member, index }))
     .filter(({ member }) => member.category === categoryKey)
     .sort((first, second) => {
+      const firstPinnedOrder = getPinnedOrder(first.member);
+      const secondPinnedOrder = getPinnedOrder(second.member);
+
+      if (firstPinnedOrder !== secondPinnedOrder) {
+        return firstPinnedOrder - secondPinnedOrder;
+      }
+
       const firstComplete = hasCompleteDetails(first.member);
       const secondComplete = hasCompleteDetails(second.member);
 
