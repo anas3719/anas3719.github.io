@@ -164,7 +164,11 @@ function getDisplayValue(value, emptyValue = missingValue) {
 }
 
 function hasCompleteDetails(member) {
-  return ["age", "height", "weight", "nationality", "speaking"].every((key) =>
+  const requiredKeys = ["boys", "girls"].includes(member.category)
+    ? ["age", "height", "weight", "nationality"]
+    : ["age", "height", "weight", "nationality", "speaking"];
+
+  return requiredKeys.every((key) =>
     member[key] && String(member[key]).trim(),
   );
 }
