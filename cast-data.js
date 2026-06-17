@@ -56,7 +56,7 @@
     height: "152",
     weight: "39",
     nationality: "سعودي",
-    speaking: "",
+    speaking: "غير متحدث",
     completedOrder: 17,
     note: "",
   },
