@@ -514,7 +514,7 @@
     age: "35",
     height: "174",
     weight: "80",
-    nationality: "فلسطيني",
+    nationality: "يضاف لاحقًا",
     speaking: "متحدث",
     completedOrder: 4,
     note: "",
