@@ -905,7 +905,8 @@ h2 {
 }
 
 .photographer-card:hover,
-.photographer-card:focus-visible {
+.photographer-card:focus-visible,
+.photographer-card.is-selected {
   border-color: rgba(255, 206, 96, 0.82);
   box-shadow: 0 0 28px rgba(255, 206, 96, 0.22), 0 20px 58px rgba(0, 0, 0, 0.38);
   outline: 0;
@@ -965,11 +966,13 @@ h2 {
   padding: 18px;
 }
 
-.photographer-card__body h3 {
+.photographer-card__name {
   margin: 0;
   color: var(--white);
   font-size: 1.25rem;
+  font-weight: 800;
   line-height: 1.25;
+  text-decoration: none;
 }
 
 .photographer-card__body span {
@@ -981,6 +984,33 @@ h2 {
   font-weight: 800;
   line-height: 1;
   padding: 6px 10px;
+}
+
+.photographer-select {
+  display: flex;
+  min-height: 46px;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  border: 1px solid rgba(255, 206, 96, 0.3);
+  border-radius: 6px;
+  background: rgba(255, 206, 96, 0.08);
+  color: var(--white);
+  cursor: pointer;
+  font-weight: 800;
+  padding: 10px 12px;
+}
+
+.photographer-select span {
+  border: 0;
+  color: var(--white);
+  padding: 0;
+}
+
+.photographer-select input {
+  width: 20px;
+  height: 20px;
+  accent-color: #ffce60;
 }
 
 .cast-category-card strong,
