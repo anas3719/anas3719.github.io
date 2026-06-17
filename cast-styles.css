@@ -847,6 +847,53 @@ h2 {
   transform: translateY(-2px);
 }
 
+.cast-category-card--photographers {
+  border-color: rgba(255, 206, 96, 0.42);
+  background:
+    linear-gradient(145deg, rgba(255, 206, 96, 0.15), rgba(255, 61, 242, 0.06)),
+    radial-gradient(circle at 20% 18%, rgba(255, 206, 96, 0.24), transparent 44%);
+}
+
+.cast-category-card--photographers:hover,
+.cast-category-card--photographers:focus-visible {
+  border-color: rgba(255, 206, 96, 0.82);
+  box-shadow: 0 0 28px rgba(255, 206, 96, 0.25), var(--magenta-glow);
+}
+
+.photographers-page .site-header {
+  border-bottom-color: rgba(255, 206, 96, 0.22);
+}
+
+.photographers-hero {
+  background:
+    linear-gradient(135deg, rgba(5, 7, 13, 0.98), rgba(17, 16, 28, 0.9)),
+    radial-gradient(circle at 82% 30%, rgba(255, 206, 96, 0.18), transparent 30vw),
+    radial-gradient(circle at 16% 30%, rgba(255, 61, 242, 0.1), transparent 26vw);
+}
+
+.photographers-empty {
+  max-width: 920px;
+  margin-inline: auto;
+  border: 1px solid rgba(255, 206, 96, 0.26);
+  border-radius: 8px;
+  background:
+    linear-gradient(145deg, rgba(255, 206, 96, 0.09), rgba(255, 255, 255, 0.035)),
+    rgba(5, 7, 13, 0.74);
+  box-shadow: 0 18px 48px rgba(0, 0, 0, 0.28);
+}
+
+.photographers-empty h2 {
+  margin: 0 0 10px;
+  color: var(--white);
+  font-size: clamp(1.6rem, 3vw, 2.4rem);
+}
+
+.photographers-empty p {
+  margin: 0;
+  color: var(--muted);
+  font-weight: 800;
+}
+
 .cast-category-card strong,
 .cast-category-card span,
 .cast-category-card em {

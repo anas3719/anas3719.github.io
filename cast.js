@@ -58,6 +58,14 @@ const mainCategories = [
     description: "قسم مستقل لكبار سن سيدات عند إضافة الأسماء له.",
     keys: ["seniorWomen"],
   },
+  {
+    label: "المصورين",
+    href: "photographers.html",
+    description: "ملفات المصورين في صفحة مستقلة.",
+    keys: [],
+    variant: "photographers",
+    includeInSelectionNav: false,
+  },
 ];
 
 const categoryLabels = categories.reduce((labels, category) => {
@@ -379,7 +387,9 @@ function renderCategoryCards() {
       const description = document.createElement("p");
       const action = document.createElement("em");
 
-      card.className = "cast-category-card";
+      card.className = category.variant
+        ? `cast-category-card cast-category-card--${category.variant}`
+        : "cast-category-card";
       card.href = category.href;
       card.setAttribute("aria-label", `فتح قسم ${category.label}`);
       title.textContent = category.label;
@@ -541,7 +551,7 @@ function createSectionNav() {
   label.textContent = "أضف من قسم آخر";
   nav.appendChild(label);
 
-  mainCategories.forEach((category) => {
+  mainCategories.filter((category) => category.includeInSelectionNav !== false).forEach((category) => {
     const link = document.createElement("a");
     link.href = category.href;
     link.textContent = category.label;
