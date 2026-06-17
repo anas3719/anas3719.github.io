@@ -1201,6 +1201,21 @@ h2 {
   padding: 6px 10px;
 }
 
+.cast-card__work-link {
+  justify-self: start;
+  color: #ffce60;
+  font-size: 0.94rem;
+  font-weight: 800;
+  text-decoration: none;
+}
+
+.cast-card__work-link:hover,
+.cast-card__work-link:focus-visible {
+  color: var(--white);
+  outline: 0;
+  text-decoration: underline;
+}
+
 .cast-card__info {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));

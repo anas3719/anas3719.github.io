@@ -303,6 +303,13 @@ function createCastCard(member) {
 
   header.append(title, category);
 
+  const workLink = document.createElement("a");
+  workLink.className = "cast-card__work-link";
+  workLink.href = member.folderUrl;
+  workLink.target = "_blank";
+  workLink.rel = "noreferrer";
+  workLink.textContent = "اضغط لرؤية الأعمال";
+
   const infoList = document.createElement("dl");
   infoList.className = "cast-card__info";
   infoList.append(
@@ -332,7 +339,7 @@ function createCastCard(member) {
   selectText.textContent = "اختيار الكاست";
 
   selectLabel.append(checkbox, selectText);
-  body.append(header, infoList, selectLabel);
+  body.append(header, workLink, infoList, selectLabel);
   card.append(media, body);
   return card;
 }
