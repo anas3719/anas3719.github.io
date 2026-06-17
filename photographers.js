@@ -104,6 +104,7 @@ function createPhotographerCard(photographer) {
   const body = document.createElement("div");
   const name = document.createElement("a");
   const badge = document.createElement("span");
+  const workLink = document.createElement("a");
   const selectLabel = document.createElement("label");
   const selectText = document.createElement("span");
   const checkbox = document.createElement("input");
@@ -150,6 +151,11 @@ function createPhotographerCard(photographer) {
   name.rel = "noreferrer";
   name.textContent = photographer.name;
   badge.textContent = "مصور";
+  workLink.className = "photographer-card__work-link";
+  workLink.href = photographer.folderUrl;
+  workLink.target = "_blank";
+  workLink.rel = "noreferrer";
+  workLink.textContent = "اضغط لرؤية الاعمال";
 
   selectLabel.className = "photographer-select";
   selectText.textContent = "اختيار المصور";
@@ -168,7 +174,7 @@ function createPhotographerCard(photographer) {
   });
   selectLabel.append(selectText, checkbox);
 
-  body.append(name, badge, selectLabel);
+  body.append(name, badge, workLink, selectLabel);
   card.append(media, body);
 
   return card;

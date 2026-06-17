@@ -986,6 +986,21 @@ h2 {
   padding: 6px 10px;
 }
 
+.photographer-card__work-link {
+  justify-self: start;
+  color: #ffce60;
+  font-size: 0.94rem;
+  font-weight: 800;
+  text-decoration: none;
+}
+
+.photographer-card__work-link:hover,
+.photographer-card__work-link:focus-visible {
+  color: var(--white);
+  outline: 0;
+  text-decoration: underline;
+}
+
 .photographer-select {
   display: flex;
   min-height: 46px;
