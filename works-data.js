@@ -266,8 +266,8 @@ window.portfolioWorks = {
     {
       "brand": "نقاء الماء",
       "type": "video",
-      "preview": "https://drive.google.com/file/d/1xA7IaDsnmyYFMkdKOAWEZm7n5ZdIwvfy/preview",
-      "url": "https://drive.google.com/file/d/1xA7IaDsnmyYFMkdKOAWEZm7n5ZdIwvfy/view"
+      "preview": "https://drive.google.com/file/d/1cKdxxHwhYMVuZ9tQd9p2WT7qbtIH6cKz/preview",
+      "url": "https://drive.google.com/file/d/1cKdxxHwhYMVuZ9tQd9p2WT7qbtIH6cKz/view"
     },
     {
       "brand": "برنامج انفينيتي",
