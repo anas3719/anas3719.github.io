@@ -264,6 +264,12 @@ window.portfolioWorks = {
       "url": "https://drive.google.com/file/d/1wNQKpSymBUeIIIY72lqe134kFkqMGTDn/view"
     },
     {
+      "brand": "نقاء الماء",
+      "type": "video",
+      "preview": "https://drive.google.com/file/d/1xA7IaDsnmyYFMkdKOAWEZm7n5ZdIwvfy/preview",
+      "url": "https://drive.google.com/file/d/1xA7IaDsnmyYFMkdKOAWEZm7n5ZdIwvfy/view"
+    },
+    {
       "brand": "برنامج انفينيتي",
       "type": "folder",
       "url": "https://drive.google.com/drive/folders/1-DZ1HzOATbc-NLQey2cbS88qVVXFAlvY"
