@@ -1,0 +1,254 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="noindex,nofollow" />
+    <meta name="theme-color" content="#071014" />
+    <link rel="icon" href="data:," />
+    <title>إدارة أعمال أنس عمر</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="cast-admin.css?v=20260820-1" />
+    <link rel="stylesheet" href="portfolio-admin.css?v=20260820-1" />
+  </head>
+  <body class="works-admin-page">
+    <header class="admin-header">
+      <div class="admin-brand">
+        <a href="index.html" class="brand-link" aria-label="العودة إلى البورتفوليو">الموقع</a>
+        <div>
+          <h1>إدارة الأعمال</h1>
+          <p id="sync-status" class="sync-status" aria-live="polite">جاري تحميل البيانات</p>
+        </div>
+      </div>
+
+      <div class="header-actions">
+        <button id="reload-data" class="icon-button" type="button" title="تحديث البيانات" aria-label="تحديث البيانات">
+          <i data-lucide="refresh-cw" aria-hidden="true"></i>
+        </button>
+        <button id="github-connect" class="button button-secondary" type="button" aria-label="اتصال GitHub">
+          <i data-lucide="key-round" aria-hidden="true"></i>
+          <span>اتصال GitHub</span>
+        </button>
+        <button id="publish-changes" class="button button-primary" type="button" disabled>
+          <i data-lucide="cloud-upload" aria-hidden="true"></i>
+          <span>نشر التغييرات</span>
+        </button>
+      </div>
+    </header>
+
+    <main class="admin-main works-admin-main">
+      <aside class="directory-panel" aria-label="قائمة الأعمال">
+        <div class="work-category-switch" role="tablist" aria-label="نوع الأعمال">
+          <button class="work-category-button is-active" type="button" role="tab" data-category="regular" aria-selected="true">
+            <i data-lucide="clapperboard" aria-hidden="true"></i>
+            <span>إعلانات عادية</span>
+            <strong id="regular-count">0</strong>
+          </button>
+          <button class="work-category-button" type="button" role="tab" data-category="ugc" aria-selected="false">
+            <i data-lucide="smartphone" aria-hidden="true"></i>
+            <span>UGC</span>
+            <strong id="ugc-count">0</strong>
+          </button>
+        </div>
+
+        <label class="search-field works-search">
+          <i data-lucide="search" aria-hidden="true"></i>
+          <span class="sr-only">بحث باسم البراند</span>
+          <input id="work-search" type="search" placeholder="بحث باسم البراند" autocomplete="off" />
+        </label>
+
+        <div class="directory-heading">
+          <div>
+            <h2 id="directory-title">الإعلانات العادية</h2>
+            <span id="works-count" class="profiles-count">0 عمل</span>
+          </div>
+          <button id="add-work" class="button button-add" type="button">
+            <i data-lucide="plus" aria-hidden="true"></i>
+            <span>إضافة عمل</span>
+          </button>
+        </div>
+
+        <div id="works-list" class="profiles-list works-list"></div>
+        <div id="empty-list" class="empty-list" hidden>لا توجد نتائج</div>
+      </aside>
+
+      <section class="editor-panel" aria-labelledby="editor-title">
+        <div id="editor-empty" class="editor-empty">
+          <i data-lucide="square-play" aria-hidden="true"></i>
+          <h2>اختر عملاً للتعديل</h2>
+          <button id="empty-add-work" class="button button-primary" type="button">
+            <i data-lucide="plus" aria-hidden="true"></i>
+            <span>إضافة عمل جديد</span>
+          </button>
+        </div>
+
+        <form id="work-form" class="profile-form" hidden novalidate>
+          <div class="editor-heading">
+            <div>
+              <p id="editor-mode" class="editor-mode">تعديل العمل</p>
+              <h2 id="editor-title">بيانات الإعلان</h2>
+            </div>
+            <span id="completion-status" class="completion-status">بيانات ناقصة</span>
+          </div>
+
+          <div class="profile-workspace work-editor-workspace">
+            <div class="work-preview-column">
+              <div class="work-preview" id="work-preview">
+                <iframe
+                  id="work-preview-frame"
+                  title="معاينة الإعلان"
+                  allow="autoplay; encrypted-media"
+                  allowfullscreen
+                  hidden
+                ></iframe>
+                <div id="work-preview-placeholder" class="work-preview-placeholder">
+                  <i data-lucide="circle-play" aria-hidden="true"></i>
+                  <span>معاينة العمل</span>
+                </div>
+              </div>
+              <a id="open-work-link" class="button button-secondary work-open-link" href="#" target="_blank" rel="noopener noreferrer" hidden>
+                <i data-lucide="external-link" aria-hidden="true"></i>
+                <span>فتح في Google Drive</span>
+              </a>
+            </div>
+
+            <div class="fields-grid work-fields-grid">
+              <label class="field field-wide">
+                <span>اسم البراند أو الشركة</span>
+                <input id="work-brand" name="brand" type="text" autocomplete="off" required />
+              </label>
+
+              <fieldset class="field field-wide segmented-field">
+                <legend>قسم العمل</legend>
+                <div class="segmented-control">
+                  <label>
+                    <input type="radio" name="category" value="regular" checked />
+                    <span><i data-lucide="clapperboard" aria-hidden="true"></i>إعلانات عادية</span>
+                  </label>
+                  <label>
+                    <input type="radio" name="category" value="ugc" />
+                    <span><i data-lucide="smartphone" aria-hidden="true"></i>UGC</span>
+                  </label>
+                </div>
+              </fieldset>
+
+              <fieldset class="field field-wide segmented-field">
+                <legend>نوع الرابط</legend>
+                <div class="segmented-control">
+                  <label>
+                    <input type="radio" name="workType" value="video" checked />
+                    <span><i data-lucide="circle-play" aria-hidden="true"></i>فيديو مباشر</span>
+                  </label>
+                  <label>
+                    <input type="radio" name="workType" value="folder" />
+                    <span><i data-lucide="folder-open" aria-hidden="true"></i>مجلد البراند</span>
+                  </label>
+                </div>
+              </fieldset>
+
+              <label class="field field-wide">
+                <span>رابط Google Drive</span>
+                <input id="work-url" name="url" type="url" inputmode="url" placeholder="الصق رابط الفيديو أو المجلد" required />
+              </label>
+
+              <div id="form-error" class="dialog-error field-wide" role="alert" hidden></div>
+            </div>
+          </div>
+
+          <div class="form-actions">
+            <button id="delete-work" class="button button-danger" type="button">
+              <i data-lucide="trash-2" aria-hidden="true"></i>
+              <span>حذف العمل</span>
+            </button>
+            <div>
+              <button id="cancel-edit" class="button button-ghost" type="button">إلغاء</button>
+              <button class="button button-primary" type="submit">
+                <i data-lucide="save" aria-hidden="true"></i>
+                <span>حفظ العمل</span>
+              </button>
+            </div>
+          </div>
+        </form>
+      </section>
+    </main>
+
+    <dialog id="github-dialog" class="admin-dialog">
+      <form id="github-form" method="dialog">
+        <div class="dialog-heading">
+          <div>
+            <h2>اتصال GitHub</h2>
+            <p>رمز محدود لمستودع الموقع وصلاحية Contents: Read and write</p>
+          </div>
+          <button id="close-github-dialog" class="icon-button" type="button" aria-label="إغلاق">
+            <i data-lucide="x" aria-hidden="true"></i>
+          </button>
+        </div>
+
+        <label class="field field-full">
+          <span>رمز GitHub</span>
+          <div class="token-input-wrap">
+            <input id="github-token" type="password" autocomplete="off" spellcheck="false" required />
+            <button id="toggle-token" class="icon-button" type="button" aria-label="إظهار الرمز">
+              <i data-lucide="eye" aria-hidden="true"></i>
+            </button>
+          </div>
+        </label>
+
+        <label class="session-option">
+          <input id="remember-token" type="checkbox" checked />
+          <span>حفظ الاتصال على هذا الجهاز الشخصي للنشر مباشرة</span>
+        </label>
+
+        <a class="token-link" href="https://github.com/settings/personal-access-tokens/new" target="_blank" rel="noopener noreferrer">
+          إنشاء رمز محدود
+          <i data-lucide="external-link" aria-hidden="true"></i>
+        </a>
+
+        <div id="github-error" class="dialog-error" role="alert" hidden></div>
+
+        <div class="dialog-actions">
+          <button id="disconnect-github" class="button button-danger" type="button" hidden>
+            <i data-lucide="unplug" aria-hidden="true"></i>
+            <span>فصل الاتصال</span>
+          </button>
+          <button id="cancel-github" class="button button-ghost" type="button">إلغاء</button>
+          <button id="confirm-github" class="button button-primary" type="submit">
+            <i data-lucide="plug" aria-hidden="true"></i>
+            <span>اتصال</span>
+          </button>
+        </div>
+      </form>
+    </dialog>
+
+    <dialog id="delete-dialog" class="admin-dialog admin-dialog-small">
+      <div class="delete-dialog-content">
+        <span class="danger-icon"><i data-lucide="trash-2" aria-hidden="true"></i></span>
+        <h2>حذف العمل؟</h2>
+        <p id="delete-work-name"></p>
+        <div class="dialog-actions dialog-actions-centered">
+          <button id="cancel-delete" class="button button-ghost" type="button">إلغاء</button>
+          <button id="confirm-delete" class="button button-danger" type="button">حذف</button>
+        </div>
+      </div>
+    </dialog>
+
+    <div id="toast" class="toast" role="status" aria-live="polite" hidden></div>
+
+    <script
+      src="https://unpkg.com/lucide@0.468.0/dist/umd/lucide.min.js"
+      integrity="sha384-uTYyvsSSUZeaPhb5RbKlQa0zY/WpX/QHfvg2mczXyBQOpkWPEDy9lczyp+w7SKXu"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/sortablejs@1.15.6/Sortable.min.js"
+      integrity="sha384-HZZ/fukV+9G8gwTNjN7zQDG0Sp7MsZy5DDN6VfY3Be7V9dvQpEpR2jF2HlyFUUjU"
+      crossorigin="anonymous"
+    ></script>
+    <script src="portfolio-admin.js?v=20260820-1"></script>
+  </body>
+</html>
