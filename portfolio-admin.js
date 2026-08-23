@@ -329,7 +329,7 @@
     dragHandle.title = canSort ? "اسحب لتغيير الترتيب" : "امسح البحث لتفعيل الترتيب";
     dragHandle.setAttribute("aria-label", `تغيير ترتيب ${work.brand}`);
     dragHandle.innerHTML = '<i data-lucide="grip-vertical" aria-hidden="true"></i>';
-    dragHandle.addEventListener("keydown", (event) => {
+    dragHandle.addEventListener("keydown", async (event) => {
       if (!canSort || !["ArrowUp", "ArrowDown"].includes(event.key)) return;
       event.preventDefault();
       const targetIndex = event.key === "ArrowUp" ? index - 1 : index + 1;
@@ -340,6 +340,7 @@
           .querySelector(`[data-work-index="${targetIndex}"] .profile-drag-handle`)
           ?.focus();
       });
+      await publishChanges();
     });
 
     openButton.append(icon, copy, state);
@@ -387,10 +388,11 @@
       ghostClass: "sortable-ghost",
       chosenClass: "sortable-chosen",
       dragClass: "sortable-drag",
-      onEnd: (event) => {
+      onEnd: async (event) => {
         if (event.oldIndex === event.newIndex) return;
         moveWork(event.oldIndex, event.newIndex);
         renderWorks();
+        await publishChanges();
       },
     });
   }
@@ -532,6 +534,7 @@
     dataDirty = true;
     formDirty = false;
     elements.publishChanges.disabled = false;
+    elements.publishChanges.hidden = true;
     setSyncStatus(message || "لديك تغييرات غير منشورة", "dirty");
   }
 
@@ -548,7 +551,7 @@
     updatePreview();
   }
 
-  function saveWork(event) {
+  async function saveWork(event) {
     event.preventDefault();
     elements.formError.hidden = true;
     try {
@@ -582,8 +585,8 @@
       updateCategoryButtons();
       fillForm(nextWork, activeCategory);
       renderWorks();
-      markDataDirty("تم حفظ العمل كمسودة");
-      showToast("تم حفظ العمل. اضغط نشر التغييرات لإظهاره في الموقع", "success");
+      markDataDirty("جاري حفظ ونشر العمل");
+      await publishChanges();
     } catch (error) {
       elements.formError.textContent = error.message;
       elements.formError.hidden = false;
@@ -601,7 +604,7 @@
     elements.deleteDialog.showModal();
   }
 
-  function confirmDelete() {
+  async function confirmDelete() {
     const work = works[activeCategory][selectedIndex];
     if (!work) return;
     works[activeCategory].splice(selectedIndex, 1);
@@ -611,8 +614,8 @@
     formDirty = false;
     showEmptyEditor();
     renderWorks();
-    markDataDirty(`تم حذف ${work.brand} كمسودة`);
-    showToast("تم الحذف. اضغط نشر التغييرات لتطبيقه على الموقع", "success");
+    markDataDirty(`جاري حذف ونشر ${work.brand}`);
+    await publishChanges();
   }
 
   async function loadData() {
@@ -634,6 +637,7 @@
       formDirty = false;
       elements.workSearch.value = "";
       elements.publishChanges.disabled = true;
+      elements.publishChanges.hidden = true;
       updateCategoryButtons();
       showEmptyEditor();
       renderWorks();
@@ -740,6 +744,7 @@
     }
     if (!dataDirty) return;
     if (!githubToken) {
+      elements.publishChanges.hidden = false;
       openGithubDialog(true);
       return;
     }
@@ -794,6 +799,7 @@
       baseIndexSource = nextIndexSource;
       dataDirty = false;
       elements.publishChanges.disabled = true;
+      elements.publishChanges.hidden = true;
       setSyncStatus("جاري نشر الموقع");
       const deployed = await waitForPublicData(nextDataSource, version);
       if (deployed) {
@@ -806,6 +812,8 @@
     } catch (error) {
       setSyncStatus("تعذر نشر التغييرات", "error");
       showToast(error.message, "error");
+      elements.publishChanges.hidden = false;
+      elements.publishChanges.disabled = false;
       if (/رمز GitHub|صلاحية/.test(error.message)) {
         githubToken = "";
         clearStoredGithubToken();

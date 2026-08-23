@@ -219,7 +219,7 @@
 
 @media (max-width: 680px) {
   .works-admin-page .header-actions {
-    grid-template-columns: 44px 44px minmax(0, 1fr);
+    grid-template-columns: 44px 44px;
   }
 
   .works-admin-page #github-connect {
