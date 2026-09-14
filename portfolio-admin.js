@@ -71,7 +71,6 @@
   let baseDataSource = "";
   let baseIndexSource = "";
   let githubToken = loadStoredGithubToken();
-  let publishAfterConnection = false;
   let toastTimer = null;
   let worksSortable = null;
 
@@ -93,7 +92,7 @@
 
   function setBusy(isBusy) {
     document.body.classList.toggle("is-busy", isBusy);
-    elements.publishChanges.disabled = isBusy || !dataDirty || formDirty;
+    elements.publishChanges.disabled = isBusy || (!dataDirty && !formDirty);
   }
 
   function showToast(message, state = "") {
@@ -359,7 +358,7 @@
     dragHandle.title = canSort ? "اسحب لتغيير الترتيب" : "امسح البحث لتفعيل الترتيب";
     dragHandle.setAttribute("aria-label", `تغيير ترتيب ${work.brand}`);
     dragHandle.innerHTML = '<i data-lucide="grip-vertical" aria-hidden="true"></i>';
-    dragHandle.addEventListener("keydown", async (event) => {
+    dragHandle.addEventListener("keydown", (event) => {
       if (!canSort || !["ArrowUp", "ArrowDown"].includes(event.key)) return;
       event.preventDefault();
       const targetIndex = event.key === "ArrowUp" ? index - 1 : index + 1;
@@ -370,7 +369,6 @@
           .querySelector(`[data-work-index="${targetIndex}"] .profile-drag-handle`)
           ?.focus();
       });
-      await publishChanges();
     });
 
     openButton.append(icon, copy, state);
@@ -396,7 +394,7 @@
       if (fromIndex < selectedIndex && toIndex >= selectedIndex) selectedIndex -= 1;
       if (fromIndex > selectedIndex && toIndex <= selectedIndex) selectedIndex += 1;
     }
-    markDataDirty("تم تعديل ترتيب الأعمال");
+    markDataDirty();
     return true;
   }
 
@@ -418,11 +416,10 @@
       ghostClass: "sortable-ghost",
       chosenClass: "sortable-chosen",
       dragClass: "sortable-drag",
-      onEnd: async (event) => {
+      onEnd: (event) => {
         if (event.oldIndex === event.newIndex) return;
         moveWork(event.oldIndex, event.newIndex);
         renderWorks();
-        await publishChanges();
       },
     });
   }
@@ -465,7 +462,7 @@
 
   function switchCategory(category) {
     if (category === activeCategory) return;
-    if (!confirmDiscardForm()) return;
+    if (!stagePendingForm()) return;
     activeCategory = category;
     selectedIndex = null;
     isNewWork = false;
@@ -489,15 +486,20 @@
   }
 
   function selectWork(index) {
-    if (!confirmDiscardForm()) return;
-    const work = works[activeCategory][index];
+    if (!isNewWork && selectedIndex === index) return;
+    const targetCategory = activeCategory;
+    const work = works[targetCategory][index];
     if (!work) return;
+    if (!stagePendingForm()) return;
+    activeCategory = targetCategory;
+    index = works[targetCategory].indexOf(work);
     selectedIndex = index;
     isNewWork = false;
     formDirty = false;
     elements.editorMode.textContent = "تعديل العمل";
     elements.editorTitle.textContent = work.brand;
     elements.deleteWork.hidden = false;
+    updateCategoryButtons();
     fillForm(work, activeCategory);
     showEditor();
     renderWorks();
@@ -507,7 +509,7 @@
   }
 
   function startNewWork() {
-    if (!confirmDiscardForm()) return;
+    if (!stagePendingForm()) return;
     selectedIndex = null;
     isNewWork = true;
     formDirty = false;
@@ -560,12 +562,10 @@
     initializeIcons();
   }
 
-  function markDataDirty(message) {
+  function markDataDirty() {
     dataDirty = true;
-    formDirty = false;
     elements.publishChanges.disabled = false;
-    elements.publishChanges.hidden = true;
-    setSyncStatus(message || "لديك تغييرات غير منشورة", "dirty");
+    setSyncStatus("لديك تغييرات غير محفوظة", "dirty");
   }
 
   function handleFormInput(event) {
@@ -574,15 +574,15 @@
       if (detectedType) selectRadio(elements.typeInputs, detectedType);
     }
     formDirty = true;
-    elements.publishChanges.disabled = true;
-    setSyncStatus("تعديل العمل غير محفوظ", "dirty");
+    elements.publishChanges.disabled = false;
+    setSyncStatus("لديك تغييرات غير محفوظة", "dirty");
     elements.formError.hidden = true;
     updateCompletionStatus();
     updatePreview();
   }
 
-  async function saveWork(event) {
-    event.preventDefault();
+  function saveWork(event) {
+    event?.preventDefault();
     elements.formError.hidden = true;
     try {
       const category = getSelectedRadio(elements.categoryInputs);
@@ -615,12 +615,18 @@
       updateCategoryButtons();
       fillForm(nextWork, activeCategory);
       renderWorks();
-      markDataDirty("جاري حفظ ونشر العمل");
-      await publishChanges();
+      markDataDirty();
+      return true;
     } catch (error) {
       elements.formError.textContent = error.message;
       elements.formError.hidden = false;
+      elements.formError.scrollIntoView({ block: "nearest" });
+      return false;
     }
+  }
+
+  function stagePendingForm() {
+    return !formDirty || saveWork();
   }
 
   function confirmDiscardForm() {
@@ -634,7 +640,7 @@
     elements.deleteDialog.showModal();
   }
 
-  async function confirmDelete() {
+  function confirmDelete() {
     const work = works[activeCategory][selectedIndex];
     if (!work) return;
     works[activeCategory].splice(selectedIndex, 1);
@@ -644,8 +650,7 @@
     formDirty = false;
     showEmptyEditor();
     renderWorks();
-    markDataDirty(`جاري حذف ونشر ${work.brand}`);
-    await publishChanges();
+    markDataDirty();
   }
 
   async function loadData() {
@@ -667,7 +672,6 @@
       formDirty = false;
       elements.workSearch.value = "";
       elements.publishChanges.disabled = true;
-      elements.publishChanges.hidden = true;
       updateCategoryButtons();
       showEmptyEditor();
       renderWorks();
@@ -688,8 +692,7 @@
     elements.githubConnect.setAttribute("aria-label", githubToken ? "GitHub متصل" : "اتصال GitHub");
   }
 
-  function openGithubDialog(shouldPublish = false) {
-    publishAfterConnection = shouldPublish;
+  function openGithubDialog() {
     elements.githubError.hidden = true;
     elements.githubError.textContent = "";
     elements.githubToken.value = githubToken;
@@ -714,14 +717,12 @@
       showToast(savedTo === "localStorage" ? "تم الاتصال وحفظه على هذا المتصفح"
         : savedTo === "sessionStorage" ? "تم الاتصال لهذه الجلسة؛ الاتصال الدائم غير محفوظ"
           : "تم الاتصال لهذه الصفحة فقط؛ المتصفح يمنع حفظ الاتصال", "success");
-      if (publishAfterConnection) await publishChanges();
     } catch (error) {
       githubToken = previousToken;
       elements.githubError.textContent = error.message;
       elements.githubError.hidden = false;
     } finally {
       elements.confirmGithub.disabled = false;
-      publishAfterConnection = false;
     }
   }
 
@@ -770,15 +771,12 @@
   }
 
   async function publishChanges() {
-    if (formDirty) {
-      showToast("احفظ تعديل العمل أولاً", "error");
-      return;
-    }
+    if (document.body.classList.contains("is-busy")) return;
+    if (!stagePendingForm()) return;
     if (!dataDirty) return;
     if (!githubToken) {
       elements.publishChanges.hidden = false;
-      publishAfterConnection = true;
-      setSyncStatus("النشر يحتاج اتصال GitHub. اضغط زر اتصال GitHub لإكمال الحفظ", "error");
+      setSyncStatus("اربط GitHub ثم اضغط حفظ كل التغييرات", "error");
       return;
     }
 
@@ -832,7 +830,6 @@
       baseIndexSource = nextIndexSource;
       dataDirty = false;
       elements.publishChanges.disabled = true;
-      elements.publishChanges.hidden = true;
       setSyncStatus("جاري نشر الموقع");
       const deployed = await waitForPublicData(nextDataSource, version);
       if (deployed) {
@@ -871,6 +868,7 @@
     selectedIndex = null;
     isNewWork = false;
     formDirty = false;
+    elements.publishChanges.disabled = !dataDirty;
     showEmptyEditor();
     renderWorks();
     setSyncStatus(dataDirty ? "لديك تغييرات غير منشورة" : "البيانات محدثة", dataDirty ? "dirty" : "success");
@@ -880,7 +878,7 @@
   elements.cancelDelete.addEventListener("click", () => elements.deleteDialog.close());
   elements.reloadData.addEventListener("click", loadData);
   elements.publishChanges.addEventListener("click", publishChanges);
-  elements.githubConnect.addEventListener("click", () => openGithubDialog(dataDirty && !formDirty));
+  elements.githubConnect.addEventListener("click", openGithubDialog);
   elements.githubForm.addEventListener("submit", connectGithub);
   elements.disconnectGithub.addEventListener("click", disconnectGithub);
   elements.closeGithubDialog.addEventListener("click", () => elements.githubDialog.close());
