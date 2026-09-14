@@ -67,9 +67,8 @@ window.portfolioWorks = {
     },
     {
       "brand": "كافي ثلث",
-      "type": "video",
-      "preview": "https://drive.google.com/file/d/1J1erDjKoIa6vQM4t9uxZlcAiKb_TrwZX/preview",
-      "url": "https://drive.google.com/file/d/1J1erDjKoIa6vQM4t9uxZlcAiKb_TrwZX/view"
+      "type": "folder",
+      "url": "https://drive.google.com/drive/folders/1EbSs6_9Q4aMRYva0qySRf9r8THSbl-ca"
     },
     {
       "brand": "كنان",
@@ -253,6 +252,29 @@ window.portfolioWorks = {
       "brand": "ويشت",
       "type": "folder",
       "url": "https://drive.google.com/drive/folders/1JpHjVEYbCpMeHNjzJmJFemycdmvxQX_R"
+    },
+    {
+      "brand": "جاكو للسيارات",
+      "type": "folder",
+      "url": "https://drive.google.com/drive/folders/1jK8GS0mZ-wpyXbFBOiL_jGa4R4ECsC2f"
+    },
+    {
+      "brand": "مكعب العقارية",
+      "type": "video",
+      "preview": "https://drive.google.com/file/d/1iyYC0qZfvIBHz1ma4o1SvuLFRRpZxFYG/preview",
+      "url": "https://drive.google.com/file/d/1iyYC0qZfvIBHz1ma4o1SvuLFRRpZxFYG/view"
+    },
+    {
+      "brand": "مقابلة قناة الإخبارية",
+      "type": "video",
+      "preview": "https://drive.google.com/file/d/1oYLFGtreK99Ucaw84mk3pK7OjuU2b8Ic/preview",
+      "url": "https://drive.google.com/file/d/1oYLFGtreK99Ucaw84mk3pK7OjuU2b8Ic/view"
+    },
+    {
+      "brand": "مقابلة إذاعة جدة",
+      "type": "video",
+      "preview": "https://drive.google.com/file/d/1y7_D40KyxfTzTYyb29eUfnI5TssxZDp3/preview",
+      "url": "https://drive.google.com/file/d/1y7_D40KyxfTzTYyb29eUfnI5TssxZDp3/view"
     }
   ],
   "ugc": [
@@ -458,6 +480,21 @@ window.portfolioWorks = {
       "type": "video",
       "preview": "https://drive.google.com/file/d/1xqeXEH5hTlAGKdC7y-vDMoG5BPvRhj2V/preview",
       "url": "https://drive.google.com/file/d/1xqeXEH5hTlAGKdC7y-vDMoG5BPvRhj2V/view"
+    },
+    {
+      "brand": "ادريان",
+      "type": "folder",
+      "url": "https://drive.google.com/drive/folders/1gi7xjdAhyFoOP4C7b3qA5GgMqSD95pnu"
+    },
+    {
+      "brand": "صفوة الجوف",
+      "type": "folder",
+      "url": "https://drive.google.com/drive/folders/1ofLDfVZAMG2vosu4AdAlnxrpTJQHJ7tN"
+    },
+    {
+      "brand": "سالس",
+      "type": "folder",
+      "url": "https://drive.google.com/drive/folders/167Vf4pVWz4qbDG32xe51L3qez_ShEJtA"
     }
   ]
 };
