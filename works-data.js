@@ -323,6 +323,12 @@ window.portfolioWorks = {
       "url": "https://drive.google.com/drive/folders/17RO873F2ZbErV3wdXj2gHO0ne6uSdguY"
     },
     {
+      "brand": "ايفست للتداول",
+      "type": "video",
+      "url": "https://drive.google.com/file/d/1wNQKpSymBUeIIIY72lqe134kFkqMGTDn/view",
+      "preview": "https://drive.google.com/file/d/1wNQKpSymBUeIIIY72lqe134kFkqMGTDn/preview"
+    },
+    {
       "brand": "okx للتداول",
       "type": "video",
       "url": "https://drive.google.com/file/d/1tInO4Js1r7meJ-PAeVHA02WzkhViV3U_/view",
@@ -333,12 +339,6 @@ window.portfolioWorks = {
       "type": "video",
       "url": "https://drive.google.com/file/d/1eZB7WwRHiGPA51JWaVvmMBzYYAve1u2h/view",
       "preview": "https://drive.google.com/file/d/1eZB7WwRHiGPA51JWaVvmMBzYYAve1u2h/preview"
-    },
-    {
-      "brand": "ايفست للتداول",
-      "type": "video",
-      "url": "https://drive.google.com/file/d/1wNQKpSymBUeIIIY72lqe134kFkqMGTDn/view",
-      "preview": "https://drive.google.com/file/d/1wNQKpSymBUeIIIY72lqe134kFkqMGTDn/preview"
     },
     {
       "brand": "نقاء الماء",
