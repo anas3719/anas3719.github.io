@@ -219,16 +219,21 @@
 
 @media (max-width: 680px) {
   .works-admin-page .header-actions {
-    grid-template-columns: 44px 44px;
+    grid-template-columns: 44px minmax(0, 1fr);
   }
 
   .works-admin-page #github-connect {
-    width: 44px;
-    padding: 0;
+    width: auto;
+    padding-inline: 12px;
   }
 
   .works-admin-page #github-connect span {
-    display: none;
+    display: inline;
+  }
+
+  .works-admin-page #publish-changes {
+    grid-column: 1 / -1;
+    width: 100%;
   }
 
   .work-category-button {

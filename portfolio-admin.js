@@ -7,7 +7,8 @@
     branch: "main",
   };
 
-  const githubTokenStorageKey = "cast-admin-github-token";
+  const githubTokenStorageKey = "portfolio-admin-github-token";
+  const legacyGithubTokenStorageKey = "cast-admin-github-token";
   const categoryLabels = {
     regular: "الإعلانات العادية",
     ugc: "UGC",
@@ -107,35 +108,57 @@
   }
 
   function loadStoredGithubToken() {
-    try {
-      return localStorage.getItem(githubTokenStorageKey)
-        || sessionStorage.getItem(githubTokenStorageKey)
-        || "";
-    } catch (error) {
-      return "";
+    for (const storageName of ["localStorage", "sessionStorage"]) {
+      try {
+        const storage = window[storageName];
+        const saved = storage.getItem(githubTokenStorageKey);
+        if (saved !== null) {
+          if (saved) return saved;
+          continue;
+        }
+        const legacy = storage.getItem(legacyGithubTokenStorageKey);
+        if (legacy) {
+          try { storage.setItem(githubTokenStorageKey, legacy); } catch (error) { /* Preserve the in-memory connection. */ }
+          return legacy;
+        }
+      } catch (error) {
+        // Try session storage even when persistent storage is blocked.
+      }
     }
+    return "";
   }
 
   function storeGithubToken(token, rememberOnDevice) {
+    const preferred = rememberOnDevice ? "localStorage" : "sessionStorage";
+    let savedTo = "memory";
     try {
-      if (rememberOnDevice) {
-        localStorage.setItem(githubTokenStorageKey, token);
-        sessionStorage.removeItem(githubTokenStorageKey);
-      } else {
-        sessionStorage.setItem(githubTokenStorageKey, token);
-        localStorage.removeItem(githubTokenStorageKey);
-      }
+      window[preferred].setItem(githubTokenStorageKey, token);
+      savedTo = preferred;
     } catch (error) {
-      sessionStorage.setItem(githubTokenStorageKey, token);
+      if (rememberOnDevice) {
+        try {
+          window.sessionStorage.setItem(githubTokenStorageKey, token);
+          savedTo = "sessionStorage";
+        } catch (storageError) {
+          // Publishing still works for this open page.
+        }
+      }
     }
+    for (const storageName of ["localStorage", "sessionStorage"]) {
+      if (storageName === savedTo) continue;
+      try { window[storageName].setItem(githubTokenStorageKey, ""); } catch (error) { /* Storage may be blocked. */ }
+    }
+    return savedTo;
   }
 
   function clearStoredGithubToken() {
-    try {
-      localStorage.removeItem(githubTokenStorageKey);
-      sessionStorage.removeItem(githubTokenStorageKey);
-    } catch (error) {
-      // The in-memory connection is still cleared.
+    for (const storageName of ["localStorage", "sessionStorage"]) {
+      try {
+        // Prevent reconnection from the legacy shared key after disconnecting.
+        window[storageName].setItem(githubTokenStorageKey, "");
+      } catch (error) {
+        // The in-memory connection is still cleared.
+      }
     }
   }
 
@@ -160,11 +183,18 @@
     });
 
     if (!response.ok) {
-      if (response.status === 401) throw new Error("رمز GitHub غير صحيح أو انتهت صلاحيته");
-      if (response.status === 403) throw new Error("رمز GitHub لا يملك صلاحية تعديل المستودع");
-      if (response.status === 404) throw new Error("تعذر الوصول إلى مستودع الموقع بهذا الرمز");
       const body = await response.json().catch(() => ({}));
-      throw new Error(body.message || "تعذر الاتصال بـ GitHub");
+      const rateLimited = response.status === 429
+        || (response.status === 403 && (response.headers.get("x-ratelimit-remaining") === "0"
+          || response.headers.has("retry-after") || /rate limit|abuse/i.test(body.message || "")));
+      let message = body.message || "تعذر الاتصال بـ GitHub";
+      if (rateLimited) message = "GitHub أوقف الطلبات مؤقتًا. اتصالك محفوظ؛ حاول النشر لاحقًا";
+      else if (response.status === 401) message = "انتهت صلاحية اتصال GitHub أو أُلغي الرمز. حدّث الاتصال من زر GitHub";
+      else if (response.status === 403) message = "GitHub رفض النشر. اتصالك محفوظ؛ راجع صلاحية تعديل المستودع من زر GitHub";
+      else if (response.status === 404) message = "تعذر الوصول إلى مستودع الموقع. راجع المستودع المسموح به من زر GitHub";
+      const error = new Error(message);
+      error.status = response.status;
+      throw error;
     }
 
     if (response.status === 204) return null;
@@ -678,10 +708,12 @@
     elements.githubError.hidden = true;
     try {
       await githubRequest(`/repos/${repository.owner}/${repository.name}`);
-      storeGithubToken(githubToken, elements.rememberToken.checked);
+      const savedTo = storeGithubToken(githubToken, elements.rememberToken.checked);
       updateConnectionButton();
       elements.githubDialog.close();
-      showToast("تم اتصال GitHub بنجاح", "success");
+      showToast(savedTo === "localStorage" ? "تم الاتصال وحفظه على هذا المتصفح"
+        : savedTo === "sessionStorage" ? "تم الاتصال لهذه الجلسة؛ الاتصال الدائم غير محفوظ"
+          : "تم الاتصال لهذه الصفحة فقط؛ المتصفح يمنع حفظ الاتصال", "success");
       if (publishAfterConnection) await publishChanges();
     } catch (error) {
       githubToken = previousToken;
@@ -745,7 +777,8 @@
     if (!dataDirty) return;
     if (!githubToken) {
       elements.publishChanges.hidden = false;
-      openGithubDialog(true);
+      publishAfterConnection = true;
+      setSyncStatus("النشر يحتاج اتصال GitHub. اضغط زر اتصال GitHub لإكمال الحفظ", "error");
       return;
     }
 
@@ -810,11 +843,11 @@
         showToast("تم الرفع إلى GitHub، وقد يستغرق ظهور التحديث دقيقة", "success");
       }
     } catch (error) {
-      setSyncStatus("تعذر نشر التغييرات", "error");
+      setSyncStatus(error.message, "error");
       showToast(error.message, "error");
       elements.publishChanges.hidden = false;
       elements.publishChanges.disabled = false;
-      if (/رمز GitHub|صلاحية/.test(error.message)) {
+      if (error.status === 401) {
         githubToken = "";
         clearStoredGithubToken();
         updateConnectionButton();
@@ -847,7 +880,7 @@
   elements.cancelDelete.addEventListener("click", () => elements.deleteDialog.close());
   elements.reloadData.addEventListener("click", loadData);
   elements.publishChanges.addEventListener("click", publishChanges);
-  elements.githubConnect.addEventListener("click", () => openGithubDialog(false));
+  elements.githubConnect.addEventListener("click", () => openGithubDialog(dataDirty && !formDirty));
   elements.githubForm.addEventListener("submit", connectGithub);
   elements.disconnectGithub.addEventListener("click", disconnectGithub);
   elements.closeGithubDialog.addEventListener("click", () => elements.githubDialog.close());
