@@ -275,6 +275,17 @@ window.portfolioWorks = {
       "type": "video",
       "url": "https://drive.google.com/file/d/1mvs4o1cIz_Hmf4Xl5qXJn2IiebuXOHKs/view",
       "preview": "https://drive.google.com/file/d/1mvs4o1cIz_Hmf4Xl5qXJn2IiebuXOHKs/preview"
+    },
+    {
+      "brand": "أسماك السيد",
+      "type": "folder",
+      "url": "https://drive.google.com/drive/folders/1MiiIbH_5Lhfreo_Yk0jeOZmxlHigc1mt"
+    },
+    {
+      "brand": "الجامعة الإسلامية بالمدينة المنورة",
+      "type": "video",
+      "url": "https://drive.google.com/file/d/1pJf5xzpc7kDc0_BvW3jZp06MH39R7tX0/view",
+      "preview": "https://drive.google.com/file/d/1pJf5xzpc7kDc0_BvW3jZp06MH39R7tX0/preview"
     }
   ],
   "ugc": [
@@ -495,6 +506,30 @@ window.portfolioWorks = {
       "type": "video",
       "url": "https://drive.google.com/file/d/1xqeXEH5hTlAGKdC7y-vDMoG5BPvRhj2V/view",
       "preview": "https://drive.google.com/file/d/1xqeXEH5hTlAGKdC7y-vDMoG5BPvRhj2V/preview"
+    },
+    {
+      "brand": "مستقبل اللغات",
+      "type": "video",
+      "url": "https://drive.google.com/file/d/1FnCk6GKQQLRzvsSCMsrP2E6AjMPgN4UB/view",
+      "preview": "https://drive.google.com/file/d/1FnCk6GKQQLRzvsSCMsrP2E6AjMPgN4UB/preview"
+    },
+    {
+      "brand": "من الصفر للنشر",
+      "type": "video",
+      "url": "https://drive.google.com/file/d/1f2yA92Ikknazy-FcxY612ZXj12eAtUyN/view",
+      "preview": "https://drive.google.com/file/d/1f2yA92Ikknazy-FcxY612ZXj12eAtUyN/preview"
+    },
+    {
+      "brand": "عينك على البحر",
+      "type": "video",
+      "url": "https://drive.google.com/file/d/1-_WKy2Mcknl4vvG-oMEzM5k-JJWqRg-X/view",
+      "preview": "https://drive.google.com/file/d/1-_WKy2Mcknl4vvG-oMEzM5k-JJWqRg-X/preview"
+    },
+    {
+      "brand": "فعالية عينك على البحر",
+      "type": "video",
+      "url": "https://drive.google.com/file/d/1QIlsLZypxdx8bkBbu9iCE8LSfhkdCC3h/view",
+      "preview": "https://drive.google.com/file/d/1QIlsLZypxdx8bkBbu9iCE8LSfhkdCC3h/preview"
     }
   ]
 };
