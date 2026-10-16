@@ -295,7 +295,7 @@ h2 {
 
 .gallery {
   display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   max-width: 1180px;
   margin-inline: auto;
   gap: 16px;
@@ -331,6 +331,12 @@ h2 {
 .shot img,
 .hero-media img {
   filter: contrast(1.08) saturate(0.86) brightness(0.86);
+}
+
+.hero-media img {
+  position: absolute;
+  inset: 0;
+  object-fit: contain;
 }
 
 .shot img {
