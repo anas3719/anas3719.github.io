@@ -3,7 +3,11 @@ window.portfolioWorks = {
     {
       "brand": "موبايلي",
       "type": "folder",
-      "url": "https://drive.google.com/drive/folders/15Ri5m-TxUu6L6lSYcChn3LhevuFIoKPl"
+      "url": "https://drive.google.com/drive/folders/15Ri5m-TxUu6L6lSYcChn3LhevuFIoKPl",
+      "featuredVideo": {
+        "url": "https://drive.google.com/file/d/1WhvAoeGiT171-78XVi7zH0BoghZCN9pS/view",
+        "preview": "https://drive.google.com/file/d/1WhvAoeGiT171-78XVi7zH0BoghZCN9pS/preview"
+      }
     },
     {
       "brand": "تويوتا عبداللطيف جميل",
@@ -26,17 +30,29 @@ window.portfolioWorks = {
     {
       "brand": "جاكو للسيارات",
       "type": "folder",
-      "url": "https://drive.google.com/drive/folders/1jK8GS0mZ-wpyXbFBOiL_jGa4R4ECsC2f"
+      "url": "https://drive.google.com/drive/folders/1jK8GS0mZ-wpyXbFBOiL_jGa4R4ECsC2f",
+      "featuredVideo": {
+        "url": "https://drive.google.com/file/d/1276Uk2xIDt4BI8gPD9agCKsXXLusIKcR/view",
+        "preview": "https://drive.google.com/file/d/1276Uk2xIDt4BI8gPD9agCKsXXLusIKcR/preview"
+      }
     },
     {
       "brand": "شرفة",
       "type": "folder",
-      "url": "https://drive.google.com/drive/folders/1IATlerNp7wpbrBPluKDwMEJ325FlDT_E"
+      "url": "https://drive.google.com/drive/folders/1IATlerNp7wpbrBPluKDwMEJ325FlDT_E",
+      "featuredVideo": {
+        "url": "https://drive.google.com/file/d/1V4nSe6aJ9tenvK7Dv-I1Qu4KSdqupyzc/view",
+        "preview": "https://drive.google.com/file/d/1V4nSe6aJ9tenvK7Dv-I1Qu4KSdqupyzc/preview"
+      }
     },
     {
       "brand": "جمعية اخوانكم لتمكين الايتام",
       "type": "folder",
-      "url": "https://drive.google.com/drive/folders/1U4gGeQt1kSSIY7tjMvioQhLcP8mWozLN"
+      "url": "https://drive.google.com/drive/folders/1U4gGeQt1kSSIY7tjMvioQhLcP8mWozLN",
+      "featuredVideo": {
+        "url": "https://drive.google.com/file/d/1UExelsIUiNmqqZJ-SEsnrmQvcl0mPcw0/view",
+        "preview": "https://drive.google.com/file/d/1UExelsIUiNmqqZJ-SEsnrmQvcl0mPcw0/preview"
+      }
     },
     {
       "brand": "عسل الثنيان",
@@ -47,12 +63,20 @@ window.portfolioWorks = {
     {
       "brand": "ماكدونالدز",
       "type": "folder",
-      "url": "https://drive.google.com/drive/folders/1REL5D_nKScmBkjzOaW2wyKZCDki9vmx_"
+      "url": "https://drive.google.com/drive/folders/1REL5D_nKScmBkjzOaW2wyKZCDki9vmx_",
+      "featuredVideo": {
+        "url": "https://drive.google.com/file/d/167SuF_jY0uzA1XuIjmvcCMtXJU478vHU/view",
+        "preview": "https://drive.google.com/file/d/167SuF_jY0uzA1XuIjmvcCMtXJU478vHU/preview"
+      }
     },
     {
       "brand": "كالو CALO",
       "type": "folder",
-      "url": "https://drive.google.com/drive/folders/1Dwyv-Sti4kXw99NrRGI6BPxinEvXJqla"
+      "url": "https://drive.google.com/drive/folders/1Dwyv-Sti4kXw99NrRGI6BPxinEvXJqla",
+      "featuredVideo": {
+        "url": "https://drive.google.com/file/d/17DEgjhlsfk6nVddXnDoepDSC92pQRoAN/view",
+        "preview": "https://drive.google.com/file/d/17DEgjhlsfk6nVddXnDoepDSC92pQRoAN/preview"
+      }
     },
     {
       "brand": "بيجو",
@@ -63,17 +87,29 @@ window.portfolioWorks = {
     {
       "brand": "مطعم تالة",
       "type": "folder",
-      "url": "https://drive.google.com/drive/folders/1WMOmcmow2aU-GaE7lCMT2IVMGYA1xQvp"
+      "url": "https://drive.google.com/drive/folders/1WMOmcmow2aU-GaE7lCMT2IVMGYA1xQvp",
+      "featuredVideo": {
+        "url": "https://drive.google.com/file/d/1iykBXJpOME0sO2ng1KG4g0MZLriZG8jI/view",
+        "preview": "https://drive.google.com/file/d/1iykBXJpOME0sO2ng1KG4g0MZLriZG8jI/preview"
+      }
     },
     {
       "brand": "مايلز لتاجير السيارات",
       "type": "folder",
-      "url": "https://drive.google.com/drive/folders/1riEONqa7TAnTXEvMNt8DGVbb_KuVSD0Q"
+      "url": "https://drive.google.com/drive/folders/1riEONqa7TAnTXEvMNt8DGVbb_KuVSD0Q",
+      "featuredVideo": {
+        "url": "https://drive.google.com/file/d/1u2FLaUS47TwTLHAzcEVyqkeeLhxqjkmT/view",
+        "preview": "https://drive.google.com/file/d/1u2FLaUS47TwTLHAzcEVyqkeeLhxqjkmT/preview"
+      }
     },
     {
       "brand": "مختارات زيد COZ",
       "type": "folder",
-      "url": "https://drive.google.com/drive/folders/1xz9WfocuyDDVtEsNZjb5TQY-YsZe8Px1"
+      "url": "https://drive.google.com/drive/folders/1xz9WfocuyDDVtEsNZjb5TQY-YsZe8Px1",
+      "featuredVideo": {
+        "url": "https://drive.google.com/file/d/1dmy0hOzizrmhZop069HEtqbEvuf5EKhT/view",
+        "preview": "https://drive.google.com/file/d/1dmy0hOzizrmhZop069HEtqbEvuf5EKhT/preview"
+      }
     },
     {
       "brand": "جيلاتو ديفينو",
@@ -88,7 +124,11 @@ window.portfolioWorks = {
     {
       "brand": "بيتونيا",
       "type": "folder",
-      "url": "https://drive.google.com/drive/folders/1bfqvr8RJcBjx6EOzpHw8sRK84uL-szK4"
+      "url": "https://drive.google.com/drive/folders/1bfqvr8RJcBjx6EOzpHw8sRK84uL-szK4",
+      "featuredVideo": {
+        "url": "https://drive.google.com/file/d/1Yw7yMcW-NDSf5AXm7fQYkzgLVwYFfxG1/view",
+        "preview": "https://drive.google.com/file/d/1Yw7yMcW-NDSf5AXm7fQYkzgLVwYFfxG1/preview"
+      }
     },
     {
       "brand": "البرديسي",
