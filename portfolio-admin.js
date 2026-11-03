@@ -15,6 +15,7 @@
   };
 
   const elements = {
+    adminMain: document.querySelector(".admin-main"),
     syncStatus: document.querySelector("#sync-status"),
     reloadData: document.querySelector("#reload-data"),
     githubConnect: document.querySelector("#github-connect"),
@@ -37,6 +38,9 @@
     completionStatus: document.querySelector("#completion-status"),
     workBrand: document.querySelector("#work-brand"),
     workUrl: document.querySelector("#work-url"),
+    featuredVideoField: document.querySelector("#featured-video-field"),
+    workFeaturedVideo: document.querySelector("#work-featured-video"),
+    previewFeaturedVideo: document.querySelector("#preview-featured-video"),
     categoryInputs: [...document.querySelectorAll('input[name="category"]')],
     typeInputs: [...document.querySelectorAll('input[name="workType"]')],
     previewFrame: document.querySelector("#work-preview-frame"),
@@ -92,6 +96,9 @@
 
   function setBusy(isBusy) {
     document.body.classList.toggle("is-busy", isBusy);
+    elements.adminMain.inert = isBusy;
+    elements.reloadData.disabled = isBusy;
+    elements.githubConnect.disabled = isBusy;
     elements.publishChanges.disabled = isBusy || (!dataDirty && !formDirty);
   }
 
@@ -247,6 +254,10 @@
       url: String(work.url).trim(),
     };
     if (type === "video") normalized.preview = String(work.preview || derivePreviewUrl(work.url)).trim();
+    if (type === "folder" && work.featuredVideo?.url) {
+      const video = normalizeDriveWork(normalized.brand, "video", work.featuredVideo.url);
+      normalized.featuredVideo = { url: video.url, preview: video.preview };
+    }
     return normalized;
   }
 
@@ -261,9 +272,11 @@
 
     try {
       const url = new URL(input);
+      if (url.protocol !== "https:" || url.hostname !== "drive.google.com") return "";
+      if (type === "video" && /\/folders\//.test(url.pathname)) return "";
       const queryId = url.searchParams.get("id");
-      if (queryId) return queryId;
-      const pattern = type === "folder" ? /\/folders\/([A-Za-z0-9_-]+)/ : /\/d\/([A-Za-z0-9_-]+)/;
+      if (queryId && /^\/(?:open|uc)$/.test(url.pathname) && /^[A-Za-z0-9_-]+$/.test(queryId)) return queryId;
+      const pattern = type === "folder" ? /^\/(?:drive\/(?:u\/\d+\/)?)?folders\/([A-Za-z0-9_-]+)(?:\/|$)/ : /^\/file\/(?:u\/\d+\/)?d\/([A-Za-z0-9_-]+)(?:\/|$)/;
       return url.pathname.match(pattern)?.[1] || "";
     } catch (error) {
       return "";
@@ -272,17 +285,26 @@
 
   function detectLinkType(value) {
     const input = String(value || "");
-    if (/drive\.google\.com\/drive\/folders\//i.test(input)) return "folder";
-    if (/drive\.google\.com\/(?:file\/d\/|open\?)/i.test(input)) return "video";
+    if (/drive\.google\.com\/(?:drive\/(?:u\/\d+\/)?)?folders\//i.test(input)) return "folder";
+    if (/drive\.google\.com\/(?:file\/(?:u\/\d+\/)?d\/|open\?|uc\?)/i.test(input)) return "video";
     return "";
   }
 
   function derivePreviewUrl(value) {
     const id = extractDriveId(value, "video");
-    return id ? `https://drive.google.com/file/d/${id}/preview` : "";
+    return id ? videoDriveUrl(value, id, "preview") : "";
   }
 
-  function normalizeDriveWork(brand, type, value) {
+  function videoDriveUrl(value, id, action) {
+    const result = new URL(`https://drive.google.com/file/d/${id}/${action}`);
+    try {
+      const resourceKey = new URL(value).searchParams.get("resourcekey");
+      if (resourceKey) result.searchParams.set("resourcekey", resourceKey);
+    } catch (error) { /* Bare Drive IDs do not have query parameters. */ }
+    return result.href;
+  }
+
+  function normalizeDriveWork(brand, type, value, featuredValue = "") {
     const cleanBrand = String(brand || "").trim();
     if (!cleanBrand) throw new Error("اكتب اسم البراند أو الشركة");
 
@@ -292,18 +314,24 @@
     }
 
     if (type === "folder") {
-      return {
+      const folder = {
         brand: cleanBrand,
         type: "folder",
         url: `https://drive.google.com/drive/folders/${id}`,
       };
+      if (String(featuredValue).trim()) {
+        if (!extractDriveId(featuredValue, "video")) throw new Error("رابط الفيديو الرئيسي غير صحيح؛ اختر رابط فيديو من Google Drive وليس مجلدًا");
+        const video = normalizeDriveWork(cleanBrand, "video", featuredValue);
+        folder.featuredVideo = { url: video.url, preview: video.preview };
+      }
+      return folder;
     }
 
     return {
       brand: cleanBrand,
       type: "video",
-      preview: `https://drive.google.com/file/d/${id}/preview`,
-      url: `https://drive.google.com/file/d/${id}/view`,
+      preview: videoDriveUrl(value, id, "preview"),
+      url: videoDriveUrl(value, id, "view"),
     };
   }
 
@@ -349,7 +377,7 @@
 
     const state = document.createElement("span");
     state.className = "profile-state is-complete";
-    state.textContent = work.type === "folder" ? "مجلد" : "فيديو";
+    state.textContent = work.type === "folder" ? (work.featuredVideo ? "مجلد + فيديو" : "مجلد") : "فيديو";
 
     const dragHandle = document.createElement("button");
     dragHandle.type = "button";
@@ -477,6 +505,7 @@
   function fillForm(work, category) {
     elements.workBrand.value = work?.brand || "";
     elements.workUrl.value = work?.url || "";
+    elements.workFeaturedVideo.value = work?.featuredVideo?.url || "";
     selectRadio(elements.categoryInputs, category);
     selectRadio(elements.typeInputs, work?.type || "video");
     elements.formError.hidden = true;
@@ -528,7 +557,7 @@
   function updateCompletionStatus() {
     let complete = false;
     try {
-      normalizeDriveWork(elements.workBrand.value, getSelectedRadio(elements.typeInputs), elements.workUrl.value);
+      normalizeDriveWork(elements.workBrand.value, getSelectedRadio(elements.typeInputs), elements.workUrl.value, elements.workFeaturedVideo.value);
       complete = true;
     } catch (error) {
       complete = false;
@@ -537,27 +566,27 @@
     elements.completionStatus.classList.toggle("is-complete", complete);
   }
 
-  function updatePreview() {
+  function updatePreview(showFeatured = false) {
     const type = getSelectedRadio(elements.typeInputs);
     const id = extractDriveId(elements.workUrl.value, type);
     const hasTarget = Boolean(id);
-    elements.previewFrame.hidden = type !== "video" || !hasTarget;
-    elements.previewPlaceholder.hidden = type === "video" && hasTarget;
-    elements.previewPlaceholder.classList.toggle("is-folder", type === "folder" && hasTarget);
-    elements.previewPlaceholder.innerHTML = type === "folder" && hasTarget
+    elements.featuredVideoField.hidden = type !== "folder";
+    elements.workFeaturedVideo.disabled = type !== "folder";
+    const preview = derivePreviewUrl(type === "folder" ? elements.workFeaturedVideo.value : elements.workUrl.value);
+    const showVideo = Boolean(preview) && (type === "video" || showFeatured || elements.previewFrame.getAttribute("src") === preview);
+    elements.previewFeaturedVideo.disabled = type !== "folder" || !preview;
+    elements.previewFrame.hidden = !showVideo;
+    elements.previewPlaceholder.hidden = showVideo;
+    elements.previewPlaceholder.classList.toggle("is-folder", type === "folder");
+    elements.previewPlaceholder.innerHTML = type === "folder"
       ? '<i data-lucide="folder-open" aria-hidden="true"></i><span>مجلد البراند</span>'
       : '<i data-lucide="circle-play" aria-hidden="true"></i><span>معاينة العمل</span>';
-
-    if (type === "video" && hasTarget) {
-      const preview = `https://drive.google.com/file/d/${id}/preview`;
-      if (elements.previewFrame.src !== preview) elements.previewFrame.src = preview;
-      elements.openWorkLink.href = `https://drive.google.com/file/d/${id}/view`;
-    } else {
-      elements.previewFrame.src = "about:blank";
-      elements.openWorkLink.href = type === "folder" && hasTarget
-        ? `https://drive.google.com/drive/folders/${id}`
-        : "#";
-    }
+    const target = showVideo ? preview : "about:blank";
+    if (elements.previewFrame.getAttribute("src") !== target) elements.previewFrame.src = target;
+    elements.openWorkLink.href = hasTarget
+      ? (type === "folder" ? `https://drive.google.com/drive/folders/${id}` : videoDriveUrl(elements.workUrl.value, id, "view"))
+      : "#";
+    elements.openWorkLink.querySelector("span").textContent = type === "folder" ? "دخول المجلد" : "فتح في Google Drive";
     elements.openWorkLink.hidden = !hasTarget;
     initializeIcons();
   }
@@ -587,7 +616,7 @@
     try {
       const category = getSelectedRadio(elements.categoryInputs);
       const type = getSelectedRadio(elements.typeInputs);
-      const nextWork = normalizeDriveWork(elements.workBrand.value, type, elements.workUrl.value);
+      const nextWork = normalizeDriveWork(elements.workBrand.value, type, elements.workUrl.value, elements.workFeaturedVideo.value);
       const previousCategory = activeCategory;
 
       if (isNewWork) {
@@ -863,6 +892,7 @@
   elements.workForm.addEventListener("submit", saveWork);
   elements.workForm.addEventListener("input", handleFormInput);
   elements.workForm.addEventListener("change", handleFormInput);
+  elements.previewFeaturedVideo.addEventListener("click", () => updatePreview(true));
   elements.cancelEdit.addEventListener("click", () => {
     if (!confirmDiscardForm()) return;
     selectedIndex = null;

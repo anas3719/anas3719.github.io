@@ -40,11 +40,14 @@ let activeWorkCategory = works.regular.length ? "regular" : "ugc";
 let visibleWorksCount = initialWorksCount;
 
 function createWorkCard(work, index) {
-  const card = document.createElement("button");
+  const card = document.createElement("article");
   card.className = "work-card";
-  card.type = "button";
   card.dataset.workIndex = index;
   card.dataset.workType = work.type || "video";
+  const main = document.createElement("button");
+  main.type = "button";
+  main.className = "work-card__main";
+  const video = getWorkVideo(work);
   const asset = (window.portfolioBrandAssets || {})[work.brand];
   const artwork = document.createElement("span");
   artwork.className = "work-card__artwork";
@@ -94,25 +97,61 @@ function createWorkCard(work, index) {
   type.className = "work-card__type";
   type.textContent = workCategoryLabels[activeWorkCategory] || "أعمال";
 
-  const play = document.createElement("span");
-  play.className = "work-card__play";
-  play.setAttribute("aria-hidden", "true");
-  play.classList.add(work.type === "folder" ? "work-card__play--folder" : "work-card__play--video");
-  const actionIcon = document.createElement("img");
-  actionIcon.src = `assets/work-brands/${work.type === "folder" ? "folder-open" : "circle-play"}.svg`;
-  actionIcon.alt = "";
-  actionIcon.width = 28;
-  actionIcon.height = 28;
-  play.append(actionIcon);
-
   const footer = document.createElement("span");
   footer.className = "work-card__footer";
-  footer.append(brand, play);
-  card.setAttribute("aria-label", `${work.brand} - ${work.type === "folder" ? "فتح مجلد البراند" : "مشاهدة الإعلان"}`);
-  card.title = card.getAttribute("aria-label");
-  card.append(type, artwork, footer);
-  card.addEventListener("click", () => openWork(work));
+  footer.append(brand);
+  main.setAttribute("aria-label", `${work.brand} - ${video ? "تشغيل الإعلان" : "دخول المجلد"}`);
+  main.title = main.getAttribute("aria-label");
+  main.append(type, artwork, footer);
+  main.addEventListener("click", () => openWork(work));
+
+  const actions = document.createElement("div");
+  actions.className = "work-card__actions";
+  const play = createWorkAction("تشغيل الإعلان", "circle-play", () => openVideo(video));
+  play.classList.add("work-action--play");
+  play.disabled = !video;
+  play.setAttribute("aria-label", `تشغيل إعلان ${work.brand}`);
+  play.title = video ? `تشغيل إعلان ${work.brand}` : "لم يتم اختيار فيديو رئيسي";
+  actions.append(play);
+  if (work.type === "folder") {
+    const folder = createWorkAction("دخول المجلد", "folder-open", () => window.open(work.url, "_blank", "noopener,noreferrer"));
+    folder.classList.add("work-action--folder");
+    folder.setAttribute("aria-label", `دخول مجلد ${work.brand}`);
+    actions.append(folder);
+  }
+  card.append(main, actions);
   return card;
+}
+
+function createWorkAction(label, icon, onClick) {
+  const action = document.createElement("button");
+  action.type = "button";
+  action.className = "work-action";
+  const image = document.createElement("img");
+  image.src = `assets/work-brands/${icon}.svg`;
+  image.alt = "";
+  image.width = 20;
+  image.height = 20;
+  const text = document.createElement("span");
+  text.textContent = label;
+  action.append(image, text);
+  action.addEventListener("click", onClick);
+  return action;
+}
+
+function getWorkVideo(work) {
+  if (work.type !== "folder") return work.preview ? work : null;
+  try {
+    const url = new URL(work.featuredVideo?.url);
+    const id = url.pathname.match(/^\/file\/(?:u\/\d+\/)?d\/([A-Za-z0-9_-]+)(?:\/|$)/)?.[1];
+    if (url.protocol !== "https:" || url.hostname !== "drive.google.com" || !id) return null;
+    const preview = new URL(`https://drive.google.com/file/d/${id}/preview`);
+    const resourceKey = url.searchParams.get("resourcekey");
+    if (resourceKey) preview.searchParams.set("resourcekey", resourceKey);
+    return { brand: work.brand, url: url.href, preview: preview.href };
+  } catch (error) {
+    return null;
+  }
 }
 
 function getActiveWorks() {
@@ -138,6 +177,11 @@ function renderWorks() {
 }
 
 function openWork(work) {
+  const video = getWorkVideo(work);
+  if (video) {
+    openVideo(video);
+    return;
+  }
   if (work.type === "folder") {
     window.open(work.url, "_blank", "noopener,noreferrer");
     return;
@@ -148,7 +192,7 @@ function openWork(work) {
 
 function openVideo(work) {
   if (!videoModal || !videoFrame || !videoModalTitle || !videoExternalLink) return;
-  if (!work.preview) return;
+  if (!work?.preview) return;
 
   videoModalTitle.textContent = work.brand;
   videoFrame.src = work.preview;

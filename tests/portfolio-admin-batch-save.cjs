@@ -37,8 +37,12 @@ async function main() {
       let published = false;
       const mutations = [];
       const blobs = [];
+      let releaseTree;
+      let signalTree;
+      const treeStarted = new Promise(resolve => { signalTree = resolve; });
+      const treeHold = new Promise(resolve => { releaseTree = resolve; });
       await context.route('https://raw.githubusercontent.com/**', route => route.fulfill({
-        body: route.request().url().includes('works-data.js') ? initialData : initialIndex,
+        body: route.request().url().includes('works-data.js') ? publicData : publicIndex,
       }));
       await context.route('https://drive.google.com/**', route => route.fulfill({ body: '' }));
       await context.route('**/works-data.js?admin=*', route => route.fulfill({ body: publicData }));
@@ -54,7 +58,11 @@ async function main() {
         else if (url.endsWith('/git/blobs')) {
           blobs.push(Buffer.from(request.postDataJSON().content, 'base64').toString('utf8'));
           result = { sha: 'blob-' + blobs.length };
-        } else if (url.endsWith('/git/trees')) result = { sha: 'next-tree' };
+        } else if (url.endsWith('/git/trees')) {
+          signalTree();
+          await treeHold;
+          result = { sha: 'next-tree' };
+        }
         else if (url.endsWith('/git/commits')) result = { sha: 'next-commit' };
         else if (method === 'PATCH') {
           publicData = blobs.find(value => value.startsWith('window.portfolioWorks'));
@@ -71,8 +79,20 @@ async function main() {
       assert.equal(await page.locator('#publish-changes').isEnabled(), false);
 
       await page.getByRole('button', { name: 'تعديل ' + initial.regular[0].brand, exact: true }).click();
+      assert.equal(await page.locator('#featured-video-field').isVisible(), true);
+      await page.locator('#work-featured-video').fill(initial.regular[0].url);
+      await page.locator('#publish-changes').click();
+      assert.match(await page.locator('#form-error').innerText(), /الفيديو الرئيسي/);
+      assert.equal(mutations.length, 0);
+      const selectedVideo = initial.regular.find(work => work.type === 'video');
+      await page.locator('#work-featured-video').fill(selectedVideo.url);
+      await page.locator('#preview-featured-video').click();
+      assert.equal(await page.locator('#work-preview-frame').getAttribute('src'), selectedVideo.preview);
+      assert.equal(await page.locator('#open-work-link').getAttribute('href'), initial.regular[0].url);
+      assert.equal(mutations.length, 0);
       await page.locator('#work-brand').fill('العمل الأول المعدل');
       await page.getByRole('button', { name: 'تعديل ' + initial.regular[1].brand, exact: true }).click();
+      assert.equal(await page.locator('#featured-video-field').isVisible(), false);
       await page.locator('#work-brand').fill('العمل الثاني المعدل');
       await page.locator('.profile-drag-handle').first().press('ArrowDown');
       await page.getByRole('button', { name: 'تعديل ' + initial.regular[2].brand, exact: true }).click();
@@ -93,7 +113,13 @@ async function main() {
       assert.equal(await page.locator('#publish-changes').evaluate(element => element.scrollWidth <= element.clientWidth), true);
       await page.screenshot({ path: path.join(require('node:os').tmpdir(), `portfolio-batch-${width}.png`) });
       await page.locator('#publish-changes').click();
+      await treeStarted;
+      assert.equal(await page.locator('.admin-main').evaluate(element => element.inert), true);
+      await page.locator('#work-brand').evaluate(element => element.focus());
+      assert.equal(await page.evaluate(() => Boolean(document.activeElement.closest('.admin-main'))), false);
+      releaseTree();
       await page.waitForFunction(() => document.querySelector('#sync-status').textContent.includes('تم النشر بنجاح'));
+      assert.equal(await page.locator('.admin-main').evaluate(element => element.inert), false);
       assert.equal(published, true);
       assert.equal(mutations.filter(item => item.method === 'PATCH').length, 1);
       const next = parse(publicData);
@@ -101,9 +127,25 @@ async function main() {
       assert.equal(next.ugc.length, initial.ugc.length + 1);
       assert.equal(next.regular[0].brand, 'العمل الثاني المعدل');
       assert.equal(next.regular[1].brand, 'العمل الأول المعدل');
+      assert.deepEqual(next.regular[1].featuredVideo, { url: selectedVideo.url, preview: selectedVideo.preview });
+      assert.equal(next.regular[1].url, initial.regular[0].url);
+      assert.ok(publicIndex.includes('work-brand-assets.js'));
       assert.equal(next.ugc[0].brand, 'عمل UGC معدل');
       assert.equal(next.ugc.at(-1).brand, 'عمل جديد');
       assert.equal(await page.locator('#publish-changes').isEnabled(), false);
+      await page.reload();
+      await page.waitForFunction(() => document.querySelector('#sync-status').textContent.includes('محدثة'));
+      await page.getByRole('button', { name: 'تعديل العمل الأول المعدل', exact: true }).click();
+      assert.equal(await page.locator('#work-featured-video').inputValue(), selectedVideo.url);
+      assert.equal(await page.locator('#open-work-link').getAttribute('href'), initial.regular[0].url);
+      await page.locator('#preview-featured-video').click();
+      assert.equal(await page.locator('#work-preview-frame').getAttribute('src'), selectedVideo.preview);
+      await page.locator('#work-featured-video').fill('');
+      assert.equal(await page.locator('#preview-featured-video').isDisabled(), true);
+      await page.getByRole('button', { name: 'تعديل العمل الثاني المعدل', exact: true }).click();
+      await page.getByRole('button', { name: 'تعديل العمل الأول المعدل', exact: true }).click();
+      assert.equal(await page.locator('#work-featured-video').inputValue(), '');
+      assert.equal(mutations.filter(item => item.method === 'PATCH').length, 1);
       assert.deepEqual(errors, []);
       console.log(JSON.stringify({ width, mutationsBeforeSave: 0, publicationCount: 1, allEditsIncluded: true, noOverflow: true }));
       await context.close();

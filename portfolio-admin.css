@@ -147,6 +147,17 @@
   width: 100%;
 }
 
+#featured-video-field > label {
+  color: var(--muted);
+  font-size: 13px;
+  font-weight: 700;
+}
+
+#preview-featured-video {
+  justify-self: start;
+  min-height: 44px;
+}
+
 .segmented-field {
   margin: 0;
   padding: 0;
