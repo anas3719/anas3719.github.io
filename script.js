@@ -45,6 +45,46 @@ function createWorkCard(work, index) {
   card.type = "button";
   card.dataset.workIndex = index;
   card.dataset.workType = work.type || "video";
+  const asset = (window.portfolioBrandAssets || {})[work.brand];
+  const artwork = document.createElement("span");
+  artwork.className = "work-card__artwork";
+  if (asset) {
+    card.classList.add("work-card--branded");
+    if (asset.ink === "#ffffff") card.classList.add("work-card--light-ink");
+    card.style.setProperty("--brand-background", asset.background);
+    card.style.setProperty("--brand-ink", asset.ink);
+    const logo = document.createElement("img");
+    logo.className = "work-card__logo";
+    logo.src = `assets/work-brands/${asset.file}`;
+    logo.alt = "";
+    logo.loading = "lazy";
+    logo.decoding = "async";
+    let logoFrame;
+    if (asset.frame) {
+      const [x, y, width, height] = asset.frame;
+      logoFrame = document.createElement("span");
+      logoFrame.className = "work-card__logo-frame";
+      logo.style.width = `${100 / width}%`;
+      logo.style.height = `${100 / height}%`;
+      logo.style.left = `${-100 * x / width}%`;
+      logo.style.top = `${-100 * y / height}%`;
+      logo.addEventListener("load", () => {
+        logoFrame.style.setProperty("--logo-ratio", (logo.naturalWidth * width) / (logo.naturalHeight * height));
+      }, { once: true });
+      logoFrame.append(logo);
+    }
+    logo.addEventListener("error", () => {
+      logo.remove();
+      artwork.textContent = work.brand;
+      card.classList.remove("work-card--branded");
+      card.classList.remove("work-card--light-ink");
+      card.style.removeProperty("--brand-background");
+      card.style.removeProperty("--brand-ink");
+    }, { once: true });
+    artwork.append(logoFrame || logo);
+  } else {
+    artwork.textContent = work.brand;
+  }
 
   const brand = document.createElement("span");
   brand.className = "work-card__brand";
@@ -57,13 +97,20 @@ function createWorkCard(work, index) {
   const play = document.createElement("span");
   play.className = "work-card__play";
   play.setAttribute("aria-hidden", "true");
-  play.textContent = work.type === "folder" ? "↗" : "▶";
+  play.classList.add(work.type === "folder" ? "work-card__play--folder" : "work-card__play--video");
+  const actionIcon = document.createElement("img");
+  actionIcon.src = `assets/work-brands/${work.type === "folder" ? "folder-open" : "circle-play"}.svg`;
+  actionIcon.alt = "";
+  actionIcon.width = 28;
+  actionIcon.height = 28;
+  play.append(actionIcon);
 
-  const label = document.createElement("span");
-  label.className = "work-card__label";
-  label.textContent = work.type === "folder" ? "فتح مجلد البراند" : "مشاهدة الإعلان";
-
-  card.append(type, brand, play, label);
+  const footer = document.createElement("span");
+  footer.className = "work-card__footer";
+  footer.append(brand, play);
+  card.setAttribute("aria-label", `${work.brand} - ${work.type === "folder" ? "فتح مجلد البراند" : "مشاهدة الإعلان"}`);
+  card.title = card.getAttribute("aria-label");
+  card.append(type, artwork, footer);
   card.addEventListener("click", () => openWork(work));
   return card;
 }

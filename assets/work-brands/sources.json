@@ -1,0 +1,991 @@
+{
+  "checked": "2026-11-03",
+  "records": [
+    {
+      "id": "toyota",
+      "file": "toyota.svg",
+      "page": "https://www.toyota.com.sa/",
+      "asset": "https://edge.sitecorecloud.io/abdullatifj9343-aljmotorsb309-aljprod6e5f-d335/media/project/alj/alj-motors/toyota/toyota-ksa/identity/toyotalogo/logo_new.svg?h=30&iar=0&w=182",
+      "width": 182,
+      "height": 30,
+      "sha256": "4767dfcce2cea3ea025d4d1f9a8ab49ef69297647464452ff1b13b342c604ece"
+    },
+    {
+      "id": "tamara",
+      "file": "tamara.svg",
+      "page": "https://tamara.co/en-sa",
+      "asset": "https://cdn.prod.website-files.com/67c184892f7a84b971ff49d9/68931b49f2808979578bdc64_tamara-text-logo-black-en.svg",
+      "width": 97,
+      "height": 19,
+      "sha256": "29b88b2f314432d211edbce3f81ab791505b423985321ce696c242d6d148b074"
+    },
+    {
+      "id": "saqaf",
+      "file": "saqaf.png",
+      "page": "https://saqaffabric.com/",
+      "asset": "https://cdn.salla.sa/form-builder/0Yr1wZzE3G8C2sSzy6sw0lMPNprSlh5ltcW3bVdr.png",
+      "width": 260,
+      "height": 195,
+      "sha256": "94f19c01fa5065ed81bf36f3538a95909dab40253b7567974868e6b0f5237a0e"
+    },
+    {
+      "id": "havana",
+      "file": "havana.webp",
+      "page": "https://havanarest.shop/",
+      "asset": "https://cdn.files.salla.network/theme/534883971/b45c210e-14ae-45f1-9dc6-06b616630b9a-original.webp",
+      "width": 500,
+      "height": 500,
+      "sha256": "a11a542247b838bdc0d0c7f488dc27aa61307898a8bbf20c6e5817b744ad29aa"
+    },
+    {
+      "id": "baytonia",
+      "file": "baytonia.png",
+      "page": "https://baytonia.com/",
+      "asset": "https://baytonia.com/media/logo/stores/1/logo-new-2024.png",
+      "width": 1080,
+      "height": 300,
+      "sha256": "1e4524c0ba68b4842b987b60a6acf837c8766e7da1d0f7eb2b760d0e85479413"
+    },
+    {
+      "id": "iu",
+      "file": "iu.svg",
+      "page": "https://iu.edu.sa/",
+      "asset": "https://cdn.iu.edu.sa/NDS-iu/assets/img/iu-logo.svg",
+      "width": 300,
+      "height": 77,
+      "sha256": "bb7078e421effa29685ca875b17ad2da6d5879fb4d1a1440cd10fb235132c8a8"
+    },
+    {
+      "id": "bound",
+      "file": "bound.png",
+      "page": "https://boundlawfirm.com/",
+      "asset": "https://boundlawfirm.com/wp-content/uploads/2024/06/Untitled-1.png",
+      "width": 1726,
+      "height": 495,
+      "sha256": "b3ccf7de47e41d3dc5f7c312fad295222f6cae0793c0af16b1a2207a2b2bf03a"
+    },
+    {
+      "id": "sleepline",
+      "file": "sleepline.png",
+      "page": "https://sleepline.com.sa/",
+      "asset": "https://cdn.salla.sa/cdn-cgi/image/fit=scale-down,width=400,height=400,onerror=redirect,format=auto/BrAqEr/P9eMe48ZK1bWm6gcqELXXNSPqm6Fvd2EMOfHlwhe.png",
+      "width": 400,
+      "height": 229,
+      "sha256": "331aea9ab7c09b97a7d45a09453077127ad1bf4c91e8558ad8170f23b9adfa82"
+    },
+    {
+      "id": "sharbatly",
+      "file": "sharbatly.png",
+      "page": "https://www.sharbatlyfruit.com/ar",
+      "asset": "https://www.sharbatlyfruit.com/assets/images/header-logo-1.png",
+      "width": 285,
+      "height": 190,
+      "sha256": "7ab83fb8fad996ce303b17572ee0ef0bcf3fb09716fc2615e81ab36baccc8d17"
+    },
+    {
+      "id": "calo",
+      "file": "calo.svg",
+      "page": "https://calo.app/en-sa",
+      "asset": "inline header SVG",
+      "sha256": "08293c370512a71b327a84a0f1ff7924948acf47d013ac4356a7ba2d0a8b67e3",
+      "width": 169,
+      "height": 96
+    },
+    {
+      "id": "ghanem",
+      "file": "ghanem.svg",
+      "page": "https://www.ghanem.sa/ar",
+      "asset": "inline header SVG",
+      "sha256": "8b1f1bc1c52aad94534c807dd00528e83245cbd5550cf114202590be605c0402",
+      "width": 67,
+      "height": 34
+    },
+    {
+      "id": "mobily",
+      "file": "mobily.svg",
+      "page": "https://commons.wikimedia.org/wiki/File:Mobily_Logo.svg",
+      "asset": "https://upload.wikimedia.org/wikipedia/commons/f/fe/Mobily_Logo.svg",
+      "attributedOriginalSource": "https://www.mobily.com.sa/wps/portal/web/personal",
+      "sha256": "e415140ed71186c6807181de6332ad9677b02a8ba252d1924ccfe72f1b95da99",
+      "width": 379,
+      "height": 600
+    },
+    {
+      "id": "cheveu",
+      "file": "cheveu.webp",
+      "page": "https://cheveusolutions.co/en/",
+      "asset": "https://cdn.files.salla.network/other/501814046/a2bef9f6-fd52-4aaa-8ee9-c2e88046f6f5-original.webp",
+      "width": 1339,
+      "height": 575,
+      "matchEvidence": "Matched CHEVEU SOLUTIONS wordmark on Drive video opening frame",
+      "sha256": "b04562d073f55340fd4e4a20eaced574135b5673e1aae40886172f0e0204e677"
+    },
+    {
+      "id": "uptal",
+      "file": "uptal.svg",
+      "page": "https://uptal.com/",
+      "asset": "https://uptal.com/assets/images/logo_white.svg",
+      "width": 300,
+      "height": 104,
+      "sha256": "be43948529f8d5691e6ffde6fdf13e20dd83f91a8732568026528727fa87c2ed"
+    },
+    {
+      "id": "hassan",
+      "file": "hassan.png",
+      "page": "https://his.edu.sa/",
+      "asset": "https://his.edu.sa/logo_white.png",
+      "width": 329,
+      "height": 378,
+      "sha256": "12748ccd93d737dc60f848bde47f3d244424f48fbcd96bc4b61afb7fbd1102c7"
+    },
+    {
+      "id": "safa",
+      "file": "safa.png",
+      "page": "https://safawater.sa/",
+      "asset": "https://safawater.sa/wp-content/uploads/2026/09/logo-en.png",
+      "width": 1081,
+      "height": 1081,
+      "sha256": "eed34b515067690b2ca3b5c1465470053cd777e72ce9b8563f0c94179cd86d80"
+    },
+    {
+      "id": "nafea",
+      "file": "nafea.png",
+      "page": "https://nafeafarm.com/ar",
+      "asset": "https://cdn.salla.sa/form-builder/IfxXFR1bzCQuQDyDFdOi5fyWB88VfVv2GypbuyTR.png",
+      "width": 176,
+      "height": 213,
+      "sha256": "6dd7ddded7b60e258806ab1bbd3f3d2821d944f26cd6c2390c3d9b10d0dbfd34"
+    },
+    {
+      "id": "adrian",
+      "file": "adrian.png",
+      "page": "https://adrianksa.com/",
+      "asset": "https://adrianksa.com/cdn/shop/files/Logo-Adrian-black.png?v=1674226738",
+      "width": 1770,
+      "height": 813,
+      "sha256": "2db18d59ded535c655cf605cceff3c20b5ed53a12ef1e0cb372abbfc531d3a8a"
+    },
+    {
+      "id": "travelyalla",
+      "file": "travelyalla.png",
+      "page": "https://travelyalla.com/ar-SA",
+      "asset": "https://travelyalla.com/_next/static/media/logo-white.91f3f80a.png",
+      "width": 3543,
+      "height": 1135,
+      "sha256": "ef40f6f2be83eaa62364ffa17b5c43fe78917cb3e330583f35a2ae8156695d87"
+    },
+    {
+      "id": "kinan",
+      "file": "kinan.png",
+      "page": "https://kinan.com.sa/ar/",
+      "asset": "https://kinan.com.sa/wp-content/uploads/2024/09/Kinan-White-1024x501.png",
+      "width": 1024,
+      "height": 501,
+      "sha256": "43aef8d5ad7df536afa649424017759ad498766abd58a72324e11902ac543a4a"
+    },
+    {
+      "id": "aldeeb",
+      "file": "aldeeb.png",
+      "page": "https://aldeebtex.com/",
+      "asset": "https://cdn.salla.sa/form-builder/om3V0MspCqsXxJ3YxJ3c2WK83K57bxLzlZgW8Wu1.png",
+      "width": 1565,
+      "height": 310,
+      "sha256": "17af6c3c287780ed031974b12f5fb00f9ee53cfbe7547fbda494a8a592ffabd1"
+    },
+    {
+      "id": "taylan",
+      "file": "taylan.jpg",
+      "page": "https://taylan.sa/",
+      "asset": "https://media.zid.store/d3f1c23c-359b-49bf-8b77-5c099a3abcfd/a0f535ef-412f-401b-9731-6fd8779b47b2.jpg",
+      "width": 1186,
+      "height": 998,
+      "sha256": "57c85ac35377692a088391824714abf5e3529114b5dfe7dbcdbd1049ce795ec3"
+    },
+    {
+      "id": "sirfrancis",
+      "file": "sirfrancis.webp",
+      "page": "https://sirfrancis.com/ar",
+      "asset": "https://cdn.files.salla.network/other/1296913577/77acd788-3f2f-4118-b22d-c3513182791f-original.webp",
+      "width": 624,
+      "height": 500,
+      "sha256": "a43001b8c8f06520b9100bf49461790ca5ea0b68e0012c115f2e803de212efb1"
+    },
+    {
+      "id": "salus",
+      "file": "salus.png",
+      "page": "https://salus.com.sa/",
+      "asset": "https://salus.com.sa/wp-content/uploads/2025/10/Salus-Logo-3-scaled-1536x415.png",
+      "width": 1536,
+      "height": 415,
+      "sha256": "b1a470bf61042b677d5397c52a3cb48d06070a89fb2a845459b977a955a42ccf"
+    },
+    {
+      "id": "ashkal",
+      "file": "ashkal.png",
+      "page": "https://ashkalstore.com/",
+      "asset": "https://ashkalstore.com/cdn/shop/files/logo_Ashkal.png?v=1669105072",
+      "sha256": "e67f2c2cc7f7973f1c2ae53bc3b2df1eb6ffcd037dae0bd6def63500a16f338e",
+      "width": 2000,
+      "height": 928
+    },
+    {
+      "id": "daleel",
+      "file": "daleel.svg",
+      "page": "https://daleelstore.com/ar",
+      "asset": "https://daleelstore.com/d2022/img/logo_ar_updated.svg",
+      "sha256": "8e654df46b9a148537f5e66f107ff03598877e127fea6f354eb19d8a8cd94e63",
+      "width": 178,
+      "height": 49
+    },
+    {
+      "id": "batci",
+      "file": "batci.jpg",
+      "page": "https://batcisaudia.com/ar",
+      "asset": "https://cdn.salla.sa/cdn-cgi/image/fit=scale-down,width=400,height=400,onerror=redirect,format=auto/LjaJ/HEtXXp70rH7RQHOd9Y3CwREoXLZXQJUYm8HMesjA.jpg",
+      "sha256": "a23dcaaf58603065004b9777f5bcc45b23d7a673e8ed49421e8b6eb0a01175c5",
+      "width": 400,
+      "height": 380
+    },
+    {
+      "id": "tygo",
+      "file": "tygo.svg",
+      "page": "https://tygo.sa/",
+      "asset": "https://tygo.sa/media/logos/default-dark.svg",
+      "sha256": "f6ba68d0884c933e3689e961e048e47a1de167de891f706b8ea9404c96fd62f1",
+      "width": 314,
+      "height": 149
+    },
+    {
+      "id": "safwat",
+      "file": "safwat.jpg",
+      "page": "https://safwat-aljawf.com/ar",
+      "asset": "https://cdn.salla.sa/cdn-cgi/image/fit=scale-down,width=400,height=400,onerror=redirect,format=auto/YDabo/8PTjRFsCUPFz22KvxFbbgeycsnXCmHAHoF6kXofe.jpg",
+      "sha256": "50ab76b2db4555cb75413c00634bc69095a85e76cb6b35692b6b12fbd3f8634a",
+      "width": 400,
+      "height": 231
+    },
+    {
+      "id": "sibf",
+      "file": "sibf.svg",
+      "page": "https://www.sibf.com/",
+      "asset": "https://sibf.com/assets/images/white-logo.svg",
+      "sha256": "e7776e944a5f5f51fe39e8760e293ad3fc46b7aa09e2f2ffda73657b0b4abb74",
+      "width": 300,
+      "height": 73
+    },
+    {
+      "id": "albrog",
+      "file": "albrog.png",
+      "page": "https://albrog.com/",
+      "asset": "https://albrog.com/wp-content/uploads/2025/05/cropped-%D8%A7%D9%84%D8%B4%D8%B9%D8%A7%D8%B1-%D9%84%D9%84%D9%85%D9%88%D9%82%D8%B9.png",
+      "sha256": "d5ca6e166a0e76a644041a42c368f472c6478cb7225a405f329728e217e2f40b",
+      "width": 500,
+      "height": 294
+    },
+    {
+      "id": "sifi",
+      "file": "sifi.svg",
+      "page": "https://www.sifi.app/ar/",
+      "asset": "inline header logo SVG",
+      "sha256": "6218ac11b6889f8787d4c010bfba05b9121eb0cab9c03f7e95a3d38900a0f552",
+      "width": 144,
+      "height": 34
+    },
+    {
+      "id": "outback",
+      "file": "outback.svg",
+      "page": "https://www.outbacksaudi.com/",
+      "asset": "inline header logo SVG",
+      "sha256": "dea3bbdf923779e98cb6024c157520ce97c28760471446b44bf2f5b62211b485",
+      "width": 300,
+      "height": 111
+    },
+    {
+      "id": "mcdonalds",
+      "file": "mcdonalds.svg",
+      "page": "https://commons.wikimedia.org/wiki/File:McDonald%27s_Golden_Arches.svg",
+      "asset": "https://upload.wikimedia.org/wikipedia/commons/3/36/McDonald%27s_Golden_Arches.svg",
+      "sha256": "f7f34c46de7ce20ec8427bdf3a14d8df2c8703aa807e877497ee96f5eac1fe1d",
+      "width": 273,
+      "height": 239
+    },
+    {
+      "id": "jaecoo-vector",
+      "file": "jaecoo.svg",
+      "page": "https://commons.wikimedia.org/wiki/File:Jaecoo_wordmark.svg",
+      "asset": "https://upload.wikimedia.org/wikipedia/commons/4/4b/Jaecoo_wordmark.svg",
+      "sha256": "0b1b1f6c251f35ec9c6c6f6f7837a58909709e5e0b7ae3c534852a5fa5bbc756",
+      "width": 1696,
+      "height": 263
+    },
+    {
+      "id": "lulu",
+      "file": "lulu.png",
+      "page": "https://commons.wikimedia.org/wiki/File:Lulu_Hypermarket_logo.png",
+      "asset": "https://upload.wikimedia.org/wikipedia/commons/a/ab/Lulu_Hypermarket_logo.png",
+      "sha256": "36bb25dab5380c7f511fcd6ff3da5bf2d221e94a8ee0cf4ae3e9ef056fb9c729",
+      "width": 477,
+      "height": 157
+    },
+    {
+      "id": "peugeot",
+      "file": "peugeot.svg",
+      "page": "https://ksa.peugeot.com/ar/index.html",
+      "asset": "https://cdn.jsdelivr.net/npm/simple-icons@14.0.0/icons/peugeot.svg",
+      "sha256": "52eac20d95c797916ee5ce7344a0e2a647472a9e560af2f2e1e4f45f0de7edf3",
+      "width": 150,
+      "height": 150
+    },
+    {
+      "id": "miles",
+      "file": "miles.png",
+      "page": "https://www.milesrentacar.com/",
+      "asset": "https://www.milesrentacar.com/images/logo/logo-1.png",
+      "sha256": "7a85ca24c5c231a38daa8411da05fbc369e1b775465d0f1e86b794a2d5234dee",
+      "width": 360,
+      "height": 360
+    },
+    {
+      "id": "honey",
+      "file": "honey.png",
+      "page": "https://althenayanhoneykwt.com/",
+      "asset": "https://althenayanhoneykwt.com/cdn/shop/files/01-1-removebg-preview.png?v=1786962918",
+      "sha256": "6d570d51365ba84278323a6755beb6f61dc2f4157e3f4f0034f24eec1be5e9a0",
+      "width": 500,
+      "height": 500
+    },
+    {
+      "id": "handin",
+      "file": "handin.png",
+      "page": "https://www.handin.org.sa/",
+      "asset": "https://www.handin.org.sa/rafed/uploads/system/widelogo.png",
+      "sha256": "0fb8e900445c710b39fcf94e8381a9f9f450755db7d56b21c7f68ff4bdf246cb",
+      "width": 367,
+      "height": 144
+    },
+    {
+      "id": "hadiyah",
+      "file": "hadiyah.png",
+      "page": "https://hadiyah.org.sa/media-center?item=videoGallery",
+      "asset": "https://hadiyah.org.sa/%D9%85%D9%84%D9%88%D9%86%20%D8%B9%D8%B1%D8%B6%D9%8A.png",
+      "sha256": "85dde4d1dcb4cf0d83b56b9f61481c3677afb5e51fd5441fc52ecb4e99fddc99",
+      "width": 3972,
+      "height": 1570
+    },
+    {
+      "id": "almond",
+      "file": "almond.jpg",
+      "page": "https://almondhair.com.sa/",
+      "asset": "https://cdn.salla.sa/Vqxgwb/stores/logos/0OD6BKa4ADYsEskgQYep2pa8eOU01Gcdpor47P85.jpg",
+      "sha256": "4570b9ea394cc0782cc340d38b7926e480f7eca315aa5ec1b56b485d905d2638",
+      "width": 400,
+      "height": 125
+    },
+    {
+      "id": "flake",
+      "file": "flake.png",
+      "page": "https://www.flaketech.net/ar/pages/about-us",
+      "asset": "https://www.flaketech.net/cdn/shop/files/Text_logo_copy.png?v=1777378034",
+      "sha256": "e9aed6d69da2a2afea9926fc9ac45ecd4cf3a3560216ae8c1ab9f71bbfe31df0",
+      "width": 1459,
+      "height": 269
+    },
+    {
+      "id": "govyy",
+      "file": "govyy.webp",
+      "page": "https://govyy.com/ar",
+      "asset": "https://cdn.files.salla.network/theme/1781289505/f8b0c2f7-bc25-4ad9-b656-a90f58667cb0.webp",
+      "sha256": "a31ec0522e87eb9b85898b72895475d2018d1d40d098f6f8fec2ded0c09e3864",
+      "width": 500,
+      "height": 199
+    },
+    {
+      "id": "infinity",
+      "file": "infinity.png",
+      "page": "https://infinityjerp.net/ar",
+      "asset": "https://cdn.salla.sa/pQrNoj/pEeKK96PAQZAkuvGT6wY4VPVXQWWGJwCqAIYPyZX.png",
+      "sha256": "2339f99e4dd014ae817edc72accb00564a579a7b6738f8526e4876023681e6b9",
+      "width": 3336,
+      "height": 1196
+    },
+    {
+      "id": "arib",
+      "file": "arib.png",
+      "page": "https://arib.com.sa/",
+      "asset": "https://arib.com.sa/media/bdchgtiv/225c15dc218aafbe012ada0d7729b7c5.png",
+      "sha256": "3955207959fcc5a10c75b29f5a93dcba7ce7c650d19879440f727d97fce6db7a",
+      "width": 999,
+      "height": 536
+    },
+    {
+      "id": "baridx",
+      "file": "baridx.svg",
+      "page": "https://baridx.com/our-story-ar",
+      "asset": "inline header logo SVG",
+      "sha256": "74402e35b48ce0d0411e4b7de5442f328281f1a28be0bbecf720dea99af2adec",
+      "width": 300,
+      "height": 75
+    },
+    {
+      "id": "telgani",
+      "file": "telgani.png",
+      "page": "User-supplied brand asset folder",
+      "asset": "logo/1200x600wa (1).png",
+      "userSupplied": true,
+      "unmodified": true,
+      "sha256": "e8aba1fc9acc9c99f9b8e7f0a13015f7b62d42d022759074faa9153a1bfee699",
+      "width": 1200,
+      "height": 600
+    },
+    {
+      "id": "effectx-original",
+      "file": "effectx-original.jpg",
+      "page": "User-supplied brand asset folder",
+      "asset": "logo/290564030_1843337782522841_1565050659932318692_n.jpg",
+      "userSupplied": true,
+      "unmodified": true,
+      "sha256": "096c10fa7de28bf9c0c0a1a7916f1149d74757e4458026beea5c7d8665ac8a58",
+      "width": 720,
+      "height": 720
+    },
+    {
+      "id": "kencof",
+      "file": "kencof.jpg",
+      "page": "User-supplied brand asset folder",
+      "asset": "logo/2gKN3Be0zkWKysKSDDj9rA3XDapv1ulI9KMYlMPv.jpg",
+      "userSupplied": true,
+      "unmodified": true,
+      "sha256": "393d930972a0338a4001a0b2ae8cb9f457b60018bbcfd7e940467eca2e8b1616",
+      "width": 652,
+      "height": 642
+    },
+    {
+      "id": "masar",
+      "file": "masar.jpg",
+      "page": "User-supplied brand asset folder",
+      "asset": "logo/382940761_828194348952235_2625337779047988819_n.jpg",
+      "userSupplied": true,
+      "unmodified": true,
+      "sha256": "c907ff8c2bd1b916ef6917aff06c3fbefa5026c68304388594f7bcfef1353390",
+      "width": 1080,
+      "height": 1080
+    },
+    {
+      "id": "qjabal-color",
+      "file": "qjabal-color.jpg",
+      "page": "User-supplied brand asset folder",
+      "asset": "logo/428082697_409766555054426_5656106149775502314_n.jpg",
+      "userSupplied": true,
+      "unmodified": true,
+      "sha256": "69dd91f3a558d43ec84228ef73b61c07e8a42af95fdefdb01d8b4d1007adad5e",
+      "width": 1080,
+      "height": 1080
+    },
+    {
+      "id": "sorayai",
+      "file": "sorayai.jpg",
+      "page": "User-supplied brand asset folder",
+      "asset": "logo/471993141_1057625262782283_6723532017903147896_n.jpg",
+      "userSupplied": true,
+      "unmodified": true,
+      "sha256": "a10453a599facd81dd224168eb4a9708c9449a7b89df11ac663a4b632b559969",
+      "width": 1080,
+      "height": 1080
+    },
+    {
+      "id": "gelato",
+      "file": "gelato.jpg",
+      "page": "User-supplied brand asset folder",
+      "asset": "logo/488532418_1165839051651102_1833996769532921746_n.jpg",
+      "userSupplied": true,
+      "unmodified": true,
+      "sha256": "b936690d73114ac7c72e4bc17ffeef835d0c519935a7addf71d428eed39baa7d",
+      "width": 1080,
+      "height": 1080
+    },
+    {
+      "id": "grandx",
+      "file": "grandx.jpg",
+      "page": "User-supplied brand asset folder",
+      "asset": "logo/517628551_17858022078451903_7127884887920329976_n.jpg",
+      "userSupplied": true,
+      "unmodified": true,
+      "sha256": "a461c98dd58b51b973e8a483a159b1e96d1b32a3f896df029d2df95970ca1df5",
+      "width": 1080,
+      "height": 1080
+    },
+    {
+      "id": "tala",
+      "file": "tala.jpg",
+      "page": "User-supplied brand asset folder",
+      "asset": "logo/540910051_17850911013540132_1112686650902701777_n.jpg",
+      "userSupplied": true,
+      "unmodified": true,
+      "sha256": "67e87ba4f38fe0844b5ef50ca86cb71517474a6cf8c022ec4c1382ecf937cbaa",
+      "width": 1080,
+      "height": 1080
+    },
+    {
+      "id": "wicht",
+      "file": "wicht.jpeg",
+      "page": "User-supplied brand asset folder",
+      "asset": "logo/693dbd649ee0dbafdbf84af5f5b4a748.jpeg",
+      "userSupplied": true,
+      "unmodified": true,
+      "sha256": "c2fe88a3b29305c4f180cf784a07862fa96a6ce749b019ab344103414182264e",
+      "width": 1040,
+      "height": 1280
+    },
+    {
+      "id": "horse-original",
+      "file": "horse-original.jpg",
+      "page": "User-supplied brand asset folder",
+      "asset": "logo/94880405_236069320976156_570251651227582464_n.jpg",
+      "userSupplied": true,
+      "unmodified": true,
+      "sha256": "44833b61e87ccc225acbd252d86c65ac7d06cd7cf3e378a7070efbbdf2c6ce79",
+      "width": 1080,
+      "height": 1080
+    },
+    {
+      "id": "snowy",
+      "file": "snowy.jpg",
+      "page": "User-supplied brand asset folder",
+      "asset": "logo/BLyQWmE1_400x400.jpg",
+      "userSupplied": true,
+      "unmodified": true,
+      "sha256": "10a71d80dfeb430b476da5980b6009194af34d6ae9127e3f82b17c44408aff5a",
+      "width": 400,
+      "height": 400
+    },
+    {
+      "id": "evest",
+      "file": "evest.png",
+      "page": "User-supplied brand asset folder",
+      "asset": "logo/Evest-logo-1.png",
+      "userSupplied": true,
+      "unmodified": true,
+      "sha256": "d9abc8f71ddd910cc9acf93a0be9e23ab47c622cf04164b98fdf3dd3ec852047",
+      "width": 252,
+      "height": 160
+    },
+    {
+      "id": "mrmandoob",
+      "file": "mrmandoob.png",
+      "page": "User-supplied brand asset folder",
+      "asset": "logo/GreenLogo.png",
+      "userSupplied": true,
+      "unmodified": true,
+      "sha256": "ef870880adc0790a2226d14fdbdbbfc791e79a51efd347f4c3527d2d7925e8a2",
+      "width": 4114,
+      "height": 1784
+    },
+    {
+      "id": "bridge",
+      "file": "bridge.jpg",
+      "page": "User-supplied brand asset folder",
+      "asset": "logo/bridge.jpg",
+      "userSupplied": true,
+      "unmodified": true,
+      "sha256": "fe5623ca075165bc4311a1b927c5c82bfea658979e2a011e5ba4dd42616e8dfb",
+      "width": 1200,
+      "height": 630
+    },
+    {
+      "id": "baraq",
+      "file": "baraq.png",
+      "page": "User-supplied brand asset folder",
+      "asset": "logo/images (2).png",
+      "userSupplied": true,
+      "unmodified": true,
+      "sha256": "1e10191e03e91ded8579ec9d30bb41b314aa811fd6b500e8c7dbc5f1a4f95bd5",
+      "width": 225,
+      "height": 225
+    },
+    {
+      "id": "stars-smile",
+      "file": "stars-smile.jpg",
+      "page": "User-supplied brand asset folder",
+      "asset": "logo/web Banners logos-154 STARS SMILE CLINIC.jpg",
+      "userSupplied": true,
+      "unmodified": true,
+      "sha256": "6154bbfaef78290a713accbf05d06f34df56d041a103c9178cd6125567ec2f7d",
+      "width": 1920,
+      "height": 640
+    },
+    {
+      "id": "eda2at",
+      "file": "eda2at.png",
+      "page": "User-supplied brand asset folder",
+      "asset": "logo/اضاءات.png",
+      "userSupplied": true,
+      "unmodified": true,
+      "sha256": "e00ebe9d29f667561a8a0b886ff722ec1f817f8e4cd4cc163d84801621368462",
+      "width": 1009,
+      "height": 637
+    },
+    {
+      "id": "experts-event",
+      "file": "experts-event.jpg",
+      "page": "User-supplied brand asset folder",
+      "asset": "logo/اكسبرت ايفنت.jpg",
+      "userSupplied": true,
+      "unmodified": true,
+      "sha256": "4771ff0c2bf2e74a8fb68d4c72e2847a25e2cf3aa1a332ac7054d1069e050165",
+      "width": 800,
+      "height": 800
+    },
+    {
+      "id": "bardisi-original",
+      "file": "bardisi-original.jpg",
+      "page": "User-supplied brand asset folder",
+      "asset": "logo/البرديسي.jpg",
+      "userSupplied": true,
+      "unmodified": true,
+      "sha256": "b3444e8d605aef3e7570f625d115d2adae282b5e9a203ddd1f654f21b30ca21b",
+      "width": 1080,
+      "height": 1080
+    },
+    {
+      "id": "sahseh",
+      "file": "sahseh.png",
+      "page": "User-supplied brand asset folder",
+      "asset": "logo/صحصح.png",
+      "userSupplied": true,
+      "unmodified": true,
+      "sha256": "1eff4fe0a867ba4a3d6248ffe3d9d41c37d8925113559650a947ece09141c9bc",
+      "width": 1784,
+      "height": 892
+    },
+    {
+      "id": "ekhwanakom-original",
+      "file": "ekhwanakom-original.png",
+      "page": "User-supplied original association logo",
+      "asset": "Association logo.png provided on 2026-11-03",
+      "userSupplied": true,
+      "unmodified": true,
+      "sha256": "075de02fe6ef9b4851e63bcbcc612ca7caa2592e6a408713d49cb7af4a66d09e",
+      "width": 1732,
+      "height": 1563
+    },
+    {
+      "id": "shurfa-current",
+      "file": "shurfa-current.png",
+      "page": "https://shurfa.shop/",
+      "asset": "https://media.zid.store/47a3d235-27be-4714-abae-8164d0a250b1/c231baaf-e3ee-494a-ba5b-4300a52cfca6.png",
+      "sha256": "9b99bb0543ad1e899c32fb652a2f5ac78256a604abea47d64f93e902a02613a2",
+      "width": 750,
+      "height": 750
+    },
+    {
+      "id": "sayyarat-logo",
+      "file": "sayyarat-logo.png",
+      "page": "https://syaaraat.com/ar",
+      "asset": "https://files.syaaraat.com/storage/website/logo/I1HJnztPe1RwK9adv1YxM4Vl2ApVN3P6i2aY2nig.png",
+      "sha256": "188f0406fd7bf32057fa06ae08116835370691cc65b1fe06766dc9afc3b5a563",
+      "width": 1200,
+      "height": 543
+    },
+    {
+      "id": "ish7nha-logo",
+      "file": "ish7nha-logo.svg",
+      "page": "https://ish7nha.com/",
+      "asset": "https://ish7nha.com/front-images/ish7nha_logo.svg",
+      "sha256": "f0ee14b3ae0b8e1ae50ac0a19db012fba4bc208666c56f59364c4acd8e9ba603",
+      "width": 120,
+      "height": 60
+    },
+    {
+      "id": "seven-original",
+      "file": "seven-original.png",
+      "page": "https://b2b.7fix.org/",
+      "asset": "logo/unnamed (2).png - supplied original matching official app icon",
+      "userSupplied": true,
+      "unmodified": true,
+      "sha256": "53646e3cb36c43ec8736f6cd01f330cc88a6e8bfab8070c1d55aa099877f6eb3",
+      "width": 512,
+      "height": 512
+    },
+    {
+      "id": "marami-original",
+      "file": "marami-original.jpg",
+      "page": "User-supplied original brand asset folder",
+      "asset": "logo/67940273_3480657295289555_1777539156809875456_n.jpg",
+      "userSupplied": true,
+      "unmodified": true,
+      "sha256": "f6a2d8e5cb3f55ca5b2580136d860bae7744dd69c9e671101f32a1cd325db393",
+      "width": 1080,
+      "height": 1080
+    },
+    {
+      "id": "bohassan-original",
+      "file": "bohassan-original.jpg",
+      "page": "User-supplied original brand asset folder",
+      "asset": "logo/90fbb57148130388d68cc04c22e70bf1.jpg",
+      "userSupplied": true,
+      "unmodified": true,
+      "sha256": "9b95811313829d79b509eab0d070bc7e08fcacc054c2f98fe13a4bf6f68a6bd4",
+      "width": 2135,
+      "height": 1333
+    },
+    {
+      "id": "zad-current",
+      "file": "zad-current.jpg",
+      "page": "https://zaad.org.sa/",
+      "asset": "https://eyrad-storage.fra1.cdn.digitaloceanspaces.com/6198/IMG_1792.jpeg",
+      "width": 1112,
+      "height": 968,
+      "sha256": "6cd42cee9b2fc84a08ae3e87fed91170713dc99285c215650f83a7130fd338e7",
+      "ownerApproved": "2026-11-03: confirmed current website identity instead of the supplied green mark",
+      "unmodified": true
+    },
+    {
+      "id": "celsius",
+      "file": "celsius-verified.png",
+      "page": "https://linktr.ee/95celsius.cafe",
+      "asset": "https://ugc.production.linktr.ee/1a70d013-b947-4a0d-8b81-a4f5012992ac_Logo-800x800.png",
+      "width": 596,
+      "height": 596,
+      "sha256": "7e808a594f6120f2cf74b4c127896ad5999c9d0f88240ce6c9478807d52fd9da",
+      "unmodified": true,
+      "verification": "Official website or linked official brand profile"
+    },
+    {
+      "id": "gather",
+      "file": "gather-verified.png",
+      "page": "https://gatherksa.com/",
+      "asset": "https://gatherksa.com/wp-content/uploads/2024/04/gather-logo-200.png",
+      "width": 530,
+      "height": 200,
+      "sha256": "23a7f021a9c3c60e0d233aa3abc0fe80f9f0477eb71fb04a401bc6b65c233fcd",
+      "unmodified": true,
+      "verification": "Official website or linked official brand profile"
+    },
+    {
+      "id": "ekhbariya",
+      "file": "ekhbariya-verified.svg",
+      "page": "https://www.alekhbariya.net/ar",
+      "asset": "https://www.alekhbariya.net/static/media/dark_logo_new.fdba854e.svg",
+      "width": 300,
+      "height": 109,
+      "sha256": "b2b342e646bba81b559875307eb7245dc69337cf9d829d34b32c77d725d803c3",
+      "unmodified": true,
+      "verification": "Official website or linked official brand profile"
+    },
+    {
+      "id": "okx",
+      "file": "okx-verified.png",
+      "page": "https://www.okx.com/",
+      "asset": "https://www.okx.com/cdn/assets/imgs/221/187957948BD02D97.png",
+      "width": 164,
+      "height": 72,
+      "sha256": "272ae70c22d0c8550df22acbddbaf6838ca9706facd5bd08e95819e2dfefc565",
+      "unmodified": true,
+      "verification": "Official website or linked official brand profile"
+    },
+    {
+      "id": "luna",
+      "file": "luna-verified.png",
+      "page": "https://www.luna.com.sa/ar/",
+      "asset": "https://www.luna.com.sa/wp-content/uploads/2017/07/unnamed.png",
+      "width": 244,
+      "height": 244,
+      "sha256": "7e53f79edb89219b9c093e154c0fae7cf68ad72c0b97b9a0b52488f89c9afce3",
+      "unmodified": true,
+      "verification": "Official website or linked official brand profile"
+    },
+    {
+      "id": "ingame",
+      "file": "ingame-verified.png",
+      "page": "https://ingame-sports.com/",
+      "asset": "https://ingame-sports.com/wp-content/uploads/2023/09/ingame-Logo-English-3-1536x344.png",
+      "width": 1536,
+      "height": 344,
+      "sha256": "b7b53672a5ec90d55ad121f49a60d8a1599ba3b8360f966e4b307ba70f00ca89",
+      "unmodified": true,
+      "verification": "Matched football prediction app UI and developer website"
+    },
+    {
+      "id": "topten",
+      "file": "topten-verified.jpg",
+      "page": "https://www.instagram.com/toptenksa/",
+      "asset": "Public official profile image; CDN query omitted",
+      "width": 150,
+      "height": 150,
+      "sha256": "0d63786a4462f2d3a70daedbec4c5b004a54cea9f01218610da0e5349ca332a6",
+      "unmodified": true,
+      "verification": "Official company profile identifies Top Ten retail branches in Jeddah, Makkah and Riyadh"
+    },
+    {
+      "id": "alsayed",
+      "file": "alsayed-verified.jpg",
+      "page": "https://linktr.ee/alsayedseafood",
+      "asset": "https://ugc.production.linktr.ee/e1c8631f-5253-423d-91c0-6f79814887ea_Light-Grey-Brown-Minimalist-Aesthetic-Instagram-Story-Highlight-Cover--3-.png?io=true&size=avatar-v3_0",
+      "width": 400,
+      "height": 400,
+      "sha256": "05f06da0e03af3c184f11471814404efa16909a0026d9e11b953ad28445bcb77",
+      "unmodified": true,
+      "verification": "Official website or linked official brand profile"
+    },
+    {
+      "id": "future",
+      "file": "future-verified.webp",
+      "page": "https://future-en.com/",
+      "asset": "https://future-en.com/wp-content/uploads/2022/09/%D9%84%D9%88%D9%82%D9%88-%D9%85%D8%A4%D8%B3%D8%B3%D8%A9-%D9%85%D8%B3%D8%AA%D9%82%D8%A8%D9%84-%D8%A7%D9%84%D9%84%D8%BA%D8%A7%D8%AA--1024x1024.png",
+      "width": 1024,
+      "height": 1024,
+      "sha256": "3381563c57b9c25e6c05d460c9418b29743ff8d70638df2fce53d317fc2e834c",
+      "unmodified": true,
+      "verification": "Official header FE mark matches advertisement watermark"
+    },
+    {
+      "id": "mokab",
+      "file": "mokab-verified.jpg",
+      "page": "https://www.instagram.com/mokab_rs/",
+      "asset": "Public official profile image; CDN query omitted",
+      "width": 150,
+      "height": 150,
+      "sha256": "2b901bfcf5aa3bb3d7fcaea0597e0d9c3e14925d3ff3745ab40c0136bc50ed1e",
+      "unmodified": true,
+      "verification": "Matched @mokab_rs and gold cube in advertisement"
+    },
+    {
+      "id": "thuluth",
+      "file": "thuluth-verified.png",
+      "page": "https://www.thuluthcafe.com/",
+      "asset": "https://de.cdn-website.com/20251aa7177143ee81558ddd6b2be486/dms3rep/multi/Logo-05.png",
+      "width": 662,
+      "height": 427,
+      "sha256": "22f3d7eedba04e0e686f177e8506ec6e76571f4d9067c86aac1715adce2316bb",
+      "unmodified": true,
+      "verification": "Official website or linked official brand profile"
+    },
+    {
+      "id": "jeddah-radio",
+      "file": "jeddah-radio-verified.png",
+      "page": "https://aloula.faulio.com/",
+      "asset": "https://aloula.faulio.com/storage/mediagallery/bd/f5/fullhd_527bf54a5adb56ac17f572ac2cd0801304db3baf.png",
+      "width": 750,
+      "height": 750,
+      "sha256": "3fe9872ff8de5a4021e629adcfb10c0cecb1f24418c4e0d9aa23665d27b5fc4b",
+      "unmodified": true,
+      "verification": "Official website or linked official brand profile"
+    },
+    {
+      "id": "coz-large",
+      "file": "coz-large-verified.png",
+      "page": "https://linktr.ee/coz_sa",
+      "asset": "https://ugc.production.linktr.ee/6674c107-746b-4a57-a6fb-c30b853a0942_LOGO-35.png",
+      "width": 1556,
+      "height": 1556,
+      "sha256": "e8118073dc482589587301b2211664236eb69c0c07b2f6b7707d1a3925e82d85",
+      "unmodified": true,
+      "verification": "Official website or linked official brand profile"
+    }
+  ],
+  "pending": [
+    {
+      "brand": "شيخة للعطور",
+      "type": "video",
+      "url": "https://drive.google.com/file/d/1Kiyz1CxKGYw54oqqsoiwtiZtIj2srxC3/view",
+      "preview": "https://drive.google.com/file/d/1Kiyz1CxKGYw54oqqsoiwtiZtIj2srxC3/preview",
+      "status": "identity-unresolved",
+      "reason": "Advertisement shows the retailer name and product packaging; no confirmed original logo source was located.",
+      "checked": "2026-11-03"
+    },
+    {
+      "brand": "العامودي للرحلات",
+      "type": "folder",
+      "url": "https://drive.google.com/drive/folders/1w7r0ImmJDjSJSX1YkF7D3rhb-QwLadFk",
+      "status": "identity-unresolved",
+      "reason": "Advertisement has a small travel-company watermark; the correct official brand account was not established.",
+      "checked": "2026-11-03"
+    },
+    {
+      "brand": "حملة وطن بلا مخالف",
+      "type": "video",
+      "url": "https://drive.google.com/file/d/1Hm06kTEHzQgti_LES5AUSp6um7xSJ18l/view",
+      "preview": "https://drive.google.com/file/d/1Hm06kTEHzQgti_LES5AUSp6um7xSJ18l/preview",
+      "status": "campaign-mark-unverified",
+      "reason": "No separate campaign logo was verified; a generic ministry emblem was deliberately not substituted.",
+      "checked": "2026-11-03"
+    },
+    {
+      "brand": "نقاء الماء",
+      "type": "video",
+      "url": "https://drive.google.com/file/d/1cKdxxHwhYMVuZ9tQd9p2WT7qbtIH6cKz/view",
+      "preview": "https://drive.google.com/file/d/1cKdxxHwhYMVuZ9tQd9p2WT7qbtIH6cKz/preview",
+      "status": "identity-unresolved",
+      "reason": "Multiple similarly named filter stores have different marks; the visible hardware mark does not establish the retailer.",
+      "checked": "2026-11-03"
+    },
+    {
+      "brand": "منارة",
+      "type": "video",
+      "url": "https://drive.google.com/file/d/1xqeXEH5hTlAGKdC7y-vDMoG5BPvRhj2V/view",
+      "preview": "https://drive.google.com/file/d/1xqeXEH5hTlAGKdC7y-vDMoG5BPvRhj2V/preview",
+      "status": "identity-unresolved",
+      "reason": "Multiple entities share this name; sampled advertisement frames show no distinguishing logo or URL.",
+      "checked": "2026-11-03"
+    },
+    {
+      "brand": "من الصفر للنشر",
+      "type": "video",
+      "url": "https://drive.google.com/file/d/1f2yA92Ikknazy-FcxY612ZXj12eAtUyN/view",
+      "preview": "https://drive.google.com/file/d/1f2yA92Ikknazy-FcxY612ZXj12eAtUyN/preview",
+      "status": "owner-unresolved",
+      "reason": "The product owner and a separate official logo could not be established from the name and sampled frames.",
+      "checked": "2026-11-03"
+    },
+    {
+      "brand": "عينك على البحر",
+      "type": "video",
+      "url": "https://drive.google.com/file/d/1-_WKy2Mcknl4vvG-oMEzM5k-JJWqRg-X/view",
+      "preview": "https://drive.google.com/file/d/1-_WKy2Mcknl4vvG-oMEzM5k-JJWqRg-X/preview",
+      "status": "campaign-mark-unverified",
+      "reason": "A related event page was found, but its agency logo is not the initiative logo. No original isolated campaign mark was verified.",
+      "checked": "2026-11-03"
+    },
+    {
+      "brand": "فعالية عينك على البحر",
+      "type": "video",
+      "url": "https://drive.google.com/file/d/1QIlsLZypxdx8bkBbu9iCE8LSfhkdCC3h/view",
+      "preview": "https://drive.google.com/file/d/1QIlsLZypxdx8bkBbu9iCE8LSfhkdCC3h/preview",
+      "status": "campaign-mark-unverified",
+      "reason": "Event footage and related agency page were checked; no confirmed original event logo was obtained.",
+      "checked": "2026-11-03"
+    }
+  ],
+  "rejected": [
+    {
+      "page": "https://future-en.com/",
+      "reason": "First logo candidate is a partner academy, not the portfolio client; excluded after actual visual review."
+    },
+    {
+      "file": "shorfa.png",
+      "reason": "Real-estate company; user asset and advertisement identify the tea brand Shurfa instead."
+    },
+    {
+      "file": "zad.png",
+      "reason": "Previously deferred due to the supplied older mark. Owner confirmed zaad.org.sa and approved its current identity; zad-current.jpg is now used."
+    },
+    {
+      "file": "sahseh-current.png",
+      "reason": "Direct URL path returned an unrelated retailer image. Not used."
+    },
+    {
+      "file": "sahseh-current.png",
+      "reason": "Direct URL path returned an unrelated retailer image. Not used."
+    }
+  ],
+  "aiDerivativesExcluded": true,
+  "scope": {
+    "status": "owner-approved release",
+    "mapped": 91,
+    "pending": 8,
+    "textOnlyApproved": true,
+    "textOnlyApprovalDate": "2026-11-03",
+    "originalBytesPreserved": true,
+    "aiGeneratedAssetsUsed": false
+  }
+}
