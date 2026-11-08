@@ -93,17 +93,23 @@ async function main() {
       await card.scrollIntoViewIfNeeded();
       await page.screenshot({ path: path.join(output, `portfolio-featured-fixture-${width}.png`) });
 
-      // With actual unmodified data, no folder video is selected automatically.
+      // Actual data preserves owner-selected videos and does not invent new ones.
       await page.unroute('**/works-data.js?*');
       await page.reload({ waitUntil: 'domcontentloaded' });
       const originalCard = page.locator('.work-card').first();
-      assert.equal(await originalCard.locator('.work-action--play').isDisabled(), true);
+      assert.equal(await originalCard.locator('.work-action--play').isDisabled(), !folder.featuredVideo);
       assert.equal(await originalCard.locator('.work-action--folder').isEnabled(), true);
-      const folderPromise = context.waitForEvent('page');
-      await originalCard.locator('.work-card__main').click();
-      const originalPopup = await folderPromise;
-      await originalPopup.waitForURL(folder.url);
-      await originalPopup.close();
+      if (folder.featuredVideo) {
+        await originalCard.locator('.work-card__main').click();
+        assert.equal(await page.locator('#videoFrame').getAttribute('src'), folder.featuredVideo.preview);
+        await page.keyboard.press('Escape');
+      } else {
+        const folderPromise = context.waitForEvent('page');
+        await originalCard.locator('.work-card__main').click();
+        const originalPopup = await folderPromise;
+        await originalPopup.waitForURL(folder.url);
+        await originalPopup.close();
+      }
       assert.deepEqual(errors, []);
       console.log(JSON.stringify({ width, completeLogos: true, tapTargets44px: true, noNestedButtons: true, independentActions: true, selectedPlayback: true, noAutomaticSelection: true, noOverflow: true }));
       await context.close();

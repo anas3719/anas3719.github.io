@@ -40,7 +40,7 @@ test('SVG assets contain no executable content or external dependencies', () => 
 test('catalog loads before rendering and independently of admin-editable data', () => {
   const html = fs.readFileSync(path.join(root, 'index.html'), 'utf8');
   assert.ok(html.indexOf('work-brand-assets.js') < html.indexOf('src="script.js'));
-  assert.equal(works.length, 99);
+  assert.equal(works.length, 101);
   assert.ok(works.every(work => work.url.startsWith('https://drive.google.com/')));
 });
 
@@ -61,7 +61,7 @@ test('the eight owner-approved name-only works have no unverified logo mapping',
   const audit = JSON.parse(fs.readFileSync(path.join(root, 'assets/work-brands/sources.json'), 'utf8'));
   assert.equal(audit.scope.textOnlyApproved, true);
   assert.equal(audit.pending.length, 8);
-  assert.equal(Object.keys(assets).length, 91);
+  assert.equal(Object.keys(assets).length, 93);
   for (const work of audit.pending) {
     assert.ok(works.some(candidate => candidate.brand === work.brand), work.brand);
     assert.equal(Object.hasOwn(assets, work.brand), false, work.brand);

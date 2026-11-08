@@ -1,5 +1,5 @@
 {
-  "checked": "2026-11-03",
+  "checked": "2026-11-08",
   "records": [
     {
       "id": "toyota",
@@ -748,7 +748,9 @@
       "height": 596,
       "sha256": "7e808a594f6120f2cf74b4c127896ad5999c9d0f88240ce6c9478807d52fd9da",
       "unmodified": true,
-      "verification": "Official website or linked official brand profile"
+      "verification": "Owner supplied official Instagram profile links to the recorded Linktree source; original 596px logo retained and current work-name mapping corrected",
+      "confirmedProfile": "https://www.instagram.com/95celsiuscafe/?hl=ar",
+      "checked": "2026-11-08"
     },
     {
       "id": "gather",
@@ -881,26 +883,33 @@
       "sha256": "e8118073dc482589587301b2211664236eb69c0c07b2f6b7707d1a3925e82d85",
       "unmodified": true,
       "verification": "Official website or linked official brand profile"
+    },
+    {
+      "id": "sheikha",
+      "file": "sheikha-official.png",
+      "page": "https://sheikhaaloud.com/",
+      "asset": "https://sheikhaaloud.com/storage/app/public/admin-assets/images/about/logo-67a6b96470b74.png",
+      "width": 509,
+      "height": 610,
+      "sha256": "e1161b32bd47ce86005197dc04d58d093c88dcbd4650a0439b638ac36cf65964",
+      "unmodified": true,
+      "checked": "2026-11-08",
+      "verification": "Owner supplied official brand website; original header logo inspected"
+    },
+    {
+      "id": "amoudi",
+      "file": "amoudi-official.webp",
+      "page": "https://amoudiholidays.com/",
+      "asset": "https://amoudiholidays.com/wp-content/uploads/2025/08/logo.webp",
+      "width": 600,
+      "height": 421,
+      "sha256": "a2c5d9252dcf8e4e74c0e62d9ff9af2538b2229e68c0886e27ed23d790274be0",
+      "unmodified": true,
+      "checked": "2026-11-08",
+      "verification": "Owner supplied official brand website; original header logo inspected"
     }
   ],
   "pending": [
-    {
-      "brand": "شيخة للعطور",
-      "type": "video",
-      "url": "https://drive.google.com/file/d/1Kiyz1CxKGYw54oqqsoiwtiZtIj2srxC3/view",
-      "preview": "https://drive.google.com/file/d/1Kiyz1CxKGYw54oqqsoiwtiZtIj2srxC3/preview",
-      "status": "identity-unresolved",
-      "reason": "Advertisement shows the retailer name and product packaging; no confirmed original logo source was located.",
-      "checked": "2026-11-03"
-    },
-    {
-      "brand": "العامودي للرحلات",
-      "type": "folder",
-      "url": "https://drive.google.com/drive/folders/1w7r0ImmJDjSJSX1YkF7D3rhb-QwLadFk",
-      "status": "identity-unresolved",
-      "reason": "Advertisement has a small travel-company watermark; the correct official brand account was not established.",
-      "checked": "2026-11-03"
-    },
     {
       "brand": "حملة وطن بلا مخالف",
       "type": "video",
@@ -954,6 +963,23 @@
       "status": "campaign-mark-unverified",
       "reason": "Event footage and related agency page were checked; no confirmed original event logo was obtained.",
       "checked": "2026-11-03"
+    },
+    {
+      "brand": "فورد",
+      "type": "folder",
+      "url": "https://drive.google.com/drive/folders/1GvNy0nSUv_plrGrTgxbQApp2lj1H2JWk",
+      "status": "official-logo-not-yet-verified",
+      "reason": "Newly published work; name-only under the owner's no-invented-logo policy.",
+      "checked": "2026-11-08"
+    },
+    {
+      "brand": "مهل",
+      "type": "video",
+      "url": "https://drive.google.com/file/d/18tE9eSDjgttYRQM3NLrWmgG6vAGocFPu/view",
+      "preview": "https://drive.google.com/file/d/18tE9eSDjgttYRQM3NLrWmgG6vAGocFPu/preview",
+      "status": "official-logo-not-yet-verified",
+      "reason": "Newly published work; name-only under the owner's no-invented-logo policy.",
+      "checked": "2026-11-08"
     }
   ],
   "rejected": [
@@ -981,10 +1007,10 @@
   "aiDerivativesExcluded": true,
   "scope": {
     "status": "owner-approved release",
-    "mapped": 91,
+    "mapped": 93,
     "pending": 8,
     "textOnlyApproved": true,
-    "textOnlyApprovalDate": "2026-11-03",
+    "textOnlyApprovalDate": "2026-11-08",
     "originalBytesPreserved": true,
     "aiGeneratedAssetsUsed": false
   }

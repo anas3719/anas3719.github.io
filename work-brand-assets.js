@@ -522,10 +522,20 @@ window.portfolioBrandAssets = {
       0.26542
     ]
   },
-  "95 قهوة الحي": {
+  "95 Celsius": {
     "file": "celsius-verified.png",
     "background": "#ffffff",
     "ink": "#464d43"
+  },
+  "شيخة للعطور": {
+    "file": "sheikha-official.png",
+    "background": "#050505",
+    "ink": "#ffffff"
+  },
+  "العامودي للرحلات": {
+    "file": "amoudi-official.webp",
+    "background": "#ffffff",
+    "ink": "#181c87"
   },
   "مكعب العقارية": {
     "file": "mokab-verified.jpg",

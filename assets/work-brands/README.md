@@ -1,6 +1,6 @@
 # Work Card Assets
 
-Release approved by the owner on 2026-11-03. 91 of 99 work cards have sourced
+Release updated at the owner's request on 2026-11-08. 93 of 101 work cards have sourced
 or owner-supplied logo files. The owner approved the remaining 8 cards as
 name-only entries. Work order, links, videos and categories are unchanged.
 
@@ -30,10 +30,15 @@ the larger original from its official profile's linked page. Partner-academy,
 production-agency and unrelated namesake logos were rejected. Some social-profile
 originals remain small; fidelity takes priority over invented detail.
 
-The eight unresolved cards are Sheikha Perfumes, Al Amoudi trips, Watan Bila
-Mukhalif campaign, Nqaa water, Manara, From Zero to Publishing, Eyes on the Sea,
-and the Eyes on the Sea event. Their names, sampled ad frames and candidate
-sources were reviewed, but no sufficiently reliable matching logo was verified.
+The owner supplied sheikhaaloud.com, amoudiholidays.com and the 95celsiuscafe
+Instagram profile on 2026-11-08. Sheikha and Amoudi now use their original website
+header logos. The 596px Celsius original was retained after checking its linked
+official profile; the catalog now matches the owner's renamed `95 Celsius` work.
+
+The eight name-only cards are Watan Bila Mukhalif campaign, Nqaa water, Manara,
+From Zero to Publishing, Eyes on the Sea, the Eyes on the Sea event, and the
+newly added Ford and Mohl works. No sufficiently reliable original logo was
+imported for these entries.
 This is not a claim that their logos do not exist online. Specific uncertainty,
 checked dates and the owner's name-only approval are recorded in `sources.json`.
 
@@ -52,7 +57,7 @@ text. A failed image also falls back to its work name.
 ## Verification
 
 Automated browser checks passed at 1440, 390 and 320 CSS pixels for both
-categories: 53 regular works, 46 UGC works, logo decoding, complete logo bounds,
+categories: 54 regular works, 47 UGC works, logo decoding, complete logo bounds,
 Arabic label fit, no horizontal overflow, modal opening/closing and keyboard focus.
 The original folder link and missing-image fallback were separately tested.
 These checks do not prove all Google Drive videos play or every brand identity.

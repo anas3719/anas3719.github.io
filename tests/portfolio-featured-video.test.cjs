@@ -71,11 +71,11 @@ test('accept signed-in Drive paths and standard file sharing URLs', () => {
   }
 });
 
-test('existing works load unchanged and no featured video is chosen automatically', () => {
+test('existing works and owner-selected videos load unchanged without inventing selections', () => {
   const data = { window: {} };
   vm.runInNewContext(fs.readFileSync(path.join(root, 'works-data.js'), 'utf8'), data);
   assert.deepEqual(plain(context.normalizeWorks(data.window.portfolioWorks)), plain(data.window.portfolioWorks));
   for (const work of Object.values(data.window.portfolioWorks).flat().filter(work => work.type === 'folder')) {
-    assert.equal(context.getWorkVideo(work), null);
+    assert.equal(Boolean(context.getWorkVideo(work)), Boolean(work.featuredVideo));
   }
 });
