@@ -10,6 +10,21 @@ window.portfolioWorks = {
       }
     },
     {
+      "brand": "الجامعة الإسلامية بالمدينة المنورة",
+      "type": "video",
+      "url": "https://drive.google.com/file/d/1pJf5xzpc7kDc0_BvW3jZp06MH39R7tX0/view",
+      "preview": "https://drive.google.com/file/d/1pJf5xzpc7kDc0_BvW3jZp06MH39R7tX0/preview"
+    },
+    {
+      "brand": "أسماك السيد",
+      "type": "folder",
+      "url": "https://drive.google.com/drive/folders/1MiiIbH_5Lhfreo_Yk0jeOZmxlHigc1mt",
+      "featuredVideo": {
+        "url": "https://drive.google.com/file/d/1yWeN46RAppMlhTXq2VTMy-Z7chmQ1FL_/view",
+        "preview": "https://drive.google.com/file/d/1yWeN46RAppMlhTXq2VTMy-Z7chmQ1FL_/preview"
+      }
+    },
+    {
       "brand": "تويوتا عبداللطيف جميل",
       "type": "video",
       "url": "https://drive.google.com/file/d/1jTWACm0dVb8mtTda1T6lk2h-s0WX8JJG/view",
@@ -174,7 +189,11 @@ window.portfolioWorks = {
     {
       "brand": "تايلان للثياب",
       "type": "folder",
-      "url": "https://drive.google.com/drive/folders/1UWYqI21GTCJ7mamtEtAPNDKth-ub5xgh"
+      "url": "https://drive.google.com/drive/folders/1UWYqI21GTCJ7mamtEtAPNDKth-ub5xgh",
+      "featuredVideo": {
+        "url": "https://drive.google.com/file/d/109R_e0Dt0ior3iHa09WcY9EGS-BJHc33/view",
+        "preview": "https://drive.google.com/file/d/109R_e0Dt0ior3iHa09WcY9EGS-BJHc33/preview"
+      }
     },
     {
       "brand": "شيخة للعطور",
@@ -227,17 +246,11 @@ window.portfolioWorks = {
     {
       "brand": "مراتب هورس",
       "type": "folder",
-      "url": "https://drive.google.com/drive/folders/170G1HEeO7LOqiM8w4soeo4wYzWhnFW3M"
-    },
-    {
-      "brand": "العامودي للرحلات",
-      "type": "folder",
-      "url": "https://drive.google.com/drive/folders/1w7r0ImmJDjSJSX1YkF7D3rhb-QwLadFk"
-    },
-    {
-      "brand": "بو حسن",
-      "type": "folder",
-      "url": "https://drive.google.com/drive/folders/1YGVrdGUIS18BVx2r_jeDI0AMCBbSkz2c"
+      "url": "https://drive.google.com/drive/folders/170G1HEeO7LOqiM8w4soeo4wYzWhnFW3M",
+      "featuredVideo": {
+        "url": "https://drive.google.com/file/d/1Auiqsv7zVLYgcWAYip3LemUY0tiA1s72/view",
+        "preview": "https://drive.google.com/file/d/1Auiqsv7zVLYgcWAYip3LemUY0tiA1s72/preview"
+      }
     },
     {
       "brand": "حملة وطن بلا مخالف",
@@ -246,19 +259,22 @@ window.portfolioWorks = {
       "preview": "https://drive.google.com/file/d/1Hm06kTEHzQgti_LES5AUSp6um7xSJ18l/preview"
     },
     {
-      "brand": "سليب لاين",
-      "type": "folder",
-      "url": "https://drive.google.com/drive/folders/1643Nr9FvYu3LvO-F1pFeyK-MgsslpJN9"
-    },
-    {
       "brand": "مرامي",
       "type": "folder",
-      "url": "https://drive.google.com/drive/folders/18QWFZqgP3ELRuc-kdpib_Vxr67-vj41r"
+      "url": "https://drive.google.com/drive/folders/18QWFZqgP3ELRuc-kdpib_Vxr67-vj41r",
+      "featuredVideo": {
+        "url": "https://drive.google.com/file/d/1Vp1-BxJZP3oB4V8kUmBBSQkz6rbKLM9R/view",
+        "preview": "https://drive.google.com/file/d/1Vp1-BxJZP3oB4V8kUmBBSQkz6rbKLM9R/preview"
+      }
     },
     {
       "brand": "ويشت",
       "type": "folder",
-      "url": "https://drive.google.com/drive/folders/1JpHjVEYbCpMeHNjzJmJFemycdmvxQX_R"
+      "url": "https://drive.google.com/drive/folders/1JpHjVEYbCpMeHNjzJmJFemycdmvxQX_R",
+      "featuredVideo": {
+        "url": "https://drive.google.com/file/d/1lIvyFbSUARYAhPWb3awrQUYOpKIY2qvF/view",
+        "preview": "https://drive.google.com/file/d/1lIvyFbSUARYAhPWb3awrQUYOpKIY2qvF/preview"
+      }
     },
     {
       "brand": "مكعب العقارية",
@@ -285,31 +301,6 @@ window.portfolioWorks = {
       "preview": "https://drive.google.com/file/d/1y7_D40KyxfTzTYyb29eUfnI5TssxZDp3/preview"
     },
     {
-      "brand": "ابتسامة النجوم",
-      "type": "folder",
-      "url": "https://drive.google.com/drive/folders/1KPUdYTprZoFY346Z4DXFHuu_uedo041A"
-    },
-    {
-      "brand": "ثيرمال براق",
-      "type": "folder",
-      "url": "https://drive.google.com/drive/folders/1DyPo9CYZThtyI8jjFhK31K1yYTHeMVwo"
-    },
-    {
-      "brand": "كنان",
-      "type": "folder",
-      "url": "https://drive.google.com/drive/folders/1-7Fl1biopG-eNOSs0HdPfAO-Dic2o6fM"
-    },
-    {
-      "brand": "شركة حدود للمحاماة والاستشارات القانونية",
-      "type": "folder",
-      "url": "https://drive.google.com/drive/folders/1N5CG6pjdkKV8t--xWgMs3ZGtiIjAU2CC"
-    },
-    {
-      "brand": "كافي ثلث",
-      "type": "folder",
-      "url": "https://drive.google.com/drive/folders/1EbSs6_9Q4aMRYva0qySRf9r8THSbl-ca"
-    },
-    {
       "brand": "مطعم gather",
       "type": "folder",
       "url": "https://drive.google.com/drive/folders/1OyrRerl3hKEThoygagWVl81qBrMt8sf-"
@@ -321,14 +312,58 @@ window.portfolioWorks = {
       "preview": "https://drive.google.com/file/d/1AQWgzhJ6O-4iTIXXpigIjRO9gi1iu2hn/preview"
     },
     {
-      "brand": "snowy forest",
+      "brand": "العامودي للرحلات",
       "type": "folder",
-      "url": "https://drive.google.com/drive/folders/1YhwHYJ_iBHh6tbAGMMyTwyLS4r8J-kNs"
+      "url": "https://drive.google.com/drive/folders/1w7r0ImmJDjSJSX1YkF7D3rhb-QwLadFk",
+      "featuredVideo": {
+        "url": "https://drive.google.com/file/d/1eM8gOFdqIgFsFpskudlm2N_pRfMudtbK/view",
+        "preview": "https://drive.google.com/file/d/1eM8gOFdqIgFsFpskudlm2N_pRfMudtbK/preview"
+      }
+    },
+    {
+      "brand": "شركة حدود للمحاماة والاستشارات القانونية",
+      "type": "folder",
+      "url": "https://drive.google.com/drive/folders/1N5CG6pjdkKV8t--xWgMs3ZGtiIjAU2CC",
+      "featuredVideo": {
+        "url": "https://drive.google.com/file/d/1n8iQwD44phznpmyPWyPzYQO-owYbHKaL/view",
+        "preview": "https://drive.google.com/file/d/1n8iQwD44phznpmyPWyPzYQO-owYbHKaL/preview"
+      }
+    },
+    {
+      "brand": "ثيرمال براق",
+      "type": "folder",
+      "url": "https://drive.google.com/drive/folders/1DyPo9CYZThtyI8jjFhK31K1yYTHeMVwo",
+      "featuredVideo": {
+        "url": "https://drive.google.com/file/d/1hDZbC7ZTekBUBB0XFSru2A0Musc1pMJ0/view",
+        "preview": "https://drive.google.com/file/d/1hDZbC7ZTekBUBB0XFSru2A0Musc1pMJ0/preview"
+      }
+    },
+    {
+      "brand": "سليب لاين",
+      "type": "folder",
+      "url": "https://drive.google.com/drive/folders/1643Nr9FvYu3LvO-F1pFeyK-MgsslpJN9",
+      "featuredVideo": {
+        "url": "https://drive.google.com/file/d/1VAH4d2_36nKLfZDxzqxTx01AINZI-cNw/view",
+        "preview": "https://drive.google.com/file/d/1VAH4d2_36nKLfZDxzqxTx01AINZI-cNw/preview"
+      }
+    },
+    {
+      "brand": "بو حسن",
+      "type": "folder",
+      "url": "https://drive.google.com/drive/folders/1YGVrdGUIS18BVx2r_jeDI0AMCBbSkz2c",
+      "featuredVideo": {
+        "url": "https://drive.google.com/file/d/1ga7TF5Q0mrsbCzP_B_45zj1L8Ctiq0KP/view",
+        "preview": "https://drive.google.com/file/d/1ga7TF5Q0mrsbCzP_B_45zj1L8Ctiq0KP/preview"
+      }
     },
     {
       "brand": "اوت باك ستيك هاوس",
       "type": "folder",
-      "url": "https://drive.google.com/drive/folders/1Pl7rGBev2M3nZkLGwZLLEOp8wt8uAdPC"
+      "url": "https://drive.google.com/drive/folders/1Pl7rGBev2M3nZkLGwZLLEOp8wt8uAdPC",
+      "featuredVideo": {
+        "url": "https://drive.google.com/file/d/1vcl16yNlKwYm4gmDTUIDMGYPCLzpvwXL/view",
+        "preview": "https://drive.google.com/file/d/1vcl16yNlKwYm4gmDTUIDMGYPCLzpvwXL/preview"
+      }
     },
     {
       "brand": "لونا",
@@ -337,15 +372,40 @@ window.portfolioWorks = {
       "preview": "https://drive.google.com/file/d/1mvs4o1cIz_Hmf4Xl5qXJn2IiebuXOHKs/preview"
     },
     {
-      "brand": "أسماك السيد",
+      "brand": "كنان",
       "type": "folder",
-      "url": "https://drive.google.com/drive/folders/1MiiIbH_5Lhfreo_Yk0jeOZmxlHigc1mt"
+      "url": "https://drive.google.com/drive/folders/1-7Fl1biopG-eNOSs0HdPfAO-Dic2o6fM",
+      "featuredVideo": {
+        "url": "https://drive.google.com/file/d/1_On7gAJK24acRFiL5t7caq496oKeYD43/view",
+        "preview": "https://drive.google.com/file/d/1_On7gAJK24acRFiL5t7caq496oKeYD43/preview"
+      }
     },
     {
-      "brand": "الجامعة الإسلامية بالمدينة المنورة",
-      "type": "video",
-      "url": "https://drive.google.com/file/d/1pJf5xzpc7kDc0_BvW3jZp06MH39R7tX0/view",
-      "preview": "https://drive.google.com/file/d/1pJf5xzpc7kDc0_BvW3jZp06MH39R7tX0/preview"
+      "brand": "ابتسامة النجوم",
+      "type": "folder",
+      "url": "https://drive.google.com/drive/folders/1KPUdYTprZoFY346Z4DXFHuu_uedo041A",
+      "featuredVideo": {
+        "url": "https://drive.google.com/file/d/1mfwbAQhPsreOSjwo5CYPENI3T4XnljFi/view",
+        "preview": "https://drive.google.com/file/d/1mfwbAQhPsreOSjwo5CYPENI3T4XnljFi/preview"
+      }
+    },
+    {
+      "brand": "كافي ثلث",
+      "type": "folder",
+      "url": "https://drive.google.com/drive/folders/1EbSs6_9Q4aMRYva0qySRf9r8THSbl-ca",
+      "featuredVideo": {
+        "url": "https://drive.google.com/file/d/1ZIVQgOU7k7s-X2DtVnEM4Qlp_knt-eFE/view",
+        "preview": "https://drive.google.com/file/d/1ZIVQgOU7k7s-X2DtVnEM4Qlp_knt-eFE/preview"
+      }
+    },
+    {
+      "brand": "snowy forest",
+      "type": "folder",
+      "url": "https://drive.google.com/drive/folders/1YhwHYJ_iBHh6tbAGMMyTwyLS4r8J-kNs",
+      "featuredVideo": {
+        "url": "https://drive.google.com/file/d/1IgTGmvJYQl9U4PWW9fCPIYHBJXZEAkvy/view",
+        "preview": "https://drive.google.com/file/d/1IgTGmvJYQl9U4PWW9fCPIYHBJXZEAkvy/preview"
+      }
     }
   ],
   "ugc": [
