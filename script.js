@@ -91,6 +91,7 @@ function createWorkCard(work, index) {
 
   const brand = document.createElement("span");
   brand.className = "work-card__brand";
+  brand.dir = "auto";
   brand.textContent = work.brand;
 
   const type = document.createElement("span");
