@@ -114,12 +114,20 @@ window.portfolioWorks = {
     {
       "brand": "جيلاتو ديفينو",
       "type": "folder",
-      "url": "https://drive.google.com/drive/folders/1ETyP9NAa8VDaKOcbcEZerYorMiYQU0M8"
+      "url": "https://drive.google.com/drive/folders/1ETyP9NAa8VDaKOcbcEZerYorMiYQU0M8",
+      "featuredVideo": {
+        "url": "https://drive.google.com/file/d/1w1kZG2OhN9W0nJVlKXxoHoKy4_8lAXSk/view",
+        "preview": "https://drive.google.com/file/d/1w1kZG2OhN9W0nJVlKXxoHoKy4_8lAXSk/preview"
+      }
     },
     {
       "brand": "95 قهوة الحي",
       "type": "folder",
-      "url": "https://drive.google.com/drive/folders/1UnJ-977AhDews3FwyW5o0N568zaqERQG"
+      "url": "https://drive.google.com/drive/folders/1UnJ-977AhDews3FwyW5o0N568zaqERQG",
+      "featuredVideo": {
+        "url": "https://drive.google.com/file/d/1I9OahD6FjWssZ5gTe1-QxunLtMe_iFFe/view",
+        "preview": "https://drive.google.com/file/d/1I9OahD6FjWssZ5gTe1-QxunLtMe_iFFe/preview"
+      }
     },
     {
       "brand": "بيتونيا",
@@ -139,17 +147,29 @@ window.portfolioWorks = {
     {
       "brand": "مدارس الحسن العالمية",
       "type": "folder",
-      "url": "https://drive.google.com/drive/folders/1db4y4Q8gfiAlzB5tEk7lw79IeXZ1GUbL"
+      "url": "https://drive.google.com/drive/folders/1db4y4Q8gfiAlzB5tEk7lw79IeXZ1GUbL",
+      "featuredVideo": {
+        "url": "https://drive.google.com/file/d/1TC5yzHYRQlf3PwfKDC9F9fI1YHhB5EJD/view",
+        "preview": "https://drive.google.com/file/d/1TC5yzHYRQlf3PwfKDC9F9fI1YHhB5EJD/preview"
+      }
     },
     {
       "brand": "الذيب للاقمشة الرجالية",
       "type": "folder",
-      "url": "https://drive.google.com/drive/folders/1ACj6mOh1ld2ELFWjzFYtjnf4-KuVWSyx"
+      "url": "https://drive.google.com/drive/folders/1ACj6mOh1ld2ELFWjzFYtjnf4-KuVWSyx",
+      "featuredVideo": {
+        "url": "https://drive.google.com/file/d/1jlMD7vG0R2_s_flua5C1CETyvIfa5jmt/view",
+        "preview": "https://drive.google.com/file/d/1jlMD7vG0R2_s_flua5C1CETyvIfa5jmt/preview"
+      }
     },
     {
       "brand": "السقاف للاقمشة الرجالية",
       "type": "folder",
-      "url": "https://drive.google.com/drive/folders/1ouOYNSeLwerZj4fPponD3nCSZlwhG_lj"
+      "url": "https://drive.google.com/drive/folders/1ouOYNSeLwerZj4fPponD3nCSZlwhG_lj",
+      "featuredVideo": {
+        "url": "https://drive.google.com/file/d/1Sf-TtR9hNG-XNLxAsCjxOu3MsVo7UplQ/view",
+        "preview": "https://drive.google.com/file/d/1Sf-TtR9hNG-XNLxAsCjxOu3MsVo7UplQ/preview"
+      }
     },
     {
       "brand": "تايلان للثياب",
