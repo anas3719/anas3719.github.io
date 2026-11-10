@@ -95,11 +95,13 @@
   }
 
   function setBusy(isBusy) {
+    const readingFile = window.portfolioContentEditor.isPending();
     document.body.classList.toggle("is-busy", isBusy);
     elements.adminMain.inert = isBusy;
-    elements.reloadData.disabled = isBusy;
+    document.querySelector('#portfolio-content-panel').inert = isBusy || readingFile;
+    elements.reloadData.disabled = isBusy || readingFile;
     elements.githubConnect.disabled = isBusy;
-    elements.publishChanges.disabled = isBusy || (!dataDirty && !formDirty);
+    elements.publishChanges.disabled = isBusy || readingFile || (!dataDirty && !formDirty);
   }
 
   function showToast(message, state = "") {
@@ -207,12 +209,12 @@
     return response.json();
   }
 
-  function rawGithubUrl(path) {
-    return `https://raw.githubusercontent.com/${repository.owner}/${repository.name}/${repository.branch}/${path}`;
+  function rawGithubUrl(path, ref = repository.branch) {
+    return `https://raw.githubusercontent.com/${repository.owner}/${repository.name}/${ref}/${path}`;
   }
 
-  async function fetchGithubRaw(path) {
-    const response = await fetch(`${rawGithubUrl(path)}?admin=${Date.now()}`, { cache: "no-store" });
+  async function fetchGithubRaw(path, ref) {
+    const response = await fetch(`${rawGithubUrl(path, ref)}?admin=${Date.now()}`, { cache: "no-store" });
     if (!response.ok) throw new Error(`تعذر تحميل ${path}`);
     return response.text();
   }
@@ -593,8 +595,15 @@
 
   function markDataDirty() {
     dataDirty = true;
-    elements.publishChanges.disabled = false;
+    elements.publishChanges.disabled = window.portfolioContentEditor.isPending();
     setSyncStatus("لديك تغييرات غير محفوظة", "dirty");
+  }
+
+  function handleContentChange(hasChanges) {
+    if (hasChanges) markDataDirty();
+    setBusy(document.body.classList.contains("is-busy"));
+    if (window.portfolioContentEditor.isPending()) setSyncStatus("جاري قراءة الملف؛ لم يتم النشر بعد");
+    else if (!dataDirty && !formDirty) setSyncStatus("البيانات محدثة", "success");
   }
 
   function handleFormInput(event) {
@@ -603,7 +612,7 @@
       if (detectedType) selectRadio(elements.typeInputs, detectedType);
     }
     formDirty = true;
-    elements.publishChanges.disabled = false;
+    elements.publishChanges.disabled = window.portfolioContentEditor.isPending();
     setSyncStatus("لديك تغييرات غير محفوظة", "dirty");
     elements.formError.hidden = true;
     updateCompletionStatus();
@@ -683,6 +692,7 @@
   }
 
   async function loadData() {
+    if (window.portfolioContentEditor.isPending() || document.body.classList.contains("is-busy")) return;
     if ((dataDirty || formDirty) && !window.confirm("سيتم تجاهل التغييرات غير المنشورة. هل تريد المتابعة؟")) return;
     setBusy(true);
     setSyncStatus("جاري تحميل البيانات");
@@ -694,6 +704,7 @@
       window.portfolioWorks = undefined;
       await loadSourceIntoWindow(baseDataSource);
       works = normalizeWorks(clone(window.portfolioWorks));
+      window.portfolioContentEditor.load(baseIndexSource, handleContentChange);
       activeCategory = "regular";
       selectedIndex = null;
       isNewWork = false;
@@ -774,15 +785,15 @@
     return html.replace(/works-data\.js(?:\?v=[^"']*)?/g, `works-data.js?v=${version}`);
   }
 
-  async function createBlob(content) {
+  async function createBlob(content, binary = false) {
     return githubRequest(`/repos/${repository.owner}/${repository.name}/git/blobs`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ content: encodeBase64Utf8(content), encoding: "base64" }),
+      body: JSON.stringify({ content: binary ? content : encodeBase64Utf8(content), encoding: "base64" }),
     });
   }
 
-  async function waitForPublicData(expectedSource, version) {
+  async function waitForPublicData(expectedSource, expectedIndexSource, version) {
     for (let attempt = 0; attempt < 30; attempt += 1) {
       try {
         const [dataResponse, indexResponse] = await Promise.all([
@@ -790,7 +801,7 @@
           fetch(`index.html?admin=${version}-${attempt}`, { cache: "no-store" }),
         ]);
         const [dataSource, indexSource] = await Promise.all([dataResponse.text(), indexResponse.text()]);
-        if (dataSource === expectedSource && indexSource.includes(`works-data.js?v=${version}`)) return true;
+        if (dataSource === expectedSource && indexSource === expectedIndexSource) return true;
       } catch (error) {
         // GitHub Pages may briefly serve the previous deployment.
       }
@@ -800,8 +811,11 @@
   }
 
   async function publishChanges() {
-    if (document.body.classList.contains("is-busy")) return;
-    if (!stagePendingForm()) return;
+    if (document.body.classList.contains("is-busy") || window.portfolioContentEditor.isPending()) return;
+    if (!stagePendingForm()) {
+      document.querySelector('[data-admin-view="works"]').click();
+      return;
+    }
     if (!dataDirty) return;
     if (!githubToken) {
       elements.publishChanges.hidden = false;
@@ -812,9 +826,10 @@
     setBusy(true);
     setSyncStatus("جاري تجهيز النشر");
     try {
+      const ref = await githubRequest(`/repos/${repository.owner}/${repository.name}/git/ref/heads/${repository.branch}`);
       const [remoteDataSource, remoteIndexSource] = await Promise.all([
-        fetchGithubRaw("works-data.js"),
-        fetchGithubRaw("index.html"),
+        fetchGithubRaw("works-data.js", ref.object.sha),
+        fetchGithubRaw("index.html", ref.object.sha),
       ]);
       if (remoteDataSource !== baseDataSource || remoteIndexSource !== baseIndexSource) {
         throw new Error("تغيرت بيانات الموقع منذ فتح اللوحة. اضغط تحديث البيانات ثم أعد تعديلك");
@@ -822,16 +837,16 @@
 
       const nextDataSource = serializeWorks(works);
       const version = createVersion();
-      const nextIndexSource = updateWorksVersion(baseIndexSource, version);
-      const ref = await githubRequest(`/repos/${repository.owner}/${repository.name}/git/ref/heads/${repository.branch}`);
+      const nextIndexSource = updateWorksVersion(window.portfolioContentEditor.apply(baseIndexSource), version);
       const currentCommit = await githubRequest(`/repos/${repository.owner}/${repository.name}/git/commits/${ref.object.sha}`);
 
       setSyncStatus("جاري رفع التغييرات");
       const files = [
         { path: "works-data.js", content: nextDataSource },
         { path: "index.html", content: nextIndexSource },
+        ...window.portfolioContentEditor.files(),
       ];
-      const blobs = await Promise.all(files.map(async (file) => ({ ...file, blob: await createBlob(file.content) })));
+      const blobs = await Promise.all(files.map(async (file) => ({ ...file, blob: await createBlob(file.content, file.binary) })));
       const tree = await githubRequest(`/repos/${repository.owner}/${repository.name}/git/trees`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -844,7 +859,7 @@
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-          message: "Update portfolio works from admin panel",
+          message: "Update portfolio content and works from admin panel",
           tree: tree.sha,
           parents: [ref.object.sha],
         }),
@@ -857,10 +872,11 @@
 
       baseDataSource = nextDataSource;
       baseIndexSource = nextIndexSource;
+      window.portfolioContentEditor.saved();
       dataDirty = false;
       elements.publishChanges.disabled = true;
       setSyncStatus("جاري نشر الموقع");
-      const deployed = await waitForPublicData(nextDataSource, version);
+      const deployed = await waitForPublicData(nextDataSource, nextIndexSource, version);
       if (deployed) {
         setSyncStatus("تم النشر بنجاح", "success");
         showToast("تم نشر التغييرات على الموقع", "success");
@@ -922,7 +938,7 @@
   });
 
   window.addEventListener("beforeunload", (event) => {
-    if (!dataDirty && !formDirty) return;
+    if (!dataDirty && !formDirty && !window.portfolioContentEditor.isPending()) return;
     event.preventDefault();
     event.returnValue = "";
   });

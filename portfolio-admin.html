@@ -6,7 +6,7 @@
     <meta name="robots" content="noindex,nofollow" />
     <meta name="theme-color" content="#071014" />
     <link rel="icon" href="data:," />
-    <title>إدارة أعمال أنس عمر</title>
+    <title>إدارة بورتفوليو أنس عمر</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -14,14 +14,14 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="cast-admin.css?v=20260820-1" />
-    <link rel="stylesheet" href="portfolio-admin.css?v=20261103-featured-1" />
+    <link rel="stylesheet" href="portfolio-admin.css?v=20261110-1" />
   </head>
   <body class="works-admin-page">
     <header class="admin-header">
       <div class="admin-brand">
         <a href="index.html" class="brand-link" aria-label="العودة إلى البورتفوليو">الموقع</a>
         <div>
-          <h1>إدارة الأعمال</h1>
+          <h1>إدارة البورتفوليو</h1>
           <p id="sync-status" class="sync-status" aria-live="polite">جاري تحميل البيانات</p>
         </div>
       </div>
@@ -41,6 +41,13 @@
       </div>
     </header>
 
+    <nav class="portfolio-admin-views" aria-label="أقسام الإدارة">
+      <button type="button" class="button button-secondary" data-admin-view="works" aria-pressed="true">الأعمال والإعلانات</button>
+      <button type="button" class="button button-secondary" data-admin-view="content" aria-pressed="false">المحتوى والصور</button>
+    </nav>
+    <section id="portfolio-content-panel" class="portfolio-content-panel" aria-label="تعديل محتوى البورتفوليو" hidden>
+      <div id="portfolio-content-fields"></div><p id="content-error" class="dialog-error" role="alert" hidden></p>
+    </section>
     <main class="admin-main works-admin-main">
       <aside class="directory-panel" aria-label="قائمة الأعمال">
         <div class="work-category-switch" role="tablist" aria-label="نوع الأعمال">
@@ -258,6 +265,7 @@
       integrity="sha384-HZZ/fukV+9G8gwTNjN7zQDG0Sp7MsZy5DDN6VfY3Be7V9dvQpEpR2jF2HlyFUUjU"
       crossorigin="anonymous"
     ></script>
-    <script src="portfolio-admin.js?v=20261103-featured-1"></script>
+    <script src="portfolio-content-editor.js?v=20261110-1"></script>
+    <script src="portfolio-admin.js?v=20261110-1"></script>
   </body>
 </html>
