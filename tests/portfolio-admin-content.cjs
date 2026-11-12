@@ -25,8 +25,10 @@ async function main() {
   try {
     for (const width of [390, 1440]) {
       const context = await browser.newContext({ viewport: { width, height: 900 } });
+      context.setDefaultTimeout(12000);
       await context.addInitScript(() => localStorage.setItem('portfolio-admin-github-token', 'isolated-test-only'));
       const page = await context.newPage();
+      const selectTab = name => page.locator('.content-tabs').getByRole('tab', { name, exact: true }).click();
       const errors = [];
       page.on('pageerror', error => errors.push(error.message));
       let publicIndex = originalIndex, publicData = originalData, failPublish = false;
@@ -69,11 +71,16 @@ async function main() {
       assert.equal(await page.evaluate(html => window.portfolioContentEditor.apply(html), originalIndex), originalIndex);
       await page.getByRole('button', { name: 'المحتوى والصور', exact: true }).click();
       assert.equal(await page.locator('.content-photo-row').count(), 6);
+      await selectTab('النبذة');
       await page.getByLabel('الاسم', { exact: true }).fill('أنس للاختبار فقط');
-      await page.getByLabel('النبذة', { exact: true }).fill('نبذة تجريبية 170 سم، وليست للنشر الحقيقي.');
+      await page.getByRole('textbox', { name: 'النبذة', exact: true }).fill('نبذة تجريبية 170 سم، وليست للنشر الحقيقي.');
+      await selectTab('البيانات');
       await page.getByLabel('البيانات والمقاسات والمجالات 1', { exact: true }).fill('الطول 170 سم / الوزن 74 كجم / جدة');
+      await selectTab('التواصل');
       await page.getByLabel('رابط واتساب', { exact: true }).fill('https://wa.me/966500000000');
+      await selectTab('إعدادات الصفحة');
       await page.getByLabel('عنوان الصفحة', { exact: true }).fill('بورتفوليو تجريبي');
+      await selectTab('الصور');
       await page.locator('.content-photo-row').nth(1).getByRole('button', { name: 'تعيين كرئيسية' }).click();
       assert.match(await page.getByLabel('رابط الصورة', { exact: true }).first().inputValue(), /photo-2.webp$/);
       await page.evaluate(() => {
@@ -94,8 +101,10 @@ async function main() {
       await (await chooser).setFiles({ name: 'second.png', mimeType: 'image/png', buffer: photo });
       await page.waitForFunction(() => !window.portfolioContentEditor.isPending());
       const galleryPath = await page.locator('.content-photo-row').last().getByLabel('رابط الصورة', { exact: true }).inputValue();
+      await selectTab('الفيديو');
       await page.getByLabel('رابط ملف الفيديو', { exact: true }).fill('https://example.com/intro.webm');
       assert.equal(mutations.length, 0);
+      await selectTab('التواصل');
       await page.getByLabel('رابط إنستغرام', { exact: true }).fill('javascript:alert(1)');
       await page.locator('#publish-changes').click();
       await page.waitForFunction(() => !document.body.classList.contains('is-busy'));
@@ -144,19 +153,23 @@ async function main() {
       const parseWorks = value => JSON.parse(value.slice(value.indexOf('{'), value.lastIndexOf('}') + 1));
       assert.deepEqual(parseWorks(publicData), parseWorks(originalData));
       assert.equal(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth), true);
+      await selectTab('النبذة');
       await page.getByLabel('الاسم', { exact: true }).focus();
       assert.equal(await page.getByLabel('الاسم', { exact: true }).evaluate(element => document.activeElement === element), true);
       await page.screenshot({ path: path.join(os.tmpdir(), `portfolio-content-${width}.png`) });
+      await selectTab('الصور');
       await page.locator('.content-photo-row').first().scrollIntoViewIfNeeded();
       await page.screenshot({ path: path.join(os.tmpdir(), `portfolio-content-gallery-${width}.png`) });
-      await page.getByLabel('النبذة', { exact: true }).fill('تعديل لاحق');
+      await selectTab('النبذة');
+      await page.getByRole('textbox', { name: 'النبذة', exact: true }).fill('تعديل لاحق');
       await page.locator('#publish-changes').click();
       await page.waitForFunction(() => document.querySelector('#sync-status').textContent.includes('تم النشر بنجاح'));
       assert.deepEqual(trees.at(-1).map(file => file.path).sort(), ['index.html', 'works-data.js']);
       await page.reload();
       await page.waitForFunction(() => document.querySelector('#sync-status').textContent.includes('محدثة'));
       await page.getByRole('button', { name: 'المحتوى والصور', exact: true }).click();
-      assert.equal(await page.getByLabel('النبذة', { exact: true }).inputValue(), 'تعديل لاحق');
+      await selectTab('النبذة');
+      assert.equal(await page.getByRole('textbox', { name: 'النبذة', exact: true }).inputValue(), 'تعديل لاحق');
       assert.equal(await page.getByLabel('رابط الصورة', { exact: true }).first().inputValue(), heroPath);
       assert.equal(await page.locator('.content-photo-row').count(), 6);
       await context.route('**/content-public-test.html', route => route.fulfill({ contentType: 'text/html', body: publicIndex }));

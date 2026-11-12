@@ -9,6 +9,55 @@
     notify = () => {};
   const uploads = new Map(),
     objectUrls = [];
+  const categories = [
+    "الصور",
+    "النبذة",
+    "البيانات",
+    "التواصل",
+    "الفيديو",
+    "الأزرار والعناوين",
+    "إعدادات الصفحة",
+  ];
+  let activeTab = "الصور";
+  const tabs = document.createElement("div");
+  tabs.className = "content-tabs";
+  tabs.setAttribute("role", "tablist");
+  tabs.setAttribute("aria-label", "أقسام المحتوى");
+  fields.before(tabs);
+  function selectTab(name) {
+    activeTab = name;
+    [...fields.children].forEach(
+      (section) => (section.hidden = section.dataset.category !== name),
+    );
+    [...tabs.children].forEach((tab) => {
+      const selected = tab.textContent === name;
+      tab.setAttribute("aria-selected", String(selected));
+      tab.tabIndex = selected ? 0 : -1;
+    });
+  }
+  categories.forEach((name, index) => {
+    const tab = document.createElement("button");
+    tab.type = "button";
+    tab.textContent = name;
+    tab.setAttribute("role", "tab");
+    tab.id = `content-tab-${index}`;
+    tab.addEventListener("click", () => selectTab(name));
+    tab.addEventListener("keydown", (event) => {
+      const step =
+        event.key === "ArrowLeft" ? 1 : event.key === "ArrowRight" ? -1 : 0;
+      if (!step && !["Home", "End"].includes(event.key)) return;
+      event.preventDefault();
+      const next =
+        event.key === "Home"
+          ? 0
+          : event.key === "End"
+            ? categories.length - 1
+            : (index + step + categories.length) % categories.length;
+      selectTab(categories[next]);
+      tabs.children[next].focus();
+    });
+    tabs.append(tab);
+  });
   const groups = [
     [
       "الاسم والنبذة",
@@ -18,25 +67,29 @@
         [".hero-copy .eyebrow", "المسمى"],
         [".hero-copy .lead", "النبذة"],
         [".hero-bio p", "نبذة إضافية"],
-        [".hero-meta span", "بيانات الواجهة"],
-        [".hero-actions a", "أزرار الواجهة"],
       ],
     ],
     [
-      "العناوين والبيانات",
+      "البيانات",
       [
+        [".hero-meta span", "بيانات الواجهة"],
+        [".details-grid article span", "عنوان البيان"],
+        [".details-grid article strong", "البيانات والمقاسات والمجالات"],
+      ],
+    ],
+    [
+      "الأزرار والعناوين",
+      [
+        [".hero-actions a", "أزرار الواجهة"],
         [".site-header nav a", "التنقل"],
         ["main .section-heading h2", "عنوان القسم"],
         ["main .section-heading .eyebrow", "عنوان فرعي"],
-        [".intro-video-copy p", "وصف الفيديو التعريفي"],
         [".intro-video-copy a", "زر تنزيل الفيديو"],
-        [".details-grid article span", "عنوان البيان"],
-        [".details-grid article strong", "البيانات والمقاسات والمجالات"],
         ["#showMoreWorks", "زر الأعمال"],
       ],
     ],
     [
-      "التواصل والتذييل",
+      "التواصل",
       [
         ["#contact .eyebrow", "عنوان التواصل الفرعي"],
         ["#contact h2", "عنوان التواصل"],
@@ -59,6 +112,21 @@
   function section(title) {
     const el = document.createElement("fieldset");
     el.className = "content-section";
+    const category =
+      {
+        "الصورة الرئيسية": "الصور",
+        "صور المعرض": "الصور",
+        "الاسم والنبذة": "النبذة",
+        "روابط التواصل": "التواصل",
+        "الفيديو التعريفي": "الفيديو",
+        "بيانات الصفحة": "إعدادات الصفحة",
+      }[title] || title;
+    el.dataset.category = category;
+    el.setAttribute("role", "tabpanel");
+    el.setAttribute(
+      "aria-labelledby",
+      `content-tab-${categories.indexOf(category)}`,
+    );
     const legend = document.createElement("legend");
     legend.textContent = title;
     el.append(legend);
@@ -223,12 +291,6 @@
         target.dataset.downloadSrc = value;
         target.dataset.downloadName = value.split("/").pop().split("?")[0];
       });
-      field(
-        row,
-        "النص البديل للصورة",
-        image.alt,
-        (value) => (image.alt = value),
-      );
       const actions = document.createElement("div");
       actions.className = "content-photo-actions";
       button(actions, "قبل", "arrow-up", () => {
@@ -288,12 +350,6 @@
     const main = section("الصورة الرئيسية"),
       hero = page.querySelector(".hero-media img");
     media(main, hero, (value) => (hero.src = value));
-    field(
-      main,
-      "النص البديل للصورة الرئيسية",
-      hero.alt,
-      (value) => (hero.alt = value),
-    );
     for (const [title, selectors] of groups) {
       const parent = section(title);
       for (const [selector, label] of selectors)
@@ -318,6 +374,14 @@
       ),
     );
     const video = section("الفيديو التعريفي");
+    const videoDescription = page.querySelector(".intro-video-copy p");
+    field(
+      video,
+      "وصف الفيديو التعريفي",
+      videoDescription.textContent.trim(),
+      (value) => (videoDescription.textContent = value),
+      true,
+    );
     media(
       video,
       page.querySelector(".intro-video-frame video"),
@@ -341,6 +405,7 @@
       true,
     );
     window.lucide?.createIcons();
+    selectTab(activeTab);
   }
   window.portfolioContentEditor = {
     load(html, onChange) {
