@@ -28,6 +28,15 @@ test('new work targets and refreshed multi-video folder do not select a random c
   assert.equal(future.url, 'https://drive.google.com/drive/folders/1KPwQtgB16skRyE1jLH9hKbH8ZvgUpSwO');
   assert.equal(future.featuredVideo, undefined);
   assert.equal(works.ugc.find(work => work.brand === 'مهل').type, 'video');
-  assert.equal(works.regular.length, 54);
+  assert.equal(works.regular.length, 55);
   assert.equal(works.ugc.length, 47);
+});
+
+test('p.team publishes its six-video folder without choosing an arbitrary clip', () => {
+  const work = works.regular.find(work => work.brand === 'p.team');
+  assert.equal(work.type, 'folder');
+  assert.equal(work.url, 'https://drive.google.com/drive/folders/1fVGHAxeqpCdeUxBtuKNiK3EPVRqWQZbC');
+  assert.equal(work.featuredVideo, undefined);
+  assert.equal(works.ugc.some(work => work.brand === 'p.team'), false);
+  assert.equal(JSON.stringify(works).includes('1ChYtVKum9NcBR_wELr7_Mdo8RDCTAHCs'), false);
 });
