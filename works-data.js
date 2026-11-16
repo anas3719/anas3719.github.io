@@ -428,6 +428,12 @@ window.portfolioWorks = {
         "url": "https://drive.google.com/file/d/1IgTGmvJYQl9U4PWW9fCPIYHBJXZEAkvy/view",
         "preview": "https://drive.google.com/file/d/1IgTGmvJYQl9U4PWW9fCPIYHBJXZEAkvy/preview"
       }
+    },
+    {
+      "brand": "الجزيرة تكافل",
+      "type": "video",
+      "url": "https://drive.google.com/file/d/1wOC9oaM4BMhCtBwl-Ft-v_lTihWmVtH2/view",
+      "preview": "https://drive.google.com/file/d/1wOC9oaM4BMhCtBwl-Ft-v_lTihWmVtH2/preview"
     }
   ],
   "ugc": [

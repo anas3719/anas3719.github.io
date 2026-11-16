@@ -40,7 +40,7 @@ test('SVG assets contain no executable content or external dependencies', () => 
 test('catalog loads before rendering and independently of admin-editable data', () => {
   const html = fs.readFileSync(path.join(root, 'index.html'), 'utf8');
   assert.ok(html.indexOf('work-brand-assets.js') < html.indexOf('src="script.js'));
-  assert.equal(works.length, 102);
+  assert.equal(works.length, 103);
   assert.ok(works.every(work => work.url.startsWith('https://drive.google.com/')));
 });
 
@@ -54,8 +54,9 @@ test('every used logo retains recorded source provenance and exact bytes', () =>
     const digest = crypto.createHash('sha256').update(fs.readFileSync(path.join(root, 'assets/work-brands', asset.file))).digest('hex');
     assert.equal(digest, source.sha256, asset.file);
   }
-  const newlyPublishedWithoutLogo = works.filter(work => work.brand === 'p.team');
-  assert.equal(newlyPublishedWithoutLogo.length, 1);
+  const newlyPublishedWithoutLogo = works.filter(work => ['p.team', 'الجزيرة تكافل'].includes(work.brand));
+  assert.equal(newlyPublishedWithoutLogo.length, 2);
+  assert.equal(Object.hasOwn(assets, 'الجزيرة تكافل'), false);
   assert.equal(Object.hasOwn(assets, 'p.team'), false);
   assert.equal(audit.pending.length + Object.keys(assets).length + newlyPublishedWithoutLogo.length, works.length);
 });
